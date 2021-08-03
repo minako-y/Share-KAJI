@@ -9,6 +9,8 @@
 
 ### テーマを選んだ理由
 
+同居人との関係をもっと良好に。
+
 同居者がいると、必ずと言っていいほど揉める「家事」。  
 上手く分担できれはいいのですが、どちらかが多く請け負っているパターンが多いような気がします。  
 どうして自分ばかり・・・と感じてしまうと、イライラしたり、相手の嫌なところばかり見えてきたり。  
@@ -30,12 +32,12 @@
 
 ### 主な利用シーン
 - 家事を少しでも楽しくしたい
-- 今日のタスクを管理する
-- 家事の情報が欲しい
+- ゲーム感覚で家事をしたい
+- 短期のタスクを管理
 
 ## 設計書
 （作成中）   
-[ER図](https://drive.google.com/file/d/1ZIghB0N6LhaXFD2DrfRVzCvPO8WtBMqK/view?usp=sharing) (Googleドライブへ遷移します)  
+[ER図](https://drive.google.com/file/d/1tN18adAALnE8kxoik5wuBzYuUKUA3xt0/view?usp=sharing) (Googleドライブへ遷移します)  
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/1Tsf3seCXfeGgbLMia5bq7qAarhLrrHYAw_HwPMXFcog/edit?usp=sharing) (Googleドライブへ遷移します)
 
