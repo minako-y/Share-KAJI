@@ -4,7 +4,7 @@
 家事応援・共有アプリケーション
 
 ### サイトテーマ
-家事をする自分をもっと褒めよう。  
+楽しく家事をしよう。  
 家事をしてくれた相手に感謝しよう。
 
 ### テーマを選んだ理由
@@ -32,7 +32,9 @@
 - 家事の情報が欲しい
 
 ## 設計書
-（作成中）
+（作成中）   
+[ER図](https://drive.google.com/file/d/1ZIghB0N6LhaXFD2DrfRVzCvPO8WtBMqK/view?usp=sharing)
+
 
 ## チャレンジ要素一覧
 [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1RDJXXQcIF9wwW1L5H5eO5f9nbvb4ua-7ZU-DytNYDH4/edit?usp=sharing)
