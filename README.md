@@ -8,6 +8,7 @@
 家事をしてくれた相手に感謝しよう。
 
 ### テーマを選んだ理由
+
 同居者がいると、必ずと言っていいほど揉める「家事」。  
 上手く分担できれはいいのですが、どちらかが多く請け負っているパターンが多いような気がします。  
 どうして自分ばかり・・・と感じてしまうと、イライラしたり、相手の嫌なところばかり見えてきたり。  
@@ -34,11 +35,13 @@
 
 ## 設計書
 （作成中）   
-[ER図](https://drive.google.com/file/d/1ZIghB0N6LhaXFD2DrfRVzCvPO8WtBMqK/view?usp=sharing)
+[ER図](https://drive.google.com/file/d/1ZIghB0N6LhaXFD2DrfRVzCvPO8WtBMqK/view?usp=sharing) (Googleドライブへ遷移します)  
+
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1Tsf3seCXfeGgbLMia5bq7qAarhLrrHYAw_HwPMXFcog/edit?usp=sharing) (Googleドライブへ遷移します)
 
 
 ## チャレンジ要素一覧
-[チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1RDJXXQcIF9wwW1L5H5eO5f9nbvb4ua-7ZU-DytNYDH4/edit?usp=sharing)
+[チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1RDJXXQcIF9wwW1L5H5eO5f9nbvb4ua-7ZU-DytNYDH4/edit?usp=sharing) (Googleドライブへ遷移します)
 
 ## 開発環境
 - OS：Linux(CentOS)
