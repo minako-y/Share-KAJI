@@ -47,7 +47,7 @@
 
 ## 設計書
 （作成中）   
-[ER図](https://drive.google.com/file/d/1qtY9L-8d12gKAKCLG8w70QsatPRycV3V/view?usp=sharing) (Googleドライブへ遷移します)  
+[ER図](https://drive.google.com/file/d/19TFuTfQEsjoNZ3QnmXhhd-DNT_ai4gsx/view?usp=sharing) (Googleドライブへ遷移します)  
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/1Tsf3seCXfeGgbLMia5bq7qAarhLrrHYAw_HwPMXFcog/edit?usp=sharing) (Googleドライブへ遷移します)
 
