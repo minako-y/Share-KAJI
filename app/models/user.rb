@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
   belongs_to :weaknesses_genre, class_name: 'Genre', foreign_key: :weaknesses_genre_id
-  belongs_to :my_room, class_name: 'Room', foreign_key: :my_room_id
+  belongs_to :my_room, class_name: 'Room', foreign_key: :my_room_id, optional: true
   attachment :profile_image
 
   def follow(user_id)
