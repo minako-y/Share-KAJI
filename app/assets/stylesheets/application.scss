@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+
+// ヘッダーのCSS
+body {
+  margin: 0;
+}
+.header {
+  background-color: #eeeeee;
+  display: flex;
+  &__logo {
+    padding: 1rem;
+  }
+}
+.nav {
+  list-style: none;
+  display: flex;
+  &__item {
+    padding: 0 1rem;
+  }
+}
+main {
+  padding: 1rem 3rem;
+}

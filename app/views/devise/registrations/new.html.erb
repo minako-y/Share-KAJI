@@ -1,0 +1,45 @@
+<h2>新規登録</h2>
+
+<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+      <%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %><br />
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード" %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "パスワード（確認）" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <p>一番苦手な家事を選択してください。</p>
+    <p>（後で変更することもできます。）</p>
+    <% Genre.first(5).each do |genre| %>
+    <div>
+      <%= f.radio_button :weaknesses_genre_id, genre.id  %>
+      <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "はじめる" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

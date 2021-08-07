@@ -1,0 +1,2 @@
+class TemplateTask < ApplicationRecord
+end
