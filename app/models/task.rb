@@ -9,4 +9,8 @@ class Task < ApplicationRecord
   belongs_to :genre
 
   enum progress: { 未実施: 0, 完了: 1, 保留: 2 }
+
+  validates :body, presence: true
+  validates :genre_id, presence: true
+  # validates :due_date, presence: true
 end

@@ -1,21 +1,2 @@
-<div class="new-task">
-  <%= form_with model: @task, local: true do |f| %>
-    <% Genre.all.each do |genre| %>
-    <div class="new-task__genre-form">
-      <%= f.radio_button :genre_id, genre.id  %>
-      <%= f.label :genre_id, genre.name, value: genre.id %>
-    </div>
-    <% end %>
-    <div class="new-task__form">
-      <%= f.datetime_field :due_date %>
-    </div>
-
-    <div class="new-task__form">
-      <%= f.label :body, "タスクの内容" %>
-      <%= f.text_area :body %>
-    </div>
-    <div class="new-task__submit">
-      <%= f.submit 'タスクを作成する' %>
-    </div>
-  <% end %>
-</div>
+<h1>新規タスク作成</h1>
+<%= render 'tasks/task_form', task: @task %>

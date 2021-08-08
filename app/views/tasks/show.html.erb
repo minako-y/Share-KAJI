@@ -6,4 +6,7 @@
         期限：<%= @task.due_date %>
         進捗：<%= @task.progress %>
       </div>
+
+      <%= link_to "編集", edit_task_path(@task) %>
+      <%= link_to "一覧に戻る", tasks_path %>
   </div>

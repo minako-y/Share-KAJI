@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "新しいルームが作成されました。"
       redirect_to tasks_path(@room.id)
     else
-      flash.now[:error] = "ルーム名・パスワードを正しく設定してください。"
+      flash.now[:alert] = "ルーム名・パスワードを正しく設定してください。"
       render :new
     end
   end

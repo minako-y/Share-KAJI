@@ -1,0 +1,21 @@
+<div class="task-form">
+  <%= form_with model: task, local: true do |f| %>
+    <% Genre.all.each do |genre| %>
+    <div class="task-form__genre-field">
+      <%= f.radio_button :genre_id, genre.id  %>
+      <%= f.label :genre_id, genre.name, value: genre.id %>
+    </div>
+    <% end %>
+    <div class="task-form__field">
+      <%= f.datetime_field :due_date %>
+    </div>
+
+    <div class="task-form__field">
+      <%= f.label :body, "タスクの内容" %>
+      <%= f.text_area :body %>
+    </div>
+    <div class="task-form__fieldt">
+      <%= f.submit button_text %>
+    </div>
+  <% end %>
+</div>

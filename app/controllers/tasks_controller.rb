@@ -7,11 +7,11 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.room_id = current_user.room_id
     @task.creator_id = current_user.id
-    if @task.save!
+    if @task.save
       flash[:notice] = '新規タスクを作成しました。'
       redirect_to tasks_path
     else
-      flash.now[:error] = '入力項目を見直してください。'
+      flash.now[:alert] = '入力項目を見直してください。'
       render :new
     end
   end
@@ -25,6 +25,17 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to task_path(@task)
+    else
+      flash.now[:alert] = "入力項目を見直してください。"
+      render :edit
+    end
   end
 
 
