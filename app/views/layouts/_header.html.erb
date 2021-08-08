@@ -1,0 +1,13 @@
+<header class="header">
+  <a class="header__logo">シェアカジ！</a>
+  <ul class="nav">
+    <% if user_signed_in? %>
+      <li class="nav__item"><%= link_to 'マイページ', user_path(current_user) %></li>
+      <li class="nav__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li class="nav__item"><%= link_to 'シェアカジ！とは', about_path %></li>
+      <li class="nav__item"><%= link_to '新規登録', new_user_registration_path %></li>
+      <li class="nav__item"><%= link_to 'ログイン', new_user_session_path %></li>
+    <% end %>
+  </ul>
+</header>

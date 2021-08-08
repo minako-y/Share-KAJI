@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/show'
-  get 'users/edit'
   devise_for :users
 
   root 'homes#top'
@@ -12,6 +10,8 @@ Rails.application.routes.draw do
     get 'follower' => 'relationships#follower', as: 'follower'
     get 'followed' => 'relationships#followed', as: 'followed'
   end
+  resources :rooms
+  get 'rooms/search' => 'rooms#search', as: 'room_search'
   resources :tasks do
     resources :messages, only: [:create, :show]
   end

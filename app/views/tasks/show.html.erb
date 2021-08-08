@@ -1,2 +1,9 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1>タスク詳細</h1>
+  <div>
+      <div class="task">
+        ジャンル：<%= @task.genre.name %>
+        本文：<%= @task.body %>
+        期限：<%= @task.due_date %>
+        進捗：<%= @task.progress %>
+      </div>
+  </div>

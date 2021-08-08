@@ -1,2 +1,34 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>マイページ</h1>
+<div class="profile-group">
+  <div class="profile-group__image">
+    <%= attachment_image_tag @user, :profile_image, fallback: 'noimage-760x460.png' %>
+  </div>
+  <div class="profile-group__col">
+    <p><%= @user.name %></p>
+    <p>家事レベル：<%= @user.housework_level %></p>
+    <p>次のレベルまで：<計算する></p>
+  </div>
+  <div class="profile-group__col">
+    <p>苦手な家事ジャンル：<%= @user.weaknesses_genre.name %></p>
+    <% if @user.my_room.nil? %>
+      <p>マイルーム：未登録</p>
+    <% else %>
+      <p>マイルーム：<%= @user.my_room.name %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="link-group">
+  <div class="link-group__item">
+    <%= link_to "タスク管理", new_room_path %>
+  </div>
+  <div class="link-group__item">
+    <h4>ルーム検索</h4>
+  </div>
+  <div class="link-group__item">
+    <%= link_to "ルーム作成", new_room_path %>
+  </div>
+  <div class="link-group__item">
+    <h4>ユーザ検索</h4>
+  </div>
+</div>

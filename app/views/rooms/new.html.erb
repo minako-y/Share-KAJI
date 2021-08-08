@@ -1,0 +1,28 @@
+<div class="room-section">
+  <div class="room-form">
+    <h1>新規ルーム作成</h1>
+
+    <%= form_with model: @room, local: true do |f| %>
+
+    <%= f.label :name, 'ルーム名' %>
+    <%= f.text_field :name %><br>
+    <%= f.label :room_password, 'パスワード' %>
+    <%= f.text_field :room_password %><br>
+
+    <%= f.submit '新規ルーム作成' %>
+    <% end %>
+  </div>
+
+  <div class="room-form">
+    <h1>ルーム検索</h1>
+    <div>
+      <%= form_with url: room_search_path, method: :get, local: true do |f| %>
+        <%= f.label :name, 'ルーム名' %>
+        <%= f.text_field :name %><br>
+        <%= f.label :room_password, 'パスワード' %>
+        <%= f.text_field :room_password %><br>
+      <%= f.submit "検索" %>
+      <% end %>
+    </div>
+  </div>
+</div>

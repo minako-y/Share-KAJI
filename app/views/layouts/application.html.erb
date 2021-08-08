@@ -4,23 +4,14 @@
     <title>ShareKaji</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="header">
-      <a class="header__logo">シェアカジ！</a>
-      <ul class="nav">
-        <% if user_signed_in? %>
-          <li class="nav__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li class="nav__item"><%= link_to '新規登録', new_user_registration_path %></li>
-          <li class="nav__item"><%= link_to 'ログイン', new_user_session_path %></li>
-        <% end %>
-      </ul>
-    </header>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash' %>
     <main>
       <%= yield %>
     </main>

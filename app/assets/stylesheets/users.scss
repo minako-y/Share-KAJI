@@ -1,3 +1,35 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile-group {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__image img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    // 丸適用されてないかも
+    object-fit: cover;
+  }
+}
+
+.link-group {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    height: 100px;
+    width: 45%;
+    line-height: 1rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid brack;
+    background-color: #eee;
+
+    a {
+      display: flex;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

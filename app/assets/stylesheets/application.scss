@@ -13,11 +13,13 @@
  *= require_tree .
  *= require_self
  */
-
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
 // ヘッダーのCSS
 body {
   margin: 0;
+  width: 100%;
 }
 .header {
   background-color: #eeeeee;
@@ -35,4 +37,15 @@ body {
 }
 main {
   padding: 1rem 3rem;
+}
+.flash-area {
+  color: white;
+  text-align: center;
+
+  .notice {
+    background-color: lightBlue;
+  }
+  .error {
+    background-color: orange;
+  }
 }

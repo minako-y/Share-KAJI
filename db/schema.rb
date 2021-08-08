@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_202949) do
   create_table "rooms", force: :cascade do |t|
     t.string "name", null: false
     t.integer "complete_task", default: 0, null: false
-    t.string "password", null: false
+    t.string "room_password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,12 +86,12 @@ ActiveRecord::Schema.define(version: 2021_08_06_202949) do
   create_table "tasks", force: :cascade do |t|
     t.integer "room_id", null: false
     t.integer "creator_id", null: false
-    t.integer "executor_id", null: false
+    t.integer "executor_id"
     t.text "body", null: false
     t.datetime "due_date", null: false
-    t.datetime "finish_date", null: false
+    t.datetime "finish_date"
     t.integer "genre_id", null: false
-    t.integer "progress", null: false
+    t.integer "progress", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
