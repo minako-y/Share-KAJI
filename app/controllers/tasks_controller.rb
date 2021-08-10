@@ -38,6 +38,9 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     if @task.update(task_params)
+      if @task.progress == "完了"
+        current_user.levelUp(current_user, @task)
+      end
       redirect_to task_path(@task)
     else
       flash.now[:alert] = "入力項目を見直してください。"

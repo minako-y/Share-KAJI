@@ -6,7 +6,7 @@
   <div class="profile-group__col">
     <p><%= @user.name %></p>
     <p>家事レベル：<%= @user.housework_level %></p>
-    <p>次のレベルまで：<計算する></p>
+    <p>次のレベルまで：<%= to_next_level(@user) %></p>
   </div>
   <div class="profile-group__col">
     <p>苦手な家事ジャンル：<%= @user.weaknesses_genre.name %></p>
