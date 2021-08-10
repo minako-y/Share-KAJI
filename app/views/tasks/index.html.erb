@@ -3,7 +3,7 @@
   <%= link_to "新規タスク作成", new_task_path , class: "main-container__link fas fa-plus-circle" %>
   <div class="task-wrapper">
     <div>
-      <% @tasks.each do |task| %>
+      <% @tasks.includes([:genre]).each do |task| %>
         <div class="task-card">
           <span class="task-card__progress--<%= task.progress_before_type_cast %>"><%= task.progress %></span>
           <span class="task-card__tag"><%= task.genre.name %></span>
