@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2021_08_06_202949) do
   create_table "rooms", force: :cascade do |t|
     t.string "name", null: false
     t.integer "complete_task", default: 0, null: false
-    t.string "room_password", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -124,7 +123,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_202949) do
     t.integer "exp", default: 0, null: false
     t.integer "complete_task", default: 0, null: false
     t.integer "weaknesses_genre_id", null: false
-    t.string "room_id", default: "", null: false
+    t.integer "current_room_id"
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

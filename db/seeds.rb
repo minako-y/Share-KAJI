@@ -8,3 +8,10 @@
 
 
 Genre.create([{name: "料理"}, {name: "買い物"}, {name: "掃除"}, {name: "片付け"}, {name: "洗濯"}, {name: "その他"}, {name: "個人"}])
+
+User.create(
+    email: "test1@test",
+    password: "test1@test",
+    name: "test1",
+    weaknesses_genre_id: 1
+  )

@@ -5,14 +5,18 @@
   <h1>タスク一覧</h1>
   <div>
     <% @tasks.each do |task| %>
-      <%= link_to task_path(task.id) do %>
-      <div class="task">
+      <div class="task-card">
         ジャンル：<%= task.genre.name %>
-        本文：<%= task.body %>
-        期限：<%= task.due_date %>
-        進捗：<%= task.progress %>
+        <span class="task-card__date">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></span><br>
+        <div class="task-card__body"><%= task.body %></div>
+        <span class="task-card__progress"><%= task.progress %></span>
+        <%= link_to "詳細", task_path(task.id), remote: true, class: 'task-card__link'%>
       </div>
-      <% end %>
     <% end %>
   </div>
 </div>
+
+<div id="mask" class="hidden"></div>
+  <div id="modal" class="hidden">
+    <p>モーダルウィンドウ<p>
+  </div>

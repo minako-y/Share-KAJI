@@ -30,10 +30,10 @@
     <p>一番苦手な家事を選択してください。</p>
     <p>（後で変更することもできます。）</p>
     <% Genre.first(5).each do |genre| %>
-    <div>
-      <%= f.radio_button :weaknesses_genre_id, genre.id  %>
-      <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
-    </div>
+      <div>
+        <%= f.radio_button :weaknesses_genre_id, genre.id  %>
+        <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
+      </div>
     <% end %>
   </div>
 

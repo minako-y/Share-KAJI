@@ -1,0 +1,28 @@
+<div class="container-white">
+  <div class="task-section__left">
+    <div class="task-unit__heading"><span>XXXX</span>があらわれた！</div>
+    <div class="task-unit__img">
+      <div class="profile-group__image">
+        <%= image_tag 'noimage-760x460.png' %>
+        <!--<%= attachment_image_tag @monster, :image, fallback: 'noimage-760x460.png' %>-->
+      </div>
+    </div>
+    <div>
+      ジャンル：<%= task.genre.name %><br>
+      予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %><br>
+      本文：<%= link_to "編集", edit_task_path(task) %>
+      <div class="task-unit__body"><%= task.body %></div>
+    </div>
+  </div>
+  <div class="task-section__right">
+    <div class="task-unit__chat">
+      ここにメッセージを表示予定
+    </div>
+      <%= form_with model: task, url: task_path, local:true do |f| %>
+        <%= f.select :progress, options_for_select(Task.progresses.keys, selected: task.progress) %>
+        <%= f.submit "更新" %>
+      <% end %>
+      <%= link_to "削除", task_path(task), method: :delete %>
+      <%= link_to "一覧に戻る", tasks_path %>
+  </div>
+</div>

@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :exp, null: false, default: 0
       t.integer :complete_task, null: false, default: 0
       t.integer :weaknesses_genre_id, null: false
-      t.string :room_id, null: false, default: ""
+      t.integer :current_room_id
       t.boolean :is_deleted, null: false, default: false
 
       t.timestamps null: false
