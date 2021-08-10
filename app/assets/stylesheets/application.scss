@@ -20,6 +20,7 @@
 body {
   margin: 0;
   width: 100%;
+  font-family: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 }
 .header {
   background-color: #eeeeee;
@@ -35,9 +36,6 @@ body {
     padding: 0 1rem;
   }
 }
-main {
-  padding: 1rem 3rem;
-}
 .flash-area {
   color: white;
   text-align: center;
@@ -49,3 +47,4 @@ main {
     background-color: orange;
   }
 }
+

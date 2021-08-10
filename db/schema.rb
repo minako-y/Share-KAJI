@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_202949) do
     t.datetime "due_date", null: false
     t.datetime "finish_date"
     t.integer "genre_id", null: false
+    t.integer "monster_id", null: false
     t.integer "progress", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

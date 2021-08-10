@@ -8,6 +8,7 @@ class Task < ApplicationRecord
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   belongs_to :executor, class_name: 'User', foreign_key: 'executor_id', optional: true
   belongs_to :genre
+  belongs_to :monster
 
   enum progress: { 未実施: 0, 完了: 1, 保留: 2 }
 

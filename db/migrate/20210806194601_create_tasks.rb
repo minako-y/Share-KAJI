@@ -8,6 +8,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.datetime :due_date, null: false
       t.datetime :finish_date
       t.integer :genre_id, null: false
+      t.integer :monster_id, null: false
       t.integer :progress, null: false, default: 0
 
       t.timestamps
