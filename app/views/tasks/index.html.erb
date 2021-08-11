@@ -2,22 +2,25 @@
   <h1 class="main-container__title">タスク一覧</h1>
   <%= link_to "新規タスク作成", new_task_path , class: "main-container__link fas fa-plus-circle" %>
   <div class="task-wrapper">
-    <div>
-      <% @tasks.includes([:genre]).each do |task| %>
+      <% @tasks.includes([:genre, :monster]).each do |task| %>
         <div class="task-card">
-          <span class="task-card__progress--<%= task.progress_before_type_cast %>"><%= task.progress %></span>
-          <span class="task-card__tag"><%= task.genre.name %></span>
-          <span class="task-card__date">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></span><br>
-          <div><%= attachment_image_tag @task, monster: :image, fallback: 'noimage-760x460.png' %></div>
-          <div class="task-card__body"><%= task.body %></div>
-          <%= link_to "詳細", task_path(task.id), remote: true, class: 'task-card__link'%>
+          <div class="task-card__head">
+            <span class="task-card__head__progress--<%= task.progress_before_type_cast %>"><%= task.progress %></span>
+            <span class="task-card__head__tag"><%= task.genre.name %></span>
+            <span class="task-card__head__date">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></span><br>
+          </div>
+          <div class="task-card__inner">
+            <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-card__inner__image"%>
+            <div class="task-card__inner__body"><span><%= task.body %></span></div>
+            <%= link_to "詳細", task_path(task.id), remote: true, class: 'task-card__inner__link'%>
+          </div>
         </div>
       <% end %>
-    </div>
+
   </div>
 </div>
 
 <div id="mask" class="hidden"></div>
-  <div id="modal" class="hidden">
-    <p>モーダルウィンドウ<p>
-  </div>
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+</div>
