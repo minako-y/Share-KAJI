@@ -1,2 +1,16 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>マイページ編集</h1>
+<div>
+  <%= form_with model: @user, local:true do |f| %>
+    <%= f.label :name, '名前' %>
+    <%= f.text_field :name %>
+    <%= f.label :profile_image, 'プロフィール画像' %>
+    <%= f.attachment_field :profile_image %>
+    <% Genre.first(5).each do |genre| %>
+      <div>
+        <%= f.radio_button :weaknesses_genre_id, genre.id  %>
+        <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
+      </div>
+    <% end %>
+    <%= f.submit "更新" %>
+  <% end %>
+</div>
