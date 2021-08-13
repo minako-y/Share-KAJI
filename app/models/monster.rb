@@ -4,6 +4,12 @@ class Monster < ApplicationRecord
   belongs_to :user
   attachment :image
 
+  validates :name, presence: true
+  validates :genre_id, presence: true
+  validates :image, presence: true
+  validates :memo, presence: true
+
+
   # ジャンル内で公式モンスターと自作モンスターを合計
   def self.pop_monster(user, genre)
     self.where(genre_id: genre.id)

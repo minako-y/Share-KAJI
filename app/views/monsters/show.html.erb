@@ -1,2 +1,17 @@
-<h1>Monsters#show</h1>
-<p>Find me in app/views/monsters/show.html.erb</p>
+<h2>モンスター詳細</h2>
+
+<div>
+  <%= @monster.name %>
+  <%= @monster.genre.name %>
+  <%= @monster.official ? "公式" : "オリジナル" %>
+
+  <div class="profile-group__image">
+    <%= attachment_image_tag @monster, :image, fallback: 'noimage-760x460.png' %>
+  </div>
+  <%= @monster.memo %>
+</div>
+
+<% if @monster.official == false %>
+  <%= link_to "編集", edit_monster_path(@monster) %>
+  <%= link_to "削除", monster_path(@monster), method: :delete %>
+<% end %>

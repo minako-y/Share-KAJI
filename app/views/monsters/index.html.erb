@@ -1,2 +1,34 @@
-<h1>Monsters#index</h1>
-<p>Find me in app/views/monsters/index.html.erb</p>
+<p>ここは、モンスターを創造する場所・・・</p>
+<p>自分だけのモンスターを作って登録すれば、出現するかも・・・！？</p>
+
+<h2>新規作成</h2>
+  <div>
+    <%= form_with model: @monster, local: true do |f| %>
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name %>
+      <%= f.label :image, '画像' %>
+      <%= f.attachment_field :image %>
+      <%= f.label :genre_id, '家事ジャンル' %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+      <%= f.label :memo, '説明' %>
+      <%= f.text_field :memo %>
+      <%= f.submit "作成" %>
+    <% end %>
+  </div>
+
+<h2>出現モンスター一覧</h2>
+
+<% @monsters.includes([:genre]).each do |monster| %>
+  <%= link_to monster_path(monster) do %>
+  <div>
+    <%= monster.name %>
+    <%= monster.genre.name %>
+    <%= monster.official ? "公式" : "オリジナル"%>
+    <div class="profile-group__image">
+      <%= attachment_image_tag monster, :image, fallback: 'noimage-760x460.png' %>
+    </div>
+    <%= monster.memo %>
+  </div>
+  <% end %>
+<% end %>
+
