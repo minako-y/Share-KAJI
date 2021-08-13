@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_current_user
 
   def show
-    @user = User.find(current_user.id)
   end
 
   def edit
@@ -17,6 +16,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def unsubscribe
+  end
+
+  def withdraw
+    @user.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+
 
   private
 
@@ -24,11 +32,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :profile_image, :weaknesses_genre_id)
   end
 
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
-    end
+  def set_current_user
+    @user = current_user
   end
-
 end

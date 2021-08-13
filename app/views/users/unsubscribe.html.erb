@@ -1,0 +1,8 @@
+<section>
+	<h2>本当に退会しますか？</h2>
+	<h3>退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h3>
+	<div>
+		<%= link_to "マイページに戻る", user_path(@user) %>
+		<%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？" %>
+	</div>
+</section>
