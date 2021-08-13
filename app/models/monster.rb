@@ -3,4 +3,17 @@ class Monster < ApplicationRecord
   belongs_to :genre
   belongs_to :user
   attachment :image
+
+  # ジャンル内で公式モンスターと自作モンスターを合計
+  def self.pop_monster(user, genre)
+    self.where(genre_id: genre.id)
+        .merge(self.where(user_id: user.id).or(self.where(official: true)))
+  end
+
+  # 出現モンスターからランダムに１つ抽出
+  def self.monster_choice(user, genre)
+    range = self.pop_monster(user, genre).count + 1
+    self.pop_monster(user, genre)[rand(range)]
+  end
+
 end

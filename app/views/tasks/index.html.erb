@@ -1,8 +1,13 @@
 <div class="main-container">
+  <div class="header-title">受付一覧:
+    <%= current_room.name %>
+    <%= link_to "Logout", logout_path, method: :delete %>
+  </div>
   <h1 class="main-container__title">タスク一覧</h1>
   <%= link_to "新規タスク作成", new_task_path , class: "main-container__link fas fa-plus-circle" %>
   <div class="task-wrapper">
       <% @tasks.includes([:genre, :monster]).each do |task| %>
+      <%= link_to task_path(task.id), remote: true do %>
         <div class="task-card">
           <div class="task-card__head">
             <span class="task-card__head__progress--<%= task.progress_before_type_cast %>"><%= task.progress %></span>
@@ -12,11 +17,10 @@
           <div class="task-card__inner">
             <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-card__inner__image"%>
             <div class="task-card__inner__body"><span><%= task.body %></span></div>
-            <%= link_to "詳細", task_path(task.id), remote: true, class: 'task-card__inner__link'%>
           </div>
         </div>
       <% end %>
-
+      <% end %>
   </div>
 </div>
 

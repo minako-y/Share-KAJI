@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
+  before_action :logged_in_room
 
   def new
     @task = Task.new
@@ -9,7 +10,20 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.room_id = current_user.current_room_id
     @task.creator_id = current_user.id
-    if @task.save
+    # モンスターをタスクと紐付ける
+    @monster = Monster.monster_choice(current_user,@task.genre)
+    @task.monster_id = @monster.id
+    if @task.save!
+      # # テンプレートタスクへの保存
+      # if params[:task][:template_task] == true
+      #   template_task = TemplateTask.new(
+      #     user_id: current_user_id,
+      #     room_id: @task.room_id,
+      #     body: @room.body,
+      #     ganre_id: @room.genre_id)
+      #   template_task.save
+      #   flash[:notice] = 'テンプレートタスクへ保存しました。'
+      # end
       flash[:notice] = '新規タスクを作成しました。'
       redirect_to tasks_path
     else
@@ -58,8 +72,14 @@ class TasksController < ApplicationController
 
   private
 
-  def task_params
-    params.require(:task).permit(:body, :due_date, :genre_id, :progress)
+  def logged_in_room
+    unless logged_in?
+      flash[:alert] = "ログインが必要です。"
+      redirect_to login_path
+    end
   end
 
+  def task_params
+    params.require(:task).permit(:body, :due_date, :genre_id, :progress, :template_task)
+  end
 end

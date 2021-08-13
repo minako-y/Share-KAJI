@@ -1,10 +1,9 @@
 <div class="container-white">
   <div class="task-section__left">
-    <div class="task-unit__heading"><span>XXXX</span>があらわれた！</div>
+    <div class="task-unit__heading"><span><%= task.monster.name %></span> があらわれた！</div>
     <div class="task-unit__img">
       <div class="profile-group__image">
-        <%= image_tag 'noimage-760x460.png' %>
-        <!--<%= attachment_image_tag @monster, :image, fallback: 'noimage-760x460.png' %>-->
+        <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png' %>
       </div>
     </div>
     <div>

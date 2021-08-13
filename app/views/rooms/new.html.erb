@@ -1,25 +1,11 @@
 <div class="room-section">
   <div class="room-form">
-    <h1>入室可能なルーム</h1>
-    <% @user_rooms.each do |room| %>
-    <table>
-      <tr>
-        <th>ルーム名</th>
-        <th>ID</th>
-      </tr>
-      <tr>
-        <td><%= room.name %></td>
-        <td><%= room.id %></td>
-      </tr>
-    </table>
-    <% end %>
-  </div>
-  <div class="room-form">
     <h1>新規ルーム作成</h1>
     <%= form_with model: @room, local: true do |f| %>
       <%= f.label :name, 'ルーム名' %>
       <%= f.text_field :name %><br>
-
+      <%= f.label :password, 'パスワード' %>
+      <%= f.text_field :password %><br>
       <%= f.submit '新規ルーム作成' %>
     <% end %>
   </div>

@@ -15,6 +15,10 @@
  */
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+ @font-face {
+  font-family: 'CP_Revenge';
+  src: font-url('/assets/fonts/CP_Revenge.otf');
+ }
 
 // ヘッダーのCSS
 body {
@@ -23,8 +27,13 @@ body {
   font-family: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
 }
 .header {
-  background-color: #eeeeee;
+  position: fixed;
+  top: 0px;
+  z-index: 9;
+  width: 100%;
+  height: 3rem;
   display: flex;
+
   &__logo {
     padding: 1rem;
   }

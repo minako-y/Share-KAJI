@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    if @room.save
+    if @room.save!
       # 中間テーブルにより関連付けされる
       user_room = UserRoom.new(user_id: current_user.id, room_id: @room.id)
       user_room.save
@@ -40,6 +40,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name, :password)
   end
 end
