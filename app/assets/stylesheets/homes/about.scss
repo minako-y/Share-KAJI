@@ -1,0 +1,21 @@
+@import "variables";
+
+.about-content {
+  width: 100%;
+  color: $thema-color3;
+  background: linear-gradient(150deg,  #fff 0%, #fff 50%, $thema-color2 50%, $thema-color2 100%);
+  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans','Yu Gothic UI',sans-serif;
+  padding: 5rem 2rem 5rem;
+  position: relative;
+  z-index: 2;
+
+  &__title {
+    font-size: 40px;
+    margin: 20px auto;
+  }
+
+  &__text {
+    font-size: 15px;
+    margin: 30px auto;
+  }
+}

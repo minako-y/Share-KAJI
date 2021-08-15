@@ -1,0 +1,17 @@
+// テーマカラー
+  $thema-color1: #82cddd; // 青
+  $thema-color2: #e6bfb2; // ピンク
+  $thema-color3: #504946; // 茶色
+  $base-color1: #f7f6f5; // 白
+  $base-color2: #d3d3d8; // グレー
+
+// ボタン
+%default-btn {
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  border: 1px #fff solid;
+  border-radius: 10%;
+  padding: 10px 20px;
+  transition: .3s;
+}

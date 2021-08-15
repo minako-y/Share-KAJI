@@ -18,7 +18,8 @@ User.create!(
     current_room_id: 1
     )
 Room.create!(
-    name: "我が家"
+    name: "我が家",
+    password: "000000"
     )
 UserRoom.create!(
     user_id: 1,

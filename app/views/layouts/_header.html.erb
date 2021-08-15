@@ -1,5 +1,5 @@
 <header class="header">
-  <a class="header__logo">シェアカジ！</a>
+  <%= link_to "シェアカジ！", root_path, class: "header__logo" %>
   <ul class="nav">
     <% if user_signed_in? %>
       <li class="nav__item"><%= link_to 'マイページ', user_path(current_user) %></li>
