@@ -11,8 +11,25 @@
   text-decoration: none;
   color: inherit;
   background-color: inherit;
-  border: 1px #fff solid;
+  border: 1px $base-color3 solid;
   border-radius: 10%;
   padding: 10px 20px;
   transition: .3s;
+}
+
+// コンテナ用
+%default-container {
+  padding: 5rem 2rem 5rem;
+  box-sizing: border-box;
+  background-color: $base-color1;
+}
+
+// タイトル用
+%default-heading {
+  color: $thema-color3;
+  border: 1px solid $thema-color3;
+  border-radius: 15%;
+  background-color: $base-color1;
+  padding: 1rem 2rem;
+  display: inline-block;
 }

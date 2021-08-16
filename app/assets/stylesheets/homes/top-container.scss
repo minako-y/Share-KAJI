@@ -7,7 +7,7 @@
 
 .visual-wrapper {
   min-height: 60vh;
-  color: #fff;
+  color: $base-color3;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans','Yu Gothic UI',sans-serif;
   background-color: $thema-color1;
   padding: 5rem 2rem 5rem;
@@ -50,14 +50,14 @@
 
     &:hover {
       color: $thema-color1;
-      background-color: #fff;
+      background-color: $base-color3;
     }
   }
 }
 
 .text-wrapper {
   min-height: 60vh;
-  color: #fff;
+  color: $base-color3;
   font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans','Yu Gothic UI',sans-serif;
   background-color: $thema-color2;
   padding: 5rem 2rem 5rem;
