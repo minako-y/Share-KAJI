@@ -1,45 +1,36 @@
-<h2>新規登録</h2>
-
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+<div class="signup-container">
+  <h2 class="signup-container__head">新規登録</h2>
+  <p class="signup-container__lead">Step.1  ユーザー情報を入力してください。</p>
+  <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-      <%= f.label :name, "名前" %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード（確認）" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <p>一番苦手な家事を選択してください。</p>
-    <p>（後で変更することもできます。）</p>
-    <% Genre.first(5).each do |genre| %>
-      <div>
-        <%= f.radio_button :weaknesses_genre_id, genre.id  %>
-        <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
+  <div class="form-wrapper">
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :name, "名前" %></div>
+      <div class="form-wrapper__form-group__field"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :email, "メールアドレス" %></div>
+      <div class="form-wrapper__form-group__field"><%= f.email_field :email, autocomplete: "email" %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label">
+        <%= f.label :password, "パスワード" %><br>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
       </div>
-    <% end %>
+      <div class="form-wrapper__form-group__field"><%= f.password_field :password, autocomplete: "new-password" %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :password_confirmation, "パスワード（確認）" %></div>
+      <div class="form-wrapper__form-group__field"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+    </div>
+    <p class="form-wrapper__form-group__lead">Step.2  一番苦手な家事を選択してください。<br>（後で変更することもできます。）</p>
+    <%= render 'devise/registrations/genre-card', f: f %>
+    <div class="form-wrapper__form-group">
+      <%= f.submit "はじめる", class: "form-wrapper__form-group__btn" %>
+    </div>
+  <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "はじめる" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
