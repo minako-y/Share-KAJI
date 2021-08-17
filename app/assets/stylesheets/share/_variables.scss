@@ -1,0 +1,76 @@
+// テーマカラー
+  $thema-color1: #82cddd; // 青
+  $thema-color2: #e6bfb2; // ピンク
+  $thema-color3: #504946; // 茶色
+  $base-color1: #f7f6f5; // きなり白
+  $base-color2: #d3d3d8; // グレー
+  $base-color3: #fff;  // 真っ白
+
+// フォントセット
+  $font-family1: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  $font-family2: 'Hannotate SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
+
+// ボタン
+%default-btn {
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  border: 1px $base-color3 solid;
+  border-radius: 10%;
+  padding: 10px 20px;
+  transition: .3s;
+}
+
+// コンテナ用
+%default-container {
+  padding: 5rem 2rem 5rem;
+  box-sizing: border-box;
+  background-color: $base-color1;
+}
+
+// タイトル用
+%default-heading {
+  color: $thema-color3;
+  border: 1px solid $thema-color3;
+  border-radius: 15%;
+  background-color: $base-color1;
+  padding: 1rem 2rem;
+  display: inline-block;
+}
+
+// モーダル表示
+// hiddenクラス消去でマスクとモーダルが表示
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+#modal {
+  position: fixed; // モーダルを固定
+  top: 10vh;
+  // 以下3行：モーダルを左右中央揃え
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 3;  // マスクより上に配置
+  width: 800px;   // showビューの幅に合わせて設定
+}
+
+// hiddenクラスで最初は表示されないようにする
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);   // 大きさ0.8倍から等倍にモーダルが拡大される
+}
