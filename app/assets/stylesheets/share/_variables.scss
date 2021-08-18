@@ -5,7 +5,7 @@
   $base-color1: #f7f6f5; // きなり白
   $base-color2: #d3d3d8; // グレー
   $base-color3: #fff;  // 真っ白
-  $point-color1: #ea553a; // 赤
+  $point-color1: #e95464; // 赤
 
 // フォントセット
   $font-family1: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
@@ -24,6 +24,7 @@
 
 // コンテナ用
 %default-container {
+  min-height: 80vh;
   padding: 5rem 2rem 5rem;
   box-sizing: border-box;
   background-color: $base-color1;
