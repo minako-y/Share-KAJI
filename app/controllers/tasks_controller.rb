@@ -8,12 +8,12 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.room_id = current_user.current_room_id
+    @task.room_id = session[:room_id]
     @task.creator_id = current_user.id
     # モンスターをタスクと紐付ける
     @monster = Monster.monster_choice(current_user,@task.genre)
     @task.monster_id = @monster.id
-    if @task.save
+    if @task.save!
       # # テンプレートタスクへの保存
       # if params[:task][:template_task] == true
       #   template_task = TemplateTask.new(
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.where(room_id: current_user.current_room_id)
+    @tasks = Task.where(room_id: session[:room_id])
   end
 
   def show
