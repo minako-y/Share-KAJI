@@ -34,10 +34,12 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(room_id: session[:room_id])
+    @message = Message.new
   end
 
   def show
     @task = Task.find(params[:id])
+    @message = Message.new
     respond_to do |format|
       format.html
       # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる
