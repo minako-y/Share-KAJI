@@ -1,16 +1,19 @@
-<h1>マイページ編集</h1>
-<div>
+<div class="user-edit-container">
+  <h1 class="user-edit-container__title">マイページ編集</h1>
   <%= form_with model: @user, local:true do |f| %>
-    <%= f.label :name, '名前' %>
-    <%= f.text_field :name %>
-    <%= f.label :profile_image, 'プロフィール画像' %>
-    <%= f.attachment_field :profile_image %>
-    <% Genre.first(5).each do |genre| %>
-      <div>
-        <%= f.radio_button :weaknesses_genre_id, genre.id  %>
-        <%= f.label :weaknesses_genre_id, genre.name, value: genre.id %>
-      </div>
-    <% end %>
-    <%= f.submit "更新" %>
+  <div class="form-wrapper">
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.text_field :name %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :profile_image, 'プロフィール画像' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.attachment_field :profile_image %></div>
+    </div>
+    <%= render 'devise/registrations/genre-card', f: f %>
+    <div class="form-wrapper__form-group">
+      <%= f.submit "更新", class: "form-wrapper__form-group__btn"  %>
+    </div>
   <% end %>
+  </div>
 </div>

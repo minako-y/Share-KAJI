@@ -1,0 +1,44 @@
+@import "share/variables";
+
+.unsubscribe-container {
+  @extend %default-container;
+
+  &__headding {
+    @extend %default-title;
+    text-align: center;
+  }
+
+  &__lead {
+    color: $thema-color3;
+    text-align: center;
+  }
+
+  &__link-group {
+    line-height: 3rem;
+    text-align: center;
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+
+    &__line {
+      margin-bottom: 3rem;
+    }
+
+    &__link {
+      @extend %default-btn;
+      color: $base-color1;
+      background-color: $thema-color3;
+
+      &--red {
+        @extend %default-btn;
+        color: $base-color1;
+        background-color: $base-color2;
+
+        &:hover {
+          color: $base-color1;
+          background-color: $point-color1;
+        }
+      }
+    }
+  }
+}

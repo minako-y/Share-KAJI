@@ -1,8 +1,8 @@
-<section>
-	<h2>本当に退会しますか？</h2>
-	<h3>退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h3>
-	<div>
-		<%= link_to "マイページに戻る", user_path(@user) %>
-		<%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？" %>
+<section class="unsubscribe-container">
+	<h2 class="unsubscribe-container__headding">本当に退会しますか？</h2>
+	<h3 class="unsubscribe-container__lead">退会すると、会員登録情報や<br>これまでの購入履歴が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h3>
+	<div class="unsubscribe-container__link-group">
+		<div class="unsubscribe-container__link-group__line"><%= link_to "マイページに戻る", user_path(@user), class: "unsubscribe-container__link-group__link" %></div>
+		<div class="unsubscribe-container__link-group__line"><%= link_to "退会する", withdraw_user_path, method: :patch, "data-confirm" => "OKを押すと退会処理を行い、トップページに戻ります。本当によろしいですか？", class: "unsubscribe-container__link-group__link--red"%></div>
 	</div>
 </section>
