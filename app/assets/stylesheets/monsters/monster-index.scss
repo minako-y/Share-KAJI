@@ -2,12 +2,12 @@
 
 .monsters-container {
   @extend %default-container;
-  font-family: 'Hannotate SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
+  font-family: $font-family2;
 
   %__title {
     margin: 2rem 0;
     color: $thema-color3;
-    font-family: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+    font-family: $font-family1;
   }
 
   &__title {
@@ -36,7 +36,7 @@
   }
 }
 
-.new-monster-form {
+#new-monster-form {
   display: none;
 }
 // formはsignup参照

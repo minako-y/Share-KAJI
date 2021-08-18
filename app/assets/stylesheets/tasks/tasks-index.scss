@@ -1,0 +1,49 @@
+@import 'share/variables';
+@import 'tasks/task-card';
+@import 'tasks/task-show';
+
+.main-container {
+  @extend %default-container;
+}
+
+.main-top {
+  display: flex;
+
+  &__title {
+    @extend %default-title;
+  }
+
+  &__room-unit{
+    margin-left: 2rem;
+
+    &__btn {
+      @extend %default-btn;
+      color: $base-color1;
+      background-color: $thema-color3;
+      margin: 2rem auto;
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+
+    & a {
+      color: $thema-color3;
+      text-decoration: none;
+    }
+  }
+}
+
+.task-wrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+
+  & a {
+    text-decoration: none;
+    transition: transform 300ms ease;
+  }
+  & a:hover {
+    transform: scale(0.9, 1.1);
+  }
+}

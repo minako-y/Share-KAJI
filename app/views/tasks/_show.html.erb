@@ -1,27 +1,56 @@
-<div class="container-white">
+<div class="task-section">
   <div class="task-section__left">
-    <div class="task-unit__heading"><span><%= task.monster.name %></span> があらわれた！</div>
-    <div class="task-unit__img">
-      <div class="profile-group__image">
-        <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png' %>
+
+    <div class="wrap">
+      <ul id="tab-menu">
+        <li><a href="#tab1" class="active">タスク内容</a></li>
+        <li><a href="#tab2" class="">モンスター</a></li>
+      </ul>
+
+      <div id="tab-contents">
+        <div id="tab1" class="tab">
+          <div class="task-unit">
+            <div class="task-unit__items">
+              <div class="task-unit__item">ジャンル：<%= task.genre.name %></div>
+              <div class="task-unit__item">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></div>
+              <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
+            </div>
+            <div class="task-unit__body"><%= task.body %></div>
+          </div>
+        </div>
+
+        <div id="tab2" class="tab">
+          <div class="task-monster">
+            <div class="task-monster__visual-area">
+              <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-monster__visual-area--img" %>
+            </div>
+            <div class="task-monster__heading">
+              <span class="task-monster__heading--large"><%= task.monster.name %></span>
+              <span>があらわれた！</span>
+            </div>
+            <div class="task-monster__text">
+              <%= task.monster.memo %>
+            </div>
+            <div class="task-monster__lead">
+              <p>獲得予想経験値: <%= task.monster.genre_id == current_user.weaknesses_genre_id ? "20exp" : "10exp" %></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div>
-      ジャンル：<%= task.genre.name %><br>
-      予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %><br>
-      本文：<%= link_to "編集", edit_task_path(task) %>
-      <div class="task-unit__body"><%= task.body %></div>
-    </div>
   </div>
+
   <div class="task-section__right">
-    <div class="task-unit__chat">
+    <div class="chat-area">
       ここにメッセージを表示予定
     </div>
-      <%= form_with model: task, url: task_path, local:true do |f| %>
-        <%= f.select :progress, options_for_select(Task.progresses.keys, selected: task.progress) %>
-        <%= f.submit "更新" %>
+    <div class="action-area">
+      <%= form_with model: task, url: task_path, remote: true do |f| %>
+        <%= f.hidden_field :progress, value: "完了" %>
+        <%= f.submit "タスクを完了する" %>
       <% end %>
       <%= link_to "削除", task_path(task), method: :delete %>
       <%= link_to "一覧に戻る", tasks_path %>
+    </div>
   </div>
 </div>

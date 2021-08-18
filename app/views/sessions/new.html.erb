@@ -1,13 +1,18 @@
-
-  <h1>Login</h1>
-  <%= form_for(:session, url: login_path) do |f| %>
-    <div class="input-name">
-      <%= f.label :password, '部屋の名前' %>
-      <%= f.text_field :name, placeholder: "部屋の名前を入力してください" %>
+<div class="session-container">
+  <h1 class="session-container__title">Login</h1>
+  <div class="session-form-wrapper">
+    <%= form_for(:session, url: login_path) do |f| %>
+    <div class="session-form-wrapper__form-group">
+      <div class="session-form-wrapper__form-group__label"><%= f.label :password, '部屋の名前' %></div>
+      <div class="session-form-wrapper__form-group__field"><%= f.text_field :name, placeholder: "部屋の名前を入力してください" %></div>
     </div>
-    <div class="form-group">
-      <%= f.label :password, 'パスワード' %>
-      <%= f.password_field :password, placeholder: 'パスワードを入力してください' %>
-      <%= f.submit 'ログイン' %>
+    <div class="session-form-wrapper__form-group">
+      <div class="session-form-wrapper__form-group__label"><%= f.label :password, 'パスワード' %></div>
+      <div class="session-form-wrapper__form-group__field"><%= f.password_field :password, placeholder: 'パスワードを入力してください' %></div>
+      <div class="session-form-wrapper__form-group">
+        <%= f.submit 'ログイン', class: "session-form-wrapper__form-group__btn" %>
+      </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>

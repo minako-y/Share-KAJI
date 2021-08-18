@@ -10,7 +10,7 @@
   </div>
 
   <h2 class="monsters-container__title--slide">Create New Monster <i class="fas fa-chevron-circle-down"></i></h2>
-  <div class="new-monster-form form-wrapper">
+  <div class="form-wrapper" id="new-monster-form">
     <%= form_with model: @monster, local: true do |f| %>
     <div class="form-wrapper__form-group">
       <div class="form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>

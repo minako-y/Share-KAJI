@@ -1,0 +1,143 @@
+@import 'share/variables';
+
+.task-section {
+  background-color: $base-color3;
+  display: flex;
+  height: 500px;
+
+  &__left {
+    width: 500px;
+  }
+
+  &__right {
+    width: 300px;
+  }
+}
+
+// タスク内容タブ
+.task-unit {
+  width: inherit;
+  height: inherit;
+  position: relative;
+
+  &__items {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 1rem;
+  }
+
+  &__btn {
+    @extend %default-btn;
+    color: $base-color1;
+    background-color: $thema-color3;
+  }
+
+  &__body {
+    height: 250px;
+    width: 400px;
+    background-color: $base-color3;
+    padding: 2rem 1rem 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+
+// モンスタータブ
+.task-monster {
+  width: inherit;
+  height: inherit;
+  position: relative;
+
+  &__visual-area {
+    height: 50%;
+    background-color: $thema-color3;
+    text-align: center;
+
+    &--img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__heading {
+    font-size: 2rem;
+    font-family: $font-family2;
+    margin-bottom: 1rem;
+
+    &--large {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  &__text {
+  }
+
+  &__lead {
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+// task-section__right内
+.chat-area {
+  height: 20rem;
+  width: auto;
+  background-color: blue;
+}
+
+.action-area {
+
+}
+
+
+
+// tab
+#tab-menu {
+  display: flex;
+}
+
+#tab-menu li {
+  list-style-type: none;
+  width: 50%;
+}
+
+#tab-menu li a {
+  color: $base-color1;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  text-align: center;
+  background: $thema-color3;
+  box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.5) inset;
+}
+
+#tab-menu .active {
+  background: $base-color1;
+  color: $thema-color3;
+  box-shadow: none;
+}
+
+#tab-contents {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#tab-contents .tab {
+  width: 100%;
+  height: 384px;
+  padding: 30px;
+  background: $base-color1;
+}
+
+#tab-contents p {
+  color: $thema-color3;
+}

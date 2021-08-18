@@ -38,7 +38,7 @@ UserRoom.create!(
   [1, 1, File.open("./app/assets/images/monster/eric-han-Hd7vwFzZpH0-unsplash.jpg"), "料理ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
   [1, 2, File.open("./app/assets/images/monster/james-sutton-dQ5G0h7sLno-unsplash.jpg"), "買い物ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
   [1, 3, File.open("./app/assets/images/monster/ludemeula-fernandes-9UUoGaaHtNE-unsplash.jpg"), "掃除ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
-  [1, 4, File.open("./app/assets/images/monster/manja-vitolic-gKXKBY-C-Dk-unsplash.jpg"), "片付けね2こ", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
+  [1, 4, File.open("./app/assets/images/monster/manja-vitolic-gKXKBY-C-Dk-unsplash.jpg"), "片付けねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
   [1, 5, File.open("./app/assets/images/monster/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg"), "洗濯ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
   [1, 6, File.open("./app/assets/images/monster/pacto-visual-cWOzOnSoh6Q-unsplash.jpg"), "その他ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true],
   [1, 7, File.open("./app/assets/images/monster/yerlin-matu-GtwiBmtJvaU-unsplash.jpg"), "個人ねこ2", "モンスターの説明が入ります。大体２文くらいだろうか・・・。豆知識みたいなのも入れたい。", true]

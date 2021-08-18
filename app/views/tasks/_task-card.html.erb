@@ -1,0 +1,13 @@
+<%= link_to task_path(task.id), remote: true, class: "task-card-link task-#{task.id}" do %>
+  <div class="task-card">
+    <div class="task-card__head">
+      <span class="task-card__head__progress--<%= task.progress_before_type_cast %>"><%= task.progress %></span>
+      <span class="task-card__head__genre"><%= task.genre.name %></span>
+      <span class="task-card__head__date"><%= task.due_date.strftime("%m月%d日 %H:%M") %>まで</span><br>
+    </div>
+    <div class="task-card__inner">
+      <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-card__inner__image" %>
+      <div class="task-card__inner__body"><%= task.body %></div>
+    </div>
+  </div>
+<% end %>

@@ -33,17 +33,19 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
-  # 経験値獲得の処理
-  def levelUp(user, task)
-    # 変数に現在の総経験値を入れる
+  # タスク完了数増加〜経験値獲得〜レベルアップまでの処理
+  def taskCompleted(user, task)
+   ## タスク完了数＋１
+    user.complete_task += 1
+
+   ## 経験値獲得
     totalExp = user.exp
     # ユーザーの苦手な家事と一致すれば多めに加算される
     task.genre_id == user.weaknesses_genre_id ? totalExp += 20 : totalExp += 10
-    # 加算した経験値をuserの総経験値を示す変数に入れ直して更新
     user.exp = totalExp
     user.update(exp: totalExp)
 
-    # レベルアップの処理
+   ## レベルアップの処理
     # 現在レベル+1のレベル設定レコードを取得
     levelSetting = LevelSetting.find_by(level: user.housework_level + 1)
     # 閾値と比較して、総経験値が上回ったら1レベル上げて更新
