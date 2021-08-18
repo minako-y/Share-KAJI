@@ -1,6 +1,7 @@
 @import 'share/variables';
 @import 'tasks/task-card';
 @import 'tasks/task-show';
+@import 'tasks/task-form';
 
 .main-container {
   @extend %default-container;

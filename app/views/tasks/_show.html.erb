@@ -13,7 +13,9 @@
             <div class="task-unit__items">
               <div class="task-unit__item">ジャンル：<%= task.genre.name %></div>
               <div class="task-unit__item">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></div>
-              <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
+              <% if task.progress != "完了" %>
+                <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
+              <% end %>
             </div>
             <div class="task-unit__body"><%= task.body %></div>
           </div>
@@ -47,10 +49,16 @@
     <div class="action-area">
       <%= form_with model: task, url: task_path, remote: true do |f| %>
         <%= f.hidden_field :progress, value: "完了" %>
-        <%= f.submit "タスクを完了する" %>
+          <% if task.progress == "完了" %>
+            <%= f.submit "実施済み", class: "action-area__complete-btn--disabled" %>
+          <% else %>
+            <%= f.submit "タスクを完了する", class: "action-area__complete-btn" %>
+          <% end %>
       <% end %>
-      <%= link_to "削除", task_path(task), method: :delete %>
-      <%= link_to "一覧に戻る", tasks_path %>
+      <div class="action-area__link-group">
+        <%= link_to "削除", task_path(task), method: :delete, class: "action-area__link-group--delete" %>
+        <%= link_to "一覧に戻る", tasks_path, class: "action-area__link-group--back" %>
+      </div>
     </div>
   </div>
 </div>

@@ -1,25 +1,26 @@
-<div class="task-form">
+<div class="form-wrapper">
   <%= form_with model: task, local: true do |f| %>
     <% Genre.all.each do |genre| %>
-    <div class="task-form__genre-field">
+    <div class="form-wrapper__form-group">
       <%= f.radio_button :genre_id, genre.id  %>
       <%= f.label :genre_id, genre.name, value: genre.id %>
     </div>
     <% end %>
-    <div class="task-form__field">
-      <%= f.datetime_field :due_date %>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :due_date, "予定完了日時" %></div>
+      <div class="form-wrapper__form-group__field"><%= f.datetime_field :due_date %></div>
     </div>
 
-    <div class="task-form__field">
-      <%= f.label :body, "タスクの内容" %>
-      <%= f.text_area :body %>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :body, "タスクの内容" %></div>
+      <div class="form-wrapper__form-group__field"><%= f.text_area :body %></div>
     </div>
-    <!--<div>-->
+    <!--<div class="form-wrapper__form-group">-->
     <!--  <%= f.check_box :template_task, {}, true, false %>-->
     <!--  <%= f.label :template_task, "テンプレートとして保存する" %>-->
     <!--</div>-->
-    <div class="task-form__fieldt">
-      <%= f.submit button_text %>
+    <div class="form-wrapper__form-group">
+      <%= f.submit button_text, class: "form-wrapper__form-group__btn" %>
     </div>
   <% end %>
 </div>

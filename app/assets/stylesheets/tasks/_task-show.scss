@@ -14,7 +14,7 @@
   }
 }
 
-// タスク内容タブ
+// task tab
 .task-unit {
   width: inherit;
   height: inherit;
@@ -47,7 +47,7 @@
   }
 }
 
-// モンスタータブ
+// monster tab
 .task-monster {
   width: inherit;
   height: inherit;
@@ -89,13 +89,56 @@
 
 // task-section__right内
 .chat-area {
-  height: 20rem;
+  height: 350px;
   width: auto;
   background-color: blue;
 }
 
 .action-area {
+  height: 150px;
+  width: auto;
+  text-align: center;
+  padding: 1rem;
 
+  &__complete-btn {
+    @extend %default-btn;
+    color: $base-color3;
+    background-color: $thema-color2;
+    font-size: 15px;
+    height: 3rem;
+
+    &--disabled {
+      @extend %default-btn;
+      color: $base-color3;
+      background-color: $base-color2;
+      pointer-events: none;
+    }
+  }
+
+  &__link-group {
+    display: flex;
+
+    &--delete {
+      @extend %default-btn;
+      color: $base-color1;
+      background-color: $base-color2;
+      height: 1rem;
+      width: 5rem;
+      margin-right: 1rem;
+
+      &:hover {
+        background-color: $point-color1;
+      }
+    }
+
+    &--back {
+      @extend %default-btn;
+      color: $base-color1;
+      background-color: $thema-color3;
+      height: 1rem;
+      width: 5rem;
+    }
+  }
 }
 
 

@@ -1,0 +1,12 @@
+@import 'share/variables';
+
+// new,edit container
+.task-form-container {
+  @extend %default-container;
+
+  &__title {
+    @extend %default-title;
+  }
+}
+
+ // formはsignup参照

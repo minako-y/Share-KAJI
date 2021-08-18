@@ -5,6 +5,7 @@
   $base-color1: #f7f6f5; // きなり白
   $base-color2: #d3d3d8; // グレー
   $base-color3: #fff;  // 真っ白
+  $point-color1: #ea553a; // 赤
 
 // フォントセット
   $font-family1: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
@@ -13,9 +14,9 @@
 // ボタン
 %default-btn {
   text-decoration: none;
-  color: inherit;
-  background-color: inherit;
-  border: 1px $base-color3 solid;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
   border-radius: 10%;
   padding: 10px 20px;
   transition: .3s;

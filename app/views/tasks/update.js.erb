@@ -1,1 +1,3 @@
 $(".task-<%= @task.id %>").html("<%= j(render 'tasks/task-card', task: @task ) %>");
+
+$(".modal").html("<%= j(render 'tasks/show', task: @task ) %>");
