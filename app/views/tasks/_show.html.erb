@@ -44,7 +44,7 @@
 
   <div class="task-section__right">
     <div class="chat-area">
-      ここにメッセージを表示予定
+      <%= render 'messages/show', {task: task, message: message} %>
     </div>
     <div class="action-area">
       <%= form_with model: task, url: task_path, remote: true do |f| %>

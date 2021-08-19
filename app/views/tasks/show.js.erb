@@ -3,7 +3,7 @@ var modal = document.getElementById('modal');
 var mask = document.getElementById('mask');
 
 <!--モーダルの中身をshowビューに置き換える-->
-modal.innerHTML = '<%= escape_javascript(render partial: 'tasks/show', locals: { task: @task }) %>';
+modal.innerHTML = '<%= escape_javascript(render partial: 'tasks/show', locals: { task: @task, message: @message }) %>';
 
 <!--モーダル内でタブを変更可能にする記述-->
 $('#tab-contents .tab[id != "tab1"]').hide();
