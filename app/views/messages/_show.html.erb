@@ -11,12 +11,12 @@
       </p>
     <% end %>
   <% end %>
-  <div class="chat-form-container">
-    <p class="chat-form-container__field-line">
-      <%= form_with model: [task, message], remote: true do |f| %>
-        <%= f.text_field :body, placeholder: "メッセージを入力", class: 'chat-form-container__field' %>
-        <%= f.submit '送信' %>
-      <% end %>
-    </p>
-  </div>
+</div>
+<div class="chat-form-container">
+  <p class="chat-form-container__field-line">
+    <%= form_with model: [task, message], remote: true do |f| %>
+      <%= f.text_field :body, placeholder: "メッセージを入力", class: 'chat-form-container__field' %>
+      <%= f.submit '送信' %>
+    <% end %>
+  </p>
 </div>

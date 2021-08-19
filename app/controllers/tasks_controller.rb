@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     @task.room_id = session[:room_id]
     @task.creator_id = current_user.id
     # モンスターをタスクと紐付ける
-    @monster = Monster.monster_choice(current_user,@task.genre)
+    @monster = Monster.monster_choice(current_user, @task.genre)
     @task.monster_id = @monster.id
     if @task.save!
       # # テンプレートタスクへの保存
@@ -53,6 +53,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
+    @message = Message.new
     if @task.update(task_params)
       if @task.progress == "完了"
         current_user.taskCompleted(current_user, @task)
