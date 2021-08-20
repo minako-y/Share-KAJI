@@ -14,14 +14,33 @@
     @extend %default-title;
   }
 
+  &__sort {
+    padding: 2rem;
+
+    &__link a{
+      color: $thema-color2;
+      text-decoration: none;
+      font-size: 20px;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $point-color1;
+      }
+    }
+  }
+
   &__room-unit{
     margin-left: 2rem;
 
     &__btn {
       @extend %default-btn;
       color: $base-color1;
-      background-color: $thema-color3;
+      background-color: $thema-color3-light;
       margin: 2rem auto;
+
+      &:hover {
+        background-color: $thema-color3;
+      }
     }
   }
 

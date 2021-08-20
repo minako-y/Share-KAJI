@@ -47,7 +47,8 @@
       <%= render 'messages/show', {task: task, message: message} %>
     </div>
     <div class="action-area">
-      <%= form_with model: task, url: task_path, remote: true do |f| %>
+      <div class="action-area--left">
+        <%= form_with model: task, url: task_path, remote: true do |f| %>
         <%= f.hidden_field :progress, value: "完了" %>
           <% if task.progress == "完了" %>
             <%= f.submit "実施済み", class: "action-area__complete-btn--disabled" %>
@@ -55,9 +56,16 @@
             <%= f.submit "タスクを完了する", class: "action-area__complete-btn" %>
           <% end %>
       <% end %>
-      <div class="action-area__link-group">
-        <%= link_to "削除", task_path(task), method: :delete, class: "action-area__link-group--delete" %>
-        <%= link_to "一覧に戻る", tasks_path, class: "action-area__link-group--back" %>
+      </div>
+      <div class="action-area--right">
+        <% unless task.progress == "完了" %>
+          <%= form_with model: task, url: task_path, remote: true do |f| %>
+            <%= f.hidden_field :progress, value: "保留" %>
+            <%= f.submit "保留", class: "action-area__keep-btn" %>
+          <% end %>
+        <% end %>
+        <%= link_to "削除", task_path(task), method: :delete, class: "action-area__delete-btn" %>
+        <%= link_to "一覧に戻る", tasks_path, class: "action-area__back-btn" %>
       </div>
     </div>
   </div>
