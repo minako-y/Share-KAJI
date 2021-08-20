@@ -13,17 +13,18 @@ class TasksController < ApplicationController
     # モンスターをタスクと紐付ける
     @monster = Monster.monster_choice(current_user, @task.genre)
     @task.monster_id = @monster.id
-    if @task.save!
-      # # テンプレートタスクへの保存
-      # if params[:task][:template_task] == true
-      #   template_task = TemplateTask.new(
-      #     user_id: current_user_id,
-      #     room_id: @task.room_id,
-      #     body: @room.body,
-      #     ganre_id: @room.genre_id)
-      #   template_task.save
-      #   flash[:notice] = 'テンプレートタスクへ保存しました。'
-      # end
+    if @task.save
+      # テンプレートタスクへの保存
+      if params[:task][:template_task] == "true"
+        template_task = TemplateTask.new(
+          user_id: current_user.id,
+          room_id: @task.room_id,
+          body: @task.body,
+          genre_id: @task.genre_id
+          )
+        template_task.save
+        flash[:notice] = 'テンプレートタスクへ保存しました。'
+      end
       flash[:notice] = '新規タスクを作成しました。'
       redirect_to tasks_path
     else
@@ -33,8 +34,8 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.where(room_id: session[:room_id])
     @message = Message.new
+    @tasks = Task.where(room_id: session[:room_id], progress: (params[:sort] || 0))
   end
 
   def show

@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  attr_accessor :template_task # attr_reader attr_writer
 
   has_many :notifications, dependent: :destroy
   has_many :messages, dependent: :destroy
