@@ -3,13 +3,15 @@ class TasksController < ApplicationController
   before_action :logged_in_room
 
   def new
+    # テンプレートから参照しているか確認
     if params[:template].nil?
       @task = Task.new
     else
       template_task = TemplateTask.find(params[:template])
       @task = Task.new(genre_id: template_task.genre_id, body: template_task.body)
     end
-    @template_tasks =  TemplateTask.where(room_id: 1).or(TemplateTask.where(user_id: 1))
+    # 他人の個人テンプレタスクが表示されないようにする
+    @template_tasks = TemplateTask.where(room_id: session[:room_id]).where.not(genre_id: 7).or(TemplateTask.where(user_id: current_user.id, genre_id: 7))
   end
 
   def create
@@ -43,6 +45,7 @@ class TasksController < ApplicationController
   def index
     @message = Message.new
     @tasks = Task.where(room_id: session[:room_id], progress: (params[:sort] || 0))
+
   end
 
   def show
