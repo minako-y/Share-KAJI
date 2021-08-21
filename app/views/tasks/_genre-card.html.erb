@@ -1,0 +1,61 @@
+<div class="genre-container">
+  <div class="radio-tile-group">
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 1, checked: true, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/鍋のアイコン素材2.png', class: "genre-image" %></div>
+        <label for="料理" class="radio-tile-label">料理</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 2, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/ショッピングバッグアイコン.png', class: "genre-image" %></div>
+        <label for="買い物" class="radio-tile-label">買い物</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 3, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/スプレー洗剤のアイコン1.png', class: "genre-image" %></div>
+        <label for="掃除" class="radio-tile-label">掃除</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 4, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/キラキラ 2.png', class: "genre-image" %></div>
+        <label for="片付け" class="radio-tile-label">片付け</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 5, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/タオルアイコン1.png', class: "genre-image" %></div>
+        <label for="洗濯" class="radio-tile-label">洗濯</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 6, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/ホームのフリーアイコン素材.png', class: "genre-image" %></div>
+        <label for="その他" class="radio-tile-label">洗濯</label>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <%= f.radio_button :genre_id, 7, class: "radio-button"  %>
+      <div class="radio-tile">
+        <div><%= image_tag 'genres/人物アイコン.png', class: "genre-image" %></div>
+        <label for="個人" class="radio-tile-label">洗濯</label>
+      </div>
+    </div>
+
+  </div>
+</div>

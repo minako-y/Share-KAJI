@@ -9,4 +9,6 @@ footer {
   line-height: 3rem;
   background-color: $base-color3;
   box-shadow: 0 0 2px $base-color2;
+  position: relative;
+  z-index: 2;
 }

@@ -3,7 +3,13 @@ class TasksController < ApplicationController
   before_action :logged_in_room
 
   def new
-    @task = Task.new
+    if params[:template].nil?
+      @task = Task.new
+    else
+      template_task = TemplateTask.find(params[:template])
+      @task = Task.new(genre_id: template_task.genre_id, body: template_task.body)
+    end
+    @template_tasks =  TemplateTask.where(room_id: 1).or(TemplateTask.where(user_id: 1))
   end
 
   def create
@@ -28,6 +34,7 @@ class TasksController < ApplicationController
       flash[:notice] = '新規タスクを作成しました。'
       redirect_to tasks_path
     else
+      @template_tasks =  TemplateTask.where(room_id: 1).or(TemplateTask.where(user_id: 1))
       flash.now[:alert] = '入力項目を見直してください。'
       render :new
     end

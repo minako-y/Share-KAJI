@@ -1,0 +1,76 @@
+@import 'share/variables';
+
+.template-task-container {
+  width: 40rem;
+  height: auto;
+  background: $thema-color2;
+  padding: 0 2rem 0 0; // 画面に出ている部分
+  position: fixed;
+  top: 2rem;
+  left: -40rem; // 初期位置-2remから38rem左へ
+  z-index: 5;
+  cursor: pointer;
+
+  &__icon {
+    color: $base-color1;
+    border: 1px solid $thema-color2-dark;
+    border-left: none;
+    background-color: $thema-color2;
+    padding: 1rem 1rem 1rem 0;
+    position: absolute;
+    bottom: 50vh;
+    right: -9rem;
+  }
+
+  &__card-area {
+    height: 100vh;
+    background: $base-color1;
+    padding: 50px 10px 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+  }
+}
+
+.t-task-card {
+  width: 40%;
+  height: 10rem;
+  color: $thema-color3;
+  border: 1px solid $base-color2;
+  border-radius: 5%;
+  background-color: $base-color3;
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
+
+  &__link {
+    color:  $thema-color2;
+    font-size: 50px;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+      color:  $thema-color2-dark;
+    }
+  }
+
+  &__genre {
+    color:  $thema-color1-dark;
+    border: 1px solid $thema-color1-dark;
+    border-radius: 10%;
+    padding: 5px;
+    display: inline-block;
+  }
+
+  &__body {
+    margin-top: 2rem;
+    height: 5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+}

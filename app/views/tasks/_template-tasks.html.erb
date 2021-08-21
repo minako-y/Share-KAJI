@@ -1,0 +1,12 @@
+<div class="template-task-container">
+  <span class="template-task-container__icon off" id="slideL">テンプレート一覧</span>
+  <div class="template-task-container__card-area slide-inner">
+    <% template_tasks.includes([:genre]).each do |t_task| %>
+    <div class="t-task-card">
+      <%= link_to "", new_task_path(template: t_task.id), remote: true, class: "fas fa-plus-circle t-task-card__link" %>
+      <div class="t-task-card__genre"><%= t_task.genre.name %></div>
+      <div class="t-task-card__body"><%= t_task.body %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
