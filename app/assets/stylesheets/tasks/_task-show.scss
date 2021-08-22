@@ -35,11 +35,35 @@
     }
   }
 
+  &__tags {
+    width: 400px;
+    height: 3rem;
+    overflow: hidden;
+    margin: 0.5rem auto 0;
+
+    &__tag-area {
+      height: 3rem;
+      line-height: 2rem;
+      margin-top: 0.5rem;
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    &__item {
+      color: $thema-color1;
+      background-color: $base-color3;
+      border: 1px solid $thema-color1;
+      border-radius: 0.8rem;
+      padding: 0.3rem;
+      margin-right: 0.2rem;
+    }
+  }
+
   &__body {
     height: 300px;
     width: 400px;
     background-color: $base-color3;
-    margin: 3rem auto;
+    margin: 0 auto 2rem;
     padding: 2rem 1rem 1rem;
     white-space: pre-wrap;
     overflow: auto;
@@ -118,8 +142,8 @@
       @extend %default-btn;
       color: $base-color3;
       background-color: $base-color2;
+      line-height: 7rem;
       width : 100%;
-      height: 100%;
       pointer-events: none;
     }
   }
@@ -155,6 +179,7 @@
     color: $base-color1;
     background-color: $thema-color3-light;
     line-height: 2rem;
+    flex-grow: 1;
 
     &:hover {
       background-color: $thema-color3;

@@ -44,6 +44,7 @@
 
   &__btn {
     @extend %default-btn;
+    color: $base-color3;
     margin: 3rem;
     position: relative;
     z-index: 2;

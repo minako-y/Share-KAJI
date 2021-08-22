@@ -54,6 +54,42 @@
   }
 }
 
+.tag-wrapper {
+  height: 3rem;
+  overflow: hidden;
+
+  &__tag-box {
+    width: 80%;
+    height: 5rem;
+    line-height: 2rem;
+    margin: 0 auto 1rem;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  &__item {
+    color: $thema-color1;
+    background-color: $base-color3;
+    border: 1px solid $thema-color1;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    padding: 0.3rem;
+    margin-right: 0.2rem;
+    transition: .3s;
+
+    &:hover {
+      color: $base-color3;
+      background-color: $thema-color1-dark;
+    }
+
+    &--active {
+      color: $base-color3;
+      background-color: $thema-color1;
+      border: 1px solid $base-color3;
+    }
+  }
+}
+
 .task-wrapper {
   padding-top: 30px;
   display: flex;

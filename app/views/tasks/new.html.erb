@@ -1,5 +1,7 @@
 <div class="task-form-container">
-  <%= render 'tasks/template-tasks', template_tasks: @template_tasks %>
+  <div class="template-tasks__wrapper">
+    <%= render 'tasks/template-tasks', {template_tasks: @template_tasks, tag_list: @tag_list} %>
+  </div>
   <h1 class="task-form-container__title">新規タスク作成</h1>
   <div class="new-task-form">
     <%= render 'tasks/task_form', task: @task %>

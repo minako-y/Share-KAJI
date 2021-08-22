@@ -1,0 +1,12 @@
+<div class="tag-wrapper">
+  <div class="tag-wrapper__tag-box">
+    <% tag_list.each do |list| %>
+      <%= link_to list.name, tasks_search_path(tag_id: list.id, sort: params[:sort]), remote: true, class: "tag-wrapper__item tag_#{list.id}"  %>
+    <% end %>
+  </div>
+</div>
+<div class="task-wrapper">
+  <% tasks.includes([:genre, :monster]).each do |task| %>
+    <%= render 'tasks/task-card', task: task %>
+  <% end %>
+</div>

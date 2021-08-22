@@ -77,7 +77,8 @@ ActiveRecord::Schema.define(version: 2021_08_13_050849) do
   end
 
   create_table "task_tags", force: :cascade do |t|
-    t.integer "task_id", null: false
+    t.integer "task_id"
+    t.integer "template_task_id"
     t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

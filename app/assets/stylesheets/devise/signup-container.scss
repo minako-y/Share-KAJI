@@ -39,18 +39,30 @@
 
     &__field {
       width: 20rem;
-    }
 
-    &__field input {
-      width: 20rem;
-      height: 1.5rem;
-      border: 2px solid $base-color2;
-      border-radius: 5px;
-    }
+      & input {
+        width: 20rem;
+        height: 1.5rem;
+        border: 2px solid $base-color2;
+        border-radius: 5px;
+      }
 
-    &__field input:focus {
-      outline: none;
-      border: 2px solid $thema-color2;
+      & input:focus {
+        outline: none;
+        border: 2px solid $thema-color2;
+      }
+
+      & textarea {
+        width: 20rem;
+        height: 7rem;
+        border: 2px solid $base-color2;
+        border-radius: 5px;
+      }
+
+      & textarea:focus {
+        outline: none;
+        border: 2px solid $thema-color2;
+      }
     }
 
     &__lead {

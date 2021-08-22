@@ -12,11 +12,8 @@
       <%= link_to "Logout", logout_path, method: :delete, class: "main-top__room-unit__btn" %>
     </div>
   </div>
-
-  <div class="task-wrapper">
-    <% @tasks.includes([:genre, :monster]).each do |task| %>
-      <%= render 'tasks/task-card', task: task %>
-    <% end %>
+  <div class="task-list-container">
+    <%= render 'tasks/task-list', {tag_list: @tag_list, tasks: @tasks} %>
   </div>
 </div>
 

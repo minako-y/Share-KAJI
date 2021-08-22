@@ -17,6 +17,13 @@
                 <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
               <% end %>
             </div>
+            <div class="task-unit__tags">
+              <div class="task-unit__tags__tag-area">
+                <% task.tags.each do |tag| %>
+                  <span class="task-unit__tags__item"><%= tag.name%></span>
+                <% end %>
+              </div>
+            </div>
             <div class="task-unit__body"><%= task.body %></div>
           </div>
         </div>
