@@ -1,0 +1,13 @@
+<div class="tag-wrapper__tag-box">
+  <% tag_list.each do |list| %>
+    <%= link_to list.name, template_search_path(tag_id: list.id), remote: true, class: "tag-wrapper__item tag_#{list.id}"  %>
+  <% end %>
+</div>
+
+<% template_tasks.includes([:genre]).each do |t_task| %>
+<div class="t-task-card">
+  <%= link_to "", new_task_path(template: t_task.id), remote: true, class: "fas fa-plus-circle t-task-card__link" %>
+  <div class="t-task-card__genre"><%= t_task.genre.name %></div>
+  <div class="t-task-card__body"><%= t_task.body %></div>
+</div>
+<% end %>

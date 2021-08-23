@@ -1,0 +1,30 @@
+@import 'share/variables';
+
+.session-container {
+  @extend %default-container;
+  min-height: 80vh;
+
+  &__title {
+    @extend %default-title;
+  }
+}
+
+.session-form-wrapper {
+  width: 50vw;
+
+  &__form-group {
+    @extend %default-form-group;
+
+    &__label {
+    @extend %default-form-group__label;
+    }
+
+    &__field {
+      @extend %default-form-group__field;
+    }
+
+    &__btn {
+      @extend %default-form-group__btn;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@import 'share/variables';
+
+%message-line {
+  font-size: 15px;
+  color: $thema-color3;
+  line-height: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+%message-frame {
+  max-width: 13rem;
+  border: solid 1px;
+  border-radius: 20%;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+}
+
+.chat-container {
+  width: auto;
+  height: 300px;
+  overflow: auto;
+  background-color: $thema-color1;
+  padding: 1rem 0.5rem;
+  position: relative;
+
+  &__body {
+    @extend %message-line;
+    text-align: left;
+    margin-left: 1.5rem;
+    position: relative;
+
+    &--right {
+      @extend %message-line;
+      text-align: right;
+      margin-left: auto;
+    }
+  }
+
+  &__frame {
+    @extend %message-frame;
+    border-color: #f3a68c;
+    background-color: $thema-color2;
+
+    &--right {
+      @extend %message-frame;
+      border-color: $base-color2;
+      background-color: $base-color1;
+    }
+  }
+
+  &__image {
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    left: -1.7rem;
+  }
+}
+
+.chat-form-container {
+  width: 300px;
+  height: 50px;
+  text-align: center;
+  background-color: $base-color1;
+  padding: 0.5rem;
+
+  &__field-line {
+    text-align: center;
+  }
+
+  &__field {
+    height: 1.5rem;
+    width: 13rem;
+  }
+}

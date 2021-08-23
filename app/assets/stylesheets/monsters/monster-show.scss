@@ -1,0 +1,49 @@
+@import 'share/variables';
+
+.show-container {
+  @extend %default-container;
+  background-color: $base-color3;
+  font-family: $font-family2;
+  padding: 0;
+}
+
+.show-group {
+  display: flex;
+
+  &__left {
+
+    &__image {
+      width: 30vw;
+      margin: 0 auto;
+    }
+    &__image img{
+      width: 20rem;
+      object-fit: cover;
+    }
+
+    &__link {
+
+    }
+  }
+  &__right {
+    padding: 2rem 2rem 2rem 1rem ;
+
+    &__title {
+      font-size: 30px;
+      margin-bottom: 1rem;
+    }
+
+    &__icon {
+
+    }
+
+    &__label {
+
+    }
+
+    &__text {
+      margin-top: 1rem;
+    }
+
+  }
+}

@@ -1,0 +1,15 @@
+<h2>モンスター編集</h2>
+
+<div>
+    <%= form_with model: @monster, local: true do |f| %>
+      <%= f.label :name, '名前' %>
+      <%= f.text_field :name %>
+      <%= f.label :image, '画像' %>
+      <%= f.attachment_field :image %>
+      <%= f.label :genre_id, '家事ジャンル' %>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+      <%= f.label :memo, '説明' %>
+      <%= f.text_field :memo %>
+      <%= f.submit "更新" %>
+    <% end %>
+  </div>

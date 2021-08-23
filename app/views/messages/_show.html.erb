@@ -1,0 +1,22 @@
+<div class="chat-container">
+  <% task.messages.each do |message| %>
+    <% if message.user_id == current_user.id %>
+      <p class="chat-container__body--right">
+        <span class="chat-container__frame--right"><%= message.body %></span>
+      </p>
+    <% else %>
+      <p class="chat-container__body">
+        <%= attachment_image_tag message.user, :profile_image, fallback: 'noimage-760x460.png', class: 'chat-container__image' %>
+        <span class="chat-container__frame"><%= message.body %></span>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+<div class="chat-form-container">
+  <p class="chat-form-container__field-line">
+    <%= form_with model: [task, message], remote: true do |f| %>
+      <%= f.text_field :body, placeholder: "メッセージを入力", class: 'chat-form-container__field' %>
+      <%= f.submit '送信' %>
+    <% end %>
+  </p>
+</div>

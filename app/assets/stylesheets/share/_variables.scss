@@ -1,0 +1,128 @@
+// テーマカラー
+  $thema-color1: #82cddd; // 青
+  $thema-color1-dark: #25b7c0;
+  $thema-color2: #e6bfb2; // ピンク
+  $thema-color2-dark: #f3a68c;
+  $thema-color3: #504946; // 茶色
+  $thema-color3-light: #9d8e87;
+  $base-color1: #f7f6f5; // きなり白
+  $base-color2: #d3d3d8; // グレー
+  $base-color3: #fff;  // 真っ白
+  $point-color1: #da536e; // 赤
+
+// フォントセット
+  $font-family1: 'Gurmukhi MN','Roman','ヒラギノ明朝 ProN','Hiragino Mincho ProN','Yu Mincho Light','YuMincho','Yu Mincho','游明朝体',sans-serif;
+  $font-family2: 'Hannotate SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
+
+// ボタン
+%default-btn {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: .3s;
+}
+
+// コンテナ用
+%default-container {
+  min-height: 93vh;
+  padding: 5rem 2rem 5rem;
+  box-sizing: border-box;
+  background-color: $base-color1;
+}
+
+// タイトル用
+%default-title {
+  margin: 2rem 0;
+  color: $thema-color3;
+  font-family: $font-family1;
+  font-size: 30px;
+}
+
+// フォーム
+%default-form-group {
+  width: 50vw;
+  margin: 0.5rem auto;
+  line-height: 1.5rem;
+
+  &__label {
+    width: 10rem;
+    font-size: 0.5rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  &__field {
+    width: 20rem;
+  }
+
+  &__field input {
+    width: 20rem;
+    height: 1.5rem;
+    border: 2px solid $base-color2;
+    border-radius: 5px;
+  }
+
+  &__field input:focus {
+    outline: none;
+    border: 2px solid $thema-color2;
+  }
+
+  &__lead {
+    margin: 2rem 0;
+    font-size: 15px;
+  }
+
+  &__btn {
+    @extend %default-btn;
+    color: $base-color3;
+    background-color: $thema-color2;
+    border-color: $thema-color2;
+    width: 10rem;
+    margin: 3rem auto;
+
+    &:hover {
+      color: $thema-color2;
+      background-color: $base-color3;
+    }
+  }
+}
+
+// モーダル表示
+// hiddenクラス消去でマスクとモーダルが表示
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+}
+
+#modal {
+  position: fixed; // モーダルを固定
+  top: 10vh;
+  // 以下3行：モーダルを左右中央揃え
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 4;  // マスクより上に配置
+  width: 800px;   // showビューの幅に合わせて設定
+}
+
+// hiddenクラスで最初は表示されないようにする
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);   // 大きさ0.8倍から等倍にモーダルが拡大される
+}

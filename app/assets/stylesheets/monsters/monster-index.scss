@@ -1,0 +1,106 @@
+@import "share/variables";
+
+.monsters-container {
+  @extend %default-container;
+  font-family: $font-family2;
+
+  %__title {
+    margin: 2rem 0;
+    color: $thema-color3;
+    font-family: $font-family1;
+  }
+
+  &__title {
+    @extend %__title;
+    font-size: 30px;
+
+    &--top {
+      font-size: 3rem;
+      @extend %__title;
+
+    }
+
+    &--slide {
+      @extend %__title;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  }
+
+  &__lead {
+    margin-bottom: 3rem;
+
+    &__text {
+      margin-top: 1rem;
+    }
+  }
+}
+
+#new-monster-form {
+  display: none;
+}
+// formはsignup参照
+
+.monster-card {
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  & a {
+    text-decoration: none;
+  }
+
+  &__unit {
+    width: 250px;
+    height: 300px;
+    color: $thema-color3;
+    background-color: $base-color3;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 2px $base-color2;
+    text-align: center;
+    margin: 0 1rem 2rem;
+    transition: transform 300ms ease;
+    position: relative;
+
+    &--image {
+      width: 250px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &--image img{
+      width: 250px;
+      height: 10rem;
+      object-fit: cover;
+      position: relative;
+      top: 2rem;
+    }
+
+    &__icon {
+      font-size: 30px;
+      color: $thema-color3;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    &__top {
+      font-size: 18px;
+      background-color: $thema-color2;
+      padding: 0.5rem 0;
+      position: relative;
+      top: 1rem;
+    }
+
+    &__name {
+      font-size: 20px;
+      margin: 3.5rem auto 1rem;
+    }
+  }
+
+  &__unit:hover {
+    transform: scale(1.1, 1.1);
+  }
+}

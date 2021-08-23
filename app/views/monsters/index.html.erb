@@ -1,0 +1,59 @@
+<div class="monsters-container">
+
+  <h2 class="monsters-container__title--top">Secret Room....</h2>
+  <div class="monsters-container__lead">
+    <p class="monsters-container__lead__text">ここでは、出現するモンスターを閲覧することができます。</p>
+    <p class="monsters-container__lead__text">
+      また、モンスターを創造することもできます。<br>
+      自分だけのモンスターを作って登録すれば、タスク作成時に出現するかも！？
+    </p>
+  </div>
+
+  <h2 class="monsters-container__title--slide">Create New Monster <i class="fas fa-chevron-circle-down"></i></h2>
+  <div class="form-wrapper" id="new-monster-form">
+    <%= form_with model: @monster, local: true do |f| %>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.text_field :name %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :image, '画像' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.attachment_field :image %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :genre_id, '家事ジャンル' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.collection_select :genre_id, Genre.all, :id, :name %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <div class="form-wrapper__form-group__label"><%= f.label :memo, '説明' %></div>
+      <div class="form-wrapper__form-group__field"><%= f.text_field :memo %></div>
+    </div>
+    <div class="form-wrapper__form-group">
+      <%= f.submit "作成", class: "form-wrapper__form-group__btn" %>
+    </div>
+    <% end %>
+  </div>
+
+  <h2 class="monsters-container__title">Pop Monster Index</h2>
+  <div class="monster-card">
+  <% @monsters.includes([:genre]).each do |monster| %>
+    <%= link_to monster_path(monster), remote: true do %>
+    <div class="monster-card__unit">
+      <% if monster.official == true %>
+        <i class="fas fa-lock monster-card__unit__icon"></i>
+      <% end %>
+      <div class="monster-card__unit__top"><%= monster.genre.name %></div>
+      <div class="monster-card__unit--image">
+        <%= attachment_image_tag monster, :image, fallback: 'noimage-760x460.png', class: "monster-card__unit--image"%>
+      </div>
+      <div class="monster-card__unit__name"><%= monster.name %></div>
+    </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+<div id="mask" class="hidden"></div>
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+</div>

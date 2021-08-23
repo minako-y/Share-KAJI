@@ -1,0 +1,106 @@
+@import 'share/variables';
+@import 'tasks/task-card';
+@import 'tasks/task-show';
+@import 'tasks/task-form';
+
+.main-container {
+  @extend %default-container;
+}
+
+.main-top {
+  display: flex;
+
+  &__title {
+    @extend %default-title;
+  }
+
+  &__sort {
+    padding: 2rem;
+
+    &__link a{
+      color: $thema-color2;
+      text-decoration: none;
+      font-size: 20px;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $point-color1;
+      }
+    }
+  }
+
+  &__room-unit{
+    margin-left: 2rem;
+
+    &__btn {
+      @extend %default-btn;
+      color: $base-color1;
+      background-color: $thema-color3-light;
+      margin: 2rem auto;
+
+      &:hover {
+        background-color: $thema-color3;
+      }
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+
+    & a {
+      color: $thema-color3;
+      text-decoration: none;
+    }
+  }
+}
+
+.tag-wrapper {
+  height: 3rem;
+  overflow: hidden;
+
+  &__tag-box {
+    width: 80%;
+    height: 5rem;
+    line-height: 2rem;
+    margin: 0 auto 1rem;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  &__item {
+    color: $thema-color1;
+    background-color: $base-color3;
+    border: 1px solid $thema-color1;
+    border-radius: 0.8rem;
+    text-decoration: none;
+    padding: 0.3rem;
+    margin-right: 0.2rem;
+    transition: .3s;
+
+    &:hover {
+      color: $base-color3;
+      background-color: $thema-color1-dark;
+    }
+
+    &--active {
+      color: $base-color3;
+      background-color: $thema-color1;
+      border: 1px solid $base-color3;
+    }
+  }
+}
+
+.task-wrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  & a {
+    text-decoration: none;
+    transition: transform 300ms ease;
+  }
+  & a:hover {
+    transform: scale(0.9, 1.1);
+  }
+}

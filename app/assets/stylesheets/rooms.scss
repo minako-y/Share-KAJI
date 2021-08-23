@@ -1,0 +1,40 @@
+@import 'share/variables';
+
+.room-container {
+  @extend %default-container;
+  min-height: 80vh;
+}
+
+.room-section {
+  width: 80vw;
+  display: flex;
+
+  &__block {
+    width: 30vw;
+    margin: 0 auto;
+
+    &__title {
+      @extend %default-title;
+    }
+  }
+}
+
+.room-form-wrapper {
+  width: 50vw;
+
+  &__form-group {
+    @extend %default-form-group;
+
+    &__label {
+    @extend %default-form-group__label;
+    }
+
+    &__field {
+      @extend %default-form-group__field;
+    }
+
+    &__btn {
+      @extend %default-form-group__btn;
+    }
+  }
+}

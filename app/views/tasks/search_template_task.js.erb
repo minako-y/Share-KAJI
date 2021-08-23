@@ -1,0 +1,4 @@
+$(".slide-inner").html("<%= j(render 'tasks/slide-inner', {tag: @tag, template_tasks: @template_tasks, tag_list: @tag_list}) %>");
+
+$(".tag_<%= @tag.id %>").addClass("tag-wrapper__item--active");
+

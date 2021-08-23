@@ -1,0 +1,4 @@
+$(".task-list-container").html("<%= j(render 'tasks/task-list', {tag: @tag, tasks: @tasks, tag_list: @tag_list}) %>");
+
+$(".tag_<%= @tag.id %>").addClass("tag-wrapper__item--active");
+
