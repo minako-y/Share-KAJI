@@ -77,6 +77,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       @task.save_tags(tag_list)
       if @task.progress == "完了"
+        @task.update(executor_id: current_user.id, finish_date: Time.now)
         current_user.taskCompleted(current_user, @task)
         return
       end
