@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
-  before_action :logged_in_room
-  before_action :set_new_messages, only: [:index, :show, :update, :search]
+  before_action :authenticate_user!, :logged_in_room
+  before_action :set_new_messages, only: [:index, :show, :change_progress, :search]
+  before_action :set_task, only: [:show, :edit, :update, :change_progress, :destroy]
 
   def new
     # テンプレートから参照しているか確認
@@ -53,12 +53,11 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.where(room_id: session[:room_id], progress: (params[:sort] || 0))
+    @tasks = Task.where(room_id: session[:room_id], progress: (params[:sort] || 0)).order(updated_at: :desc)
     @tag_list = Tag.joins(:tasks).distinct.where(tasks: {room_id: session[:room_id], progress: (params[:sort] || 0)})
   end
 
   def show
-    @task = Task.find(params[:id])
     respond_to do |format|
       format.html
       # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる
@@ -67,20 +66,14 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
     @task.tag_name = @task.tags.pluck(:name).join(" ")
   end
 
   def update
-    @task = Task.find(params[:id])
-    tag_list = @task.tag_name.split(/[[:space:]]/)
     if @task.update(task_params)
+      tag_list = @task.tag_name.split(/[[:space:]]/)
       @task.save_tags(tag_list)
-      if @task.progress == "完了"
-        @task.update(executor_id: current_user.id, finish_date: Time.now)
-        current_user.taskCompleted(current_user, @task)
-        return
-      end
+      flash[:notice] = "タスクを更新しました。"
       redirect_to tasks_path
     else
       flash.now[:alert] = "入力項目を見直してください。"
@@ -88,9 +81,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def change_progress
+    @task.update(task_params)
+      if @task.progress == "完了"
+        @task.update(executor_id: current_user.id, finish_date: Time.now)
+        current_user.taskCompleted(current_user, @task)
+      end
+  end
+
   def destroy
-    task = Task.find(params[:id])
-    task.destroy
+    @task.destroy
     flash[:notice] = "正常に削除されました。"
     redirect_to tasks_path
   end
@@ -125,5 +125,9 @@ class TasksController < ApplicationController
 
   def set_new_messages
     @message = Message.new
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 end

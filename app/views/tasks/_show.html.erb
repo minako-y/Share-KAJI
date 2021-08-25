@@ -59,7 +59,7 @@
     </div>
     <div class="action-area">
       <div class="action-area--left">
-        <%= form_with model: task, url: task_path, remote: true do |f| %>
+        <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
         <%= f.hidden_field :progress, value: "完了" %>
           <% if task.progress == "完了" %>
             <%= f.submit "実施済み", class: "action-area__complete-btn--disabled" %>
@@ -70,7 +70,7 @@
       </div>
       <div class="action-area--right">
         <% unless task.progress == "完了" %>
-          <%= form_with model: task, url: task_path, remote: true do |f| %>
+          <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
             <%= f.hidden_field :progress, value: "保留" %>
             <%= f.submit "保留", class: "action-area__keep-btn" %>
           <% end %>

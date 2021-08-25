@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:new, :create]
   get 'tasks/search_task' => 'tasks#search_task', as: 'tasks_search'
   get 'tasks/search_template_task' => 'tasks#search_template_task', as: 'template_search'
+  patch 'tasks/:id/change_progress' => 'tasks#change_progress', as: 'change_progress'
   resources :tasks do
     resources :messages, only: [:create, :show]
   end
