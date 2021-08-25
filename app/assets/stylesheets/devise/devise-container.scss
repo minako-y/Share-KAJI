@@ -1,15 +1,21 @@
-@import 'share/variables';
+@import "share/variables";
 
-.session-container {
+.devise-container {
   @extend %default-container;
+  width: 100%;
+  text-align: center;
 
-  &__title {
+  &__head {
     @extend %default-title;
-    text-align: center;
+    padding-bottom: 30px;
+  }
+  &__lead {
+    font-size: 15px;
+    padding-bottom: 30px;
   }
 }
 
-.session-form-wrapper {
+.devise-form-wrapper {
   width: 80vw;
   margin: 0 auto;
 
@@ -19,7 +25,7 @@
     flex-wrap: wrap;
 
     &__label {
-    @extend %default-label;
+      @extend %default-label;
     }
     &__field {
       @extend %default-field;
@@ -32,9 +38,16 @@
         }
       }
     }
+    &__lead {
+      @extend %default-lead;
+    }
     &__btn {
       @extend %default-form-btn;
 
+      &--wide {
+        @extend %default-form-btn;
+        width: auto;
+      }
       &:hover {
         @extend %default-form-btn-hover;
       }

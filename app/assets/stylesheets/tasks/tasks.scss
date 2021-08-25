@@ -13,7 +13,6 @@
   &__title {
     @extend %default-title;
   }
-
   &__sort {
     padding: 2rem;
 
@@ -28,7 +27,6 @@
       }
     }
   }
-
   &__room-unit{
     margin-left: 2rem;
 
@@ -43,7 +41,6 @@
       }
     }
   }
-
   &__link {
     margin-left: auto;
 
@@ -99,8 +96,8 @@
   & a {
     text-decoration: none;
     transition: transform 300ms ease;
-  }
-  & a:hover {
-    transform: scale(0.9, 1.1);
+    &:hover {
+      transform: scale(0.9, 1.1);
+    }
   }
 }

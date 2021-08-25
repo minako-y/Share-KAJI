@@ -2,9 +2,7 @@
 
 .room-container {
   @extend %default-container;
-  min-height: 80vh;
 }
-
 .room-section {
   width: 80vw;
   display: flex;
@@ -26,15 +24,25 @@
     @extend %default-form-group;
 
     &__label {
-    @extend %default-form-group__label;
+    @extend %default-label;
     }
-
     &__field {
-      @extend %default-form-group__field;
-    }
+      @extend %default-field;
 
+      &input {
+        @extend %default-input;
+
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+    }
     &__btn {
-      @extend %default-form-group__btn;
+      @extend %default-form-btn;
+
+      &:hover {
+        @extend %default-form-btn-hover;
+      }
     }
   }
 }

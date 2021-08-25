@@ -1,15 +1,28 @@
-<h2>モンスター編集</h2>
+<div class="monsters-container">
 
-<div>
+  <h2 class="monsters-container__title--top">モンスター編集</h2>
+
+  <div class="monster-form-wrapper">
     <%= form_with model: @monster, local: true do |f| %>
-      <%= f.label :name, '名前' %>
-      <%= f.text_field :name %>
-      <%= f.label :image, '画像' %>
-      <%= f.attachment_field :image %>
-      <%= f.label :genre_id, '家事ジャンル' %>
-      <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-      <%= f.label :memo, '説明' %>
-      <%= f.text_field :memo %>
-      <%= f.submit "更新" %>
+    <div class="monster-form-wrapper__form-group">
+      <div class="monster-form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
+      <div class="monster-form-wrapper__form-group__field"><%= f.text_field :name %></div>
+    </div>
+    <div class="monster-form-wrapper__form-group">
+      <div class="monster-form-wrapper__form-group__label"><%= f.label :image, '画像' %></div>
+      <div><%= f.attachment_field :image %></div>
+    </div>
+    <div class="monster-form-wrapper__form-group">
+      <div class="monster-form-wrapper__form-group__label"><%= f.label :genre_id, '家事ジャンル' %></div>
+      <div class="monster-form-wrapper__form-group__field"><%= f.collection_select :genre_id, Genre.all, :id, :name %></div>
+    </div>
+    <div class="monster-form-wrapper__form-group">
+      <div class="monster-form-wrapper__form-group__label"><%= f.label :memo, '説明' %></div>
+      <div class="monster-form-wrapper__form-group__field--large"><%= f.text_field :memo %></div>
+    </div>
+    <div class="monster-form-wrapper__form-group">
+      <%= f.submit "更新", class: "monster-form-wrapper__form-group__btn"  %>
+    </div>
     <% end %>
   </div>
+</div>

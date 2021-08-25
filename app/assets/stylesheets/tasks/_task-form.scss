@@ -3,10 +3,56 @@
 // new,edit container
 .task-form-container {
   @extend %default-container;
+  text-align: center;
 
   &__title {
     @extend %default-title;
   }
 }
 
- // formはsignup参照
+.task-form-wrapper {
+  width: 80vw;
+  margin: 0 auto;
+
+  &__form-group {
+    @extend %default-form-group;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__label {
+      @extend %default-label;
+    }
+    &__field {
+      @extend %default-field;
+
+      & input {
+        @extend %default-input;
+
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+      & textarea {
+        @extend %default-textarea;
+
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+    }
+    &__lead {
+      @extend %default-lead;
+    }
+    &__btn {
+      @extend %default-form-btn;
+
+      &--wide {
+        @extend %default-form-btn;
+        width: auto;
+      }
+      &:hover {
+        @extend %default-form-btn-hover;
+      }
+    }
+  }
+}
