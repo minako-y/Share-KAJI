@@ -28,6 +28,7 @@
 // コンテナ用
 %default-container {
   min-height: 93vh;
+  color: $thema-color3;
   padding: 5rem 2rem 5rem;
   box-sizing: border-box;
   background-color: $base-color1;
@@ -46,48 +47,47 @@
   width: 50vw;
   margin: 0.5rem auto;
   line-height: 1.5rem;
-
-  &__label {
-    width: 10rem;
-    font-size: 0.5rem;
-    font-weight: bold;
-    text-align: left;
-  }
-
-  &__field {
-    width: 20rem;
-  }
-
-  &__field input {
-    width: 20rem;
-    height: 1.5rem;
-    border: 2px solid $base-color2;
-    border-radius: 5px;
-  }
-
-  &__field input:focus {
-    outline: none;
-    border: 2px solid $thema-color2;
-  }
-
-  &__lead {
-    margin: 2rem 0;
-    font-size: 15px;
-  }
-
-  &__btn {
-    @extend %default-btn;
-    color: $base-color3;
-    background-color: $thema-color2;
-    border-color: $thema-color2;
-    width: 10rem;
-    margin: 3rem auto;
-
-    &:hover {
-      color: $thema-color2;
-      background-color: $base-color3;
-    }
-  }
+}
+%default-label {
+  width: 10rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: left;
+}
+%default-field {
+  width: 20rem;
+}
+%default-input {
+  width: 20rem;
+  height: 1.5rem;
+  border: 2px solid $base-color2;
+  border-radius: 5px;
+}
+%default-focus {
+  outline: none;
+  border: 2px solid $thema-color2;
+}
+%default-textarea {
+  width: 20rem;
+  height: 7rem;
+  border: 2px solid $base-color2;
+  border-radius: 5px;
+}
+%default-lead {
+  margin: 2rem 0;
+  font-size: 15px;
+}
+%default-form-btn {
+  @extend %default-btn;
+  color: $base-color3;
+  background-color: $thema-color2;
+  border-color: $thema-color2;
+  width: 10rem;
+  margin: 3rem auto;
+}
+%default-form-btn-hover {
+  color: $thema-color2;
+  background-color: $base-color3;
 }
 
 // モーダル表示

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
 
   root 'homes#top'
-  get 'about' => 'homes#about', as: 'about'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'

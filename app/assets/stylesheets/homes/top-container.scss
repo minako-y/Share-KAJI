@@ -1,34 +1,58 @@
 @import "share/variables";
 
+%about-block {
+  color: $base-color3;
+  font-family: $font-family2;
+  background-color: $thema-color2;
+  padding: 120px 2rem 0;
+  position: relative;
+}
+
+%about-block__heading {
+  width: 60vw;
+  font-size: 30px;
+}
+
+%about-block__text {
+  width: 60vw;
+  font-size: 20px;
+  line-height: 1.5rem;
+  padding: 1rem 0;
+}
+
+%about-after-line {
+  content: '';
+  border: solid;
+  border-width: 60px 50vw 60px 50vw;
+  display: block;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+}
+
 .top-container{
   width: 100%;
-  overflow: hidden; /* はみ出た部分は表示しない */
+  background-color: $thema-color1;
+  padding-bottom: 120px; // 一番下の青色
+  overflow: hidden;
 }
 
 .visual-wrapper {
-  min-height: 60vh;
+  min-height: 80vh;
   color: $base-color3;
-  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans','Yu Gothic UI',sans-serif;
+  font-family: $font-family2;
   background-color: $thema-color1;
-  padding: 5rem 2rem 5rem;
-  box-sizing: border-box;
+  padding: 10rem 10vw 5rem;
   position: relative;
 
   &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
+    @extend %about-after-line;
     bottom: 0;
-    border-top: 60px solid transparent;  /* 透明 */
-    border-left: 50vw solid transparent;  /* 透明 */
-    border-right: 50vw solid $thema-color2;
-    border-bottom: 60px solid $thema-color2;
-    z-index: 1;
+    border-color: transparent $base-color1 $base-color1 transparent;
   }
 
   &__subtitle {
-    font-size: 20px;
+    font-size: 30px;
     padding-bottom: 20px;
   }
 
@@ -38,14 +62,20 @@
   }
 
   &__bottom {
-    font-size: 20px;
+    font-size: 30px;
+    line-height: 2rem;
     text-align: center;
+  }
+
+  &__btn-area {
+    line-height: 2rem;
+    margin-top: 2rem;
   }
 
   &__btn {
     @extend %default-btn;
     color: $base-color3;
-    margin: 3rem;
+    padding: 10px 10%;
     position: relative;
     z-index: 2;
 
@@ -56,11 +86,75 @@
   }
 }
 
-.text-wrapper {
-  min-height: 60vh;
-  color: $base-color3;
-  font-family: 'ヒラギノ丸ゴ ProN','Hiragino Maru Gothic ProN','ヒラギノ角ゴシック','Hiragino Sans','Yu Gothic UI',sans-serif;
-  background-color: $thema-color2;
-  padding: 5rem 2rem 5rem;
-  box-sizing: border-box;
+.about-container {
+  font-family: $font-family2;
+  background-color: $base-color1;
+}
+
+.about-block {
+  @extend %about-block;
+
+  &__top {
+    @extend %about-block;
+    color: $thema-color3;
+    background-color: $base-color1;
+    padding-top: 0;
+
+    &__heading {
+      @extend %about-block__heading;
+      margin-left: auto;
+    }
+
+    &__text {
+      @extend %about-block__text;
+      margin-left: auto;
+    }
+
+    &::after {
+      @extend %about-after-line;
+      border-color: $base-color1 $base-color1 transparent transparent;
+    }
+  }
+
+  &__middle {
+    @extend %about-block;
+    color: $base-color3;
+    background-color: $thema-color2;
+
+    &__heading {
+      @extend %about-block__heading;
+      margin-right: auto;
+    }
+
+    &__text {
+      @extend %about-block__text;
+      margin-right: auto;
+    }
+
+    &::after {
+      @extend %about-after-line;
+      border-color: $thema-color2 transparent transparent $thema-color2;
+    }
+  }
+
+  &__bottom {
+    @extend %about-block;
+    color: $thema-color3;
+    background-color: $base-color1;
+
+    &__heading {
+      @extend %about-block__heading;
+      margin-left: auto;
+    }
+
+    &__text {
+      @extend %about-block__text;
+      margin-left: auto;
+    }
+
+    &::after {
+      @extend %about-after-line;
+      border-color: $base-color1 $base-color1 transparent transparent;
+    }
+  }
 }
