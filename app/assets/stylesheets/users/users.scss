@@ -3,90 +3,96 @@
 
 .user-container {
   @extend %default-container;
-  width: 100%;
 
+  &__title {
+    @extend %default-title;
+    font-size: 40px;
+    margin: 0 auto 2rem;
+    text-align: center;
+  }
   &__foot {
     color: $base-color2;
     text-decoration: none;
     text-align: right;
-  }
 
-  &__foot:hover {
-    color: $thema-color3;
+    &:hover {
+      color: $thema-color3;
+    }
   }
 }
 
 .profile-group {
-  width: 60vw;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
-  &__image img{
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    object-fit: cover;
+  &__left {
+    margin: 0 2rem;
+
+    & img{
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
+  &__right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
-  &__col {
-    margin: 1rem auto;
-    color: $thema-color3;
-    position: relative;
+.profile-col {
+  margin: 1rem 2rem;
+  color: $thema-color3;
+  position: relative;
 
-    &__name {
+  &__name {
+    font-size: 30px;
+  }
+  &__item {
+    font-size: 15px;
+    background:linear-gradient(transparent 80%, $thema-color1 0%);
+    margin: 0.5rem 0;
+
+    &--big {
       font-size: 30px;
     }
-
-    &__item {
-      font-size: 15px;
-      background:linear-gradient(transparent 80%, $thema-color1 0%);
-      margin: 0.5rem 0;
-
-      &--big {
-        font-size: 30px;
-      }
-    }
-
-    &__btn {
-      @extend %default-btn;
-      color: $base-color1;
-      background-color: $thema-color3;
-      margin: 2rem auto;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+  }
+  &__btn {
+    @extend %default-btn;
+    color: $base-color1;
+    background-color: $thema-color3;
+    margin: 2rem auto;
+    position: absolute;
+    right: 0;
+    left: 0;
   }
 }
 
 .link-group {
+  font-family: $font-family2;
   margin: 4rem auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   &__item {
-    height: 100px;
-    width: 25%;
-    line-height: 1rem;
-    font-size: 25px;
-    font-family: 'Hannotate SC','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','Meiryo UI',sans-serif;
-    margin: 0 auto;
+    width: 16rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    color: $thema-color3;
+    text-align: center;
+    border: 1px solid $thema-color3;
+    background-color: $base-color3;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 2rem 1rem;
+    margin: 0 2rem 3rem;
+    transition: transform 300ms ease;
 
-    a {
-      text-decoration: none;
-      color: $thema-color3;
-      border: 1px solid $thema-color3;
-      border-radius: 5%;
-      background-color: $base-color3;
-      display: flex;
-      height: 100px;
-      justify-content: center;
-      align-items: center;
-      transition: transform 300ms ease;
-    }
-
-    a:hover {
+    &:hover {
       color: $base-color3;
       background-color: $thema-color1;
       border: 1px solid $base-color3;

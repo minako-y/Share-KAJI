@@ -18,7 +18,7 @@ class MonstersController < ApplicationController
 
   def index
     @monster = Monster.new
-    @monsters = Monster.where(user_id: current_user.id).or(Monster.where(official: true))
+    @monsters = Monster.where(user_id: current_user.id).or(Monster.where(official: true)).order(monster_id: :desc)
   end
 
   def show
