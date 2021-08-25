@@ -5,7 +5,7 @@ class Room < ApplicationRecord
   has_many :users, foreign_key: :current_room_id
   has_many :tasks, dependent: :destroy
 
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
 end

@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     get 'followed' => 'relationships#followed', as: 'followed'
     resources :relationships, only: [:create, :destroy]
   end
-  get 'rooms/search' => 'rooms#search', as: 'room_search'
-  resources :rooms
+  resources :rooms, only: [:new, :create]
   get 'tasks/search_task' => 'tasks#search_task', as: 'tasks_search'
   get 'tasks/search_template_task' => 'tasks#search_template_task', as: 'template_search'
   resources :tasks do

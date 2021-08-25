@@ -2,26 +2,34 @@
 
 .room-container {
   @extend %default-container;
-}
-.room-section {
-  width: 80vw;
-  display: flex;
 
-  &__block {
-    width: 30vw;
-    margin: 0 auto;
+  &__title {
+    @extend %default-title;
+    margin: 0 0 2rem;
+    text-align: center;
+  }
+  &__lead {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
-    &__title {
-      @extend %default-title;
+    &--mb {
+      margin: 0 1rem 3rem 0;
     }
   }
 }
 
 .room-form-wrapper {
-  width: 50vw;
 
   &__form-group {
     @extend %default-form-group;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 
     &__label {
     @extend %default-label;
@@ -29,13 +37,18 @@
     &__field {
       @extend %default-field;
 
-      &input {
+      & input {
         @extend %default-input;
 
         &:focus {
           @extend %default-focus;
         }
       }
+    }
+    &__lead {
+      @extend %default-lead;
+      text-align: center;
+      margin-bottom: 1rem;
     }
     &__btn {
       @extend %default-form-btn;

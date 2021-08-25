@@ -1,34 +1,37 @@
 <div class="room-container">
-  <div class="room-section">
-    <div class="room-section__block">
-      <h1 class="room-section__block__title">新規ルーム作成</h1>
-      <div class="room-form-wrapper">
-        <%= form_with model: @room, local: true do |f| %>
-        <div class="room-form-wrapper__form-group">
-          <div class="room-form-wrapper__form-group__label"><%= f.label :name, 'ルーム名' %></div>
-          <div class="room-form-wrapper__form-group__field"><%= f.text_field :name %></div>
-          <div class="room-form-wrapper__form-group__label"><%= f.label :password, 'パスワード' %></div>
-          <div class="room-form-wrapper__form-group__field"><%= f.text_field :password %></div>
-          <div class="room-form-wrapper__form-group">
-            <%= f.submit '新規ルーム作成', class: "room-form-wrapper__form-group__btn" %>
-          </div>
-        </div>
-        <% end %>
+  <div class="room-container">
+    <h1 class="room-container__title">新規ルーム作成</h1>
+    <p class="room-container__lead">
+      始めに、ルームを作成する必要があります。<br>
+      ルーム名とパスワードを他の利用者と共有することで<br>
+      作成したタスクを共同で管理することが可能です。<br><br>
+      また、新しく別のルームを作成することもできます。
+    </p>
+    <%= render "devise/shared/error_messages", resource: @room %>
+    <div class="room-form-wrapper">
+      <%= form_with model: @room, local: true do |f| %>
+      <div class="room-form-wrapper__form-group">
+        <div class="room-form-wrapper__form-group__label"><%= f.label :name, 'ルーム名' %></div>
+        <div class="room-form-wrapper__form-group__field"><%= f.text_field :name %></div>
       </div>
-    </div>
-    <div class="room-section__block">
-      <h1 class="room-section__block__title">ルーム検索</h1>
-      <div class="room-form-wrapper">
-        <%= form_with url: room_search_path, method: :get, local: true do |f| %>
-        <div class="room-form-wrapper__form-group">
-          <div class="room-form-wrapper__form-group__label"><%= f.label :room_search, 'ルームID' %></div>
-          <div class="room-form-wrapper__form-group__field"><%= f.text_field :room_search %></div>
-          <div class="room-form-wrapper__form-group">
-            <%= f.submit "検索", class: "room-form-wrapper__form-group__btn" %>
-          </div>
-        </div>
-        <% end %>
+      <div class="room-form-wrapper__form-group">
+        <div class="room-form-wrapper__form-group__label"><%= f.label :password, 'パスワード' %></div>
+        <div class="room-form-wrapper__form-group__field"><%= f.text_field :password %></div>
       </div>
+        <p class="room-form-wrapper__form-group__lead">ルーム名・パスワードは、入室の際に入力していただくものとなります。</p>
+        <p class="room-form-wrapper__form-group__lead">
+          検索の都合上、一意なルーム名を設定していただく必要があります。<br>
+          ぜひ個性的なルームを作成しましょう！
+        </p>
+        <p class="room-form-wrapper__form-group__lead">※ 最後に入室したルーム名は、マイページよりご確認いただけます。</p>
+        <div class="room-form-wrapper__form-group">
+          <%= f.submit '新規ルーム作成', class: "room-form-wrapper__form-group__btn" %>
+        </div>
+      </div>
+      <% end %>
+    <div class="room-container__link">
+      <div class="room-container__link--mb"><%= link_to "入室済みの場合はこちら", tasks_path, class: "room-form-wrapper__form-group__btn" %></div>
+      <div><%= link_to "ルームへのログインはこちら", login_path, class: "room-form-wrapper__form-group__btn" %></div>
     </div>
   </div>
 </div>

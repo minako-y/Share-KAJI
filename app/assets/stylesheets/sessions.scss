@@ -17,6 +17,7 @@
     @extend %default-form-group;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
     &__label {
     @extend %default-label;
