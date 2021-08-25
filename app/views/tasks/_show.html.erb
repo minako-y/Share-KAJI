@@ -30,19 +30,23 @@
 
         <div id="tab2" class="tab">
           <div class="task-monster">
-            <div class="task-monster__visual-area">
-              <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-monster__visual-area--img" %>
-            </div>
-            <div class="task-monster__heading">
-              <span class="task-monster__heading--large"><%= task.monster.name %></span>
-              <span>があらわれた！</span>
-            </div>
-            <div class="task-monster__text">
-              <%= task.monster.memo %>
-            </div>
-            <div class="task-monster__lead">
-              <p>獲得予想経験値: <%= task.monster.genre_id == current_user.weaknesses_genre_id ? "20exp" : "10exp" %></p>
-            </div>
+            <% if task.monster != nil %>
+              <div class="task-monster__visual-area">
+                <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-monster__visual-area--img" %>
+              </div>
+              <div class="task-monster__heading">
+                <span class="task-monster__heading--large"><%= task.monster.name %></span>
+                <span>があらわれた！</span>
+              </div>
+              <div class="task-monster__text">
+                <%= task.monster.memo %>
+              </div>
+              <div class="task-monster__lead">
+                <p>獲得予想経験値: <%= task.monster.genre_id == current_user.weaknesses_genre_id ? "20exp" : "10exp" %></p>
+              </div>
+            <% else %>
+              <div>モンスターが見つかりません。</div>
+            <% end %>
           </div>
         </div>
       </div>
