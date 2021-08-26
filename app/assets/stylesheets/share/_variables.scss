@@ -101,6 +101,15 @@
   left: 0;
   z-index: 3;
 }
+#mask-2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+}
 
 #modal {
   position: fixed; // モーダルを固定
@@ -114,14 +123,26 @@
   z-index: 4;  // マスクより上に配置
   width: 800px;   // showビューの幅に合わせて設定
 }
+#modal-2 {
+  position: fixed; // モーダルを固定
+  top: 20vh;
+  // 以下3行：モーダルを左右中央揃え
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 6;  // マスクより上に配置
+  width: 700px;
+}
 
 // hiddenクラスで最初は表示されないようにする
-#mask.hidden {
+#mask.hidden, #mask-2.hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-#modal.hidden {
+#modal.hidden, #modal-2.hidden {
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);   // 大きさ0.8倍から等倍にモーダルが拡大される

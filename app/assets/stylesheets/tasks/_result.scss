@@ -1,0 +1,121 @@
+@import 'share/variables';
+
+.result-section {
+  background-color: $base-color1;
+  height: 400px;
+  width: 700px;
+  padding: 1rem;
+
+  &__head {
+    @extend %default-title;
+    font-size: 3rem;
+    font-family: $font-family2;
+    background:linear-gradient(transparent 50%, $thema-color2-dark 0%);
+    text-align: center;
+    margin: 3rem 0 1rem;
+  }
+  &__lead {
+    @extend %default-title;
+    font-family: $font-family2;
+    text-align: center;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & span {
+      background:linear-gradient(transparent 70%, $thema-color2-dark 0%);
+    }
+
+    &__image {
+      width: 3rem;
+      height: 3rem;
+      margin-right: 0.2rem;
+
+      & img {
+        width: inherit;
+        height: inherit;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.result-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.result-monster {
+  position: relative;
+  margin-right: 1rem;
+
+  &__image {
+    width: 11rem;
+    height: 11rem;
+    border-radius: 50%;
+
+    & img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+  &__mark {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $point-color1;
+    text-align: center;
+    border: 5px solid $point-color1;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px $base-color3;
+    padding: 0 1rem;
+    transform: rotate(-20deg);
+    transition: 0.2s;
+    position: absolute;
+    top: 3rem;
+    left: -1rem;
+    z-index: 7;
+  }
+}
+
+.mark-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);
+}
+
+.result-unit {
+
+  &__top {
+    width: 100%;
+    height: 5rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: $base-color3;
+    border: 1px solid $base-color2;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0 auto;
+
+    & span {
+      font-size: 2rem;
+    }
+  }
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+  &__item {
+    background-color: $base-color3;
+    border: 1px solid $base-color2;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 0.5rem 1rem;
+
+    & span {
+      font-size: 2rem;
+    }
+  }
+}

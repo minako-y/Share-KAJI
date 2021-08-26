@@ -141,7 +141,6 @@
       pointer-events: none;
     }
   }
-
   &__keep-btn {
     @extend %default-btn;
     color: $base-color3;
@@ -152,12 +151,10 @@
       background-color: $thema-color1-dark;
     }
   }
-
   &--right {
     display: flex;
     flex-direction: column;
   }
-
   &__delete-btn {
     @extend %default-btn;
     color: $base-color1;
@@ -167,12 +164,11 @@
       background-color: $point-color1;
     }
   }
-
   &__back-btn {
     @extend %default-btn;
     color: $base-color1;
     background-color: $thema-color3-light;
-    line-height: 2rem;
+    line-height: 2.5rem;
     flex-grow: 1;
 
     &:hover {

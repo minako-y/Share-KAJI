@@ -21,7 +21,7 @@
               <div class="task-unit__item">作成者：<%= task.creator.name %></div>
               <% if task.progress == "完了" %>
                 <div class="task-unit__item">実施者：<%= task.executor.name %></div>
-                <div class="task-unit__item">完了日：<%= task.finish_date.strftime("%m月%d日 %H:%M") %></div>
+                <div class="task-unit__item"><i class="fas fa-flag-checkered"></i><%= task.finish_date.strftime("%m月%d日 %H:%M") %></div>
               <% end %>
             </div>
 
