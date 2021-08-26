@@ -1,4 +1,8 @@
-$(".slide-inner").html("<%= j(render 'tasks/slide-inner', {tag: @tag, template_tasks: @template_tasks, tag_list: @tag_list}) %>");
 
-$(".tag_<%= @tag.id %>").addClass("tag-wrapper__item--active");
-
+if (<%= @tag.id %> == 0){
+  $(".slide-inner").html("<%= j(render 'tasks/slide-inner', {template_tasks: @template_tasks, tag_list: @tag_list}) %>");
+  $(".reset-tag").addClass("tag-wrapper__item--active");
+}else {
+  $(".slide-inner").html("<%= j(render 'tasks/slide-inner', {tag: @tag, template_tasks: @template_tasks, tag_list: @tag_list}) %>");
+  $(".tag_<%= @tag.id %>").addClass("tag-wrapper__item--active");
+}

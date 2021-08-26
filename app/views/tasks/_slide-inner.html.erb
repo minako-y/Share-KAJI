@@ -1,4 +1,5 @@
 <div class="tag-wrapper__tag-box">
+  <%= link_to "reset", template_search_path, remote: true, class: "tag-wrapper__item reset-tag"  %>
   <% tag_list.each do |list| %>
     <%= link_to list.name, template_search_path(tag_id: list.id), remote: true, class: "tag-wrapper__item tag_#{list.id}"  %>
   <% end %>
