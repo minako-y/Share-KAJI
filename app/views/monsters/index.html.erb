@@ -10,6 +10,7 @@
   </div>
 
   <h2 class="monsters-container__title--slide">Create New Monster <i class="fas fa-chevron-circle-down"></i></h2>
+  <%= render 'devise/shared/error_messages', resource: @monster %>
   <div class="monster-form-wrapper" id="new-monster-form">
     <%= form_with model: @monster, local: true do |f| %>
     <div class="monster-form-wrapper__form-group">

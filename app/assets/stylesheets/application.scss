@@ -36,3 +36,15 @@ body {
   }
 }
 
+#error_explanation {
+  width: 50vw;
+  border: 1px solid $point-color1;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem auto;
+
+  & ul {
+    list-style: none;
+  }
+}
+

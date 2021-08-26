@@ -1,6 +1,7 @@
 <div class="monsters-container">
 
   <h2 class="monsters-container__title--top">モンスター編集</h2>
+  <%= render 'devise/shared/error_messages', resource: @monster %>
 
   <div class="monster-form-wrapper">
     <%= form_with model: @monster, local: true do |f| %>
