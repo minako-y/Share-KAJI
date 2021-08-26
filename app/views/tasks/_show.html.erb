@@ -11,17 +11,19 @@
         <div id="tab1" class="tab">
           <div class="task-unit">
             <div class="task-unit__items">
-              <div class="task-unit__item">ジャンル：<%= task.genre.name %></div>
-              <div class="task-unit__item">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></div>
+              <div class="task-unit__item--genre"><%= task.genre.name %></div>
+              <div class="task-unit__item--date">予定：<%= task.due_date.strftime("%m月%d日 %H:%M") %></div>
               <% if task.progress != "完了" %>
                 <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
               <% end %>
             </div>
             <div class="task-unit__items">
-              <div class="task-unit__item">作成者：<%= task.creator.name %></div>
+              <div class="task-unit__item"><span>作成者</span><%= attachment_image_tag task.creator, :profile_image, fallback: 'noimage-760x460.png'%><%= task.creator.name %></div>
+            </div>
+            <div class="task-unit__items">
               <% if task.progress == "完了" %>
-                <div class="task-unit__item">実施者：<%= task.executor.name %></div>
-                <div class="task-unit__item"><i class="fas fa-flag-checkered"></i><%= task.finish_date.strftime("%m月%d日 %H:%M") %></div>
+                <div class="task-unit__item"><span>実施者</span><%= attachment_image_tag task.executor, :profile_image, fallback: 'noimage-760x460.png'%><%= task.executor.name %></div>
+                <div class="task-unit__item">（<%= task.finish_date.strftime("%m月%d日 %H:%M") %>）</div>
               <% end %>
             </div>
 

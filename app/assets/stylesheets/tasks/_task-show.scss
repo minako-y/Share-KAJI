@@ -1,5 +1,12 @@
 @import 'share/variables';
 
+%default-category {
+  color: #fff;
+  border: 3px double;
+  border-color: $base-color1;
+  padding: 0.5rem;
+}
+
 .task-section {
   background-color: $base-color3;
   display: flex;
@@ -17,10 +24,38 @@
 .task-unit {
 
   &__items {
+    margin-bottom: 0.2rem;
     display: flex;
   }
   &__item {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    &--genre {
+      @extend %default-category;
+      background-color: $thema-color2;
+      margin-right: 0.5rem;
+    }
+    &--date {
+      @extend %default-category;
+      background-color: $thema-color3-light;
+      margin-right: 0.5rem;
+    }
+    & img {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    & span {
+      color: #fff;
+      border: 3px double;
+      border-color: $base-color1;
+      background-color: $thema-color1-dark;
+      margin-right: 0.5rem;
+      padding: 0.5rem;
+    }
   }
   &__btn {
     @extend %default-btn;
@@ -31,7 +66,6 @@
       background-color: $thema-color3;
     }
   }
-
   &__tags {
     width: 400px;
     height: 3rem;
@@ -55,7 +89,7 @@
     }
   }
   &__body {
-    height: 250px;
+    height: 200px;
     width: 400px;
     background-color: $base-color3;
     margin: 0 auto 2rem;
@@ -82,7 +116,6 @@
       object-fit: cover;
     }
   }
-
   &__heading {
     font-size: 2rem;
     font-family: $font-family2;

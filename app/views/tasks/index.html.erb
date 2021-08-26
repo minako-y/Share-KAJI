@@ -8,7 +8,7 @@
     </div>
     <div class="main-top__link"><%= link_to "新規タスク作成", new_task_path , class: "fas fa-plus-circle" %></div>
     <div class="main-top__room-unit">
-      <span class="main-top__room-unit__head">現在のルーム: <%= current_room.name %><i class="fas fa-arrow-circle-down"></i></span>
+      <span class="main-top__room-unit__head">現在のルーム: <%= current_room.name %> <i class="fas fa-arrow-circle-down"></i></span>
       <div class="room-box">
         <p class="room-box__lead">Room Member</p>
         <% current_room.users.includes([:weaknesses_genre]).each do |user| %>
