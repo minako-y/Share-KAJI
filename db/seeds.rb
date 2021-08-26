@@ -3,7 +3,7 @@ Genre.create!([{name: "料理"}, {name: "買い物"}, {name: "掃除"}, {name: "
 
 # テストアカウント
 [
-  ["official@test", "official@test", "公式アカウント", 1, 1],
+  ["official@test", "official@test", "公式アカウント", 1, nil],
   ["test1@test", "test1@test", "ichika", 3, 1],
   ["test2@test", "test2@test", "ニイナ", 4, 1],
   ["test3@test", "test3@test", "さん太", 1, 1],
