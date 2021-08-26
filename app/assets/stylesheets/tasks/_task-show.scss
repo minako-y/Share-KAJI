@@ -19,11 +19,9 @@
   &__items {
     display: flex;
   }
-
   &__item {
     margin-right: 1rem;
   }
-
   &__btn {
     @extend %default-btn;
     color: $base-color1;
@@ -47,7 +45,6 @@
       overflow: auto;
       white-space: nowrap;
     }
-
     &__item {
       color: $thema-color1;
       background-color: $base-color3;
@@ -57,9 +54,8 @@
       margin-right: 0.2rem;
     }
   }
-
   &__body {
-    height: 300px;
+    height: 250px;
     width: 400px;
     background-color: $base-color3;
     margin: 0 auto 2rem;
@@ -97,10 +93,8 @@
       font-weight: bold;
     }
   }
-
   &__text {
   }
-
   &__lead {
     text-align: right;
     position: absolute;
@@ -119,30 +113,31 @@
   height: 150px;
   width: auto;
   text-align: center;
-  padding-top: 0.5rem;
   display: flex;
   justify-content: center;
 
   &--left {
+    flex-grow: 1;
+    height: inherit;
   }
-
   &__complete-btn {
     @extend %default-btn;
+    width : 100%;
+    height: 150px;
     color: $base-color3;
     background-color: $thema-color2;
     line-height: 7rem;
-    width : 100%;
 
     &:hover {
       background-color: $thema-color2-dark;
     }
-
     &--disabled {
       @extend %default-btn;
+      width : 100%;
+      height: 150px;
       color: $base-color3;
       background-color: $base-color2;
       line-height: 7rem;
-      width : 100%;
       pointer-events: none;
     }
   }

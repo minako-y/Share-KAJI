@@ -17,6 +17,14 @@
                 <div class="task-unit__item"><%= link_to "編集", edit_task_path(task), class: "task-unit__btn" %></div>
               <% end %>
             </div>
+            <div class="task-unit__items">
+              <div class="task-unit__item">作成者：<%= task.creator.name %></div>
+              <% if task.progress == "完了" %>
+                <div class="task-unit__item">実施者：<%= task.executor.name %></div>
+                <div class="task-unit__item">完了日：<%= task.finish_date.strftime("%m月%d日 %H:%M") %></div>
+              <% end %>
+            </div>
+
             <div class="task-unit__tags">
               <div class="task-unit__tags__tag-area">
                 <% task.tags.each do |tag| %>
