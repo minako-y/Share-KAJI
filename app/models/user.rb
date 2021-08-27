@@ -19,6 +19,8 @@ class User < ApplicationRecord
   belongs_to :current_room, class_name: 'Room', foreign_key: :current_room_id, optional: true
   attachment :profile_image
 
+  validates :name, presence: true, length: {maximum: 20}
+
   def follow(user_id)
     follower.create(followed_id: user_id)
   end
