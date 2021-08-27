@@ -1,6 +1,7 @@
 @import 'share/variables';
 
 .show-container {
+  color: $thema-color3;
   background-color: rgba(0,0,0,0.5);
   font-family: $font-family2;
   padding: 0;
@@ -30,6 +31,21 @@
   right: 0;
 
   &__link {
+    margin: 1rem;
+
+    & a {
+      color: $thema-color3;
+      border: 1px solid $thema-color3;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 0 1rem;
+      margin-right: 0.5rem;
+
+      &:hover {
+        color: $point-color1;
+        border: 1px solid $point-color1;
+      }
+    }
   }
   &__title {
     font-size: 30px;

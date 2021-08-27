@@ -1,4 +1,3 @@
-
 if (<%= @tag.id %> == 0){
   $(".slide-inner").html("<%= j(render 'tasks/slide-inner', {template_tasks: @template_tasks, tag_list: @tag_list}) %>");
   $(".reset-tag").addClass("tag-wrapper__item--active");

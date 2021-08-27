@@ -48,3 +48,22 @@ body {
   }
 }
 
+.pagination {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pagination > span a{
+  color: $thema-color3;
+  border: 1px solid $thema-color3;
+  background-color: $base-color3;
+  text-decoration: none;
+  padding: 0.2rem;
+}
+
+.pagination > .current {
+  color: $thema-color3;
+  border: 1px solid $thema-color3;
+  background-color: $thema-color3-light;
+  padding: 0.2rem;
+}

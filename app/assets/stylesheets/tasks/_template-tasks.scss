@@ -26,11 +26,13 @@
     height: 100vh;
     background: $base-color1;
     padding: 50px 10px 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     overflow: auto;
   }
+}
+.t-task-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .t-task-card {

@@ -10,3 +10,4 @@
     <%= render 'tasks/task-card', task: task %>
   <% end %>
 </div>
+<%= paginate @tasks, remote: true %>
