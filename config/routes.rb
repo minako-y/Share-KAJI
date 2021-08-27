@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :messages, only: [:create, :show]
   end
+  delete 'template_tasks' => 'template_tasks#destroy'
   resources :notifications, only: [:index]
   resources :monsters
 end
