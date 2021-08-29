@@ -11,7 +11,7 @@
 
 ### サイトテーマ
 
-<ruby>「家事大変なのに、いつもありがとう」<rp>（</rp><rt>感謝の気持ちを伝える</rt><rp>）</rp></ruby>  
+<ruby>「家事大変なのに、いつもありがとう」<rp>（</rp><rt>感謝の気持ちを伝える</rt><rp>）</rp></ruby>
 
 <ruby>「苦手な家事もこれなら頑張れそう」　<rp>（</rp><rt>楽しく家事をする</rt><rp>）</rp></ruby>を叶えるタスク管理サイト
 
@@ -25,7 +25,7 @@
 そのため、以下の機能を実装することで家事を快適に従事できると考えました。
 - 家事タスク達成時にアプリ画面で自身を称賛するメッセージ表示
 - 同居者と家事タスクを共有し、互いに進行状況を把握
-- タスク達成時にタスク共有者へ通知が送信され、感謝メッセージを送信するよう提案
+- タスク達成時にタスク共有者へ通知が作成され、感謝メッセージを送信するよう提案
 - タスク達成時にポイント付与されるゲーム性。（苦手分野を登録時設定しポイントを他より多く付与）
 
 コロナ禍により自宅で過ごす時間が増えると、家事をしている様子をお互いに見かけることが増えていると思います。
@@ -46,8 +46,7 @@
 - 家事が苦手で少しでもやる気を上げたい時
 
 ## 設計書
-（作成中）   
-[ER図](https://drive.google.com/file/d/19TFuTfQEsjoNZ3QnmXhhd-DNT_ai4gsx/view?usp=sharing) (Googleドライブへ遷移します)  
+[ER図](https://drive.google.com/file/d/1xW7xj4nvAdGZJJg_qXxXbaYnbQHzLV4p/view?usp=sharing) (Googleドライブへ遷移します)
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/1Tsf3seCXfeGgbLMia5bq7qAarhLrrHYAw_HwPMXFcog/edit?usp=sharing) (Googleドライブへ遷移します)
 

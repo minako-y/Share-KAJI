@@ -60,7 +60,7 @@ class TasksController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html
+      format.html {redirect_to tasks_path}
       # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる
       format.js
     end
