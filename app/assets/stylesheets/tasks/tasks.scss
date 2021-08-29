@@ -9,11 +9,11 @@
 
 .main-top {
   display: flex;
+  align-items: center;
 
   &__title {
     @extend %default-title;
   }
-
   &__sort {
     padding: 2rem;
 
@@ -28,28 +28,83 @@
       }
     }
   }
+  &__link a{
+    font-size: 20px;
+    margin-left: auto;
+    color: $thema-color3;
+    text-decoration: none;
+    transition-duration: 0.5s;
 
+    &:hover {
+      color: $thema-color2-dark;
+    }
+  }
   &__room-unit{
-    margin-left: 2rem;
+    margin-left: auto;
 
-    &__btn {
-      @extend %default-btn;
-      color: $base-color1;
-      background-color: $thema-color3-light;
-      margin: 2rem auto;
+    &__head {
+      margin: 0 2rem;
+      position: relative;
+      cursor: pointer;
+    }
+  }
+}
 
-      &:hover {
-        background-color: $thema-color3;
+.room-box {
+  width: 18rem;
+  height: auto;
+  background-color: $base-color3;
+  padding: 1rem 1rem 4rem;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 2rem;
+  top: 9rem;
+  z-index: 2;
+  display: none;
+
+  &__lead {
+    font-weight: bold;
+  }
+  &__list {
+    border: 1px solid $base-color2;
+    padding: 1rem;
+
+    &__head {
+      display: flex;
+      align-items: center;
+    }
+    &__image{
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+
+      & img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+      }
+    }
+    &__item {
+     margin: 0.5rem;
+
+      &--bold {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0.5rem;
       }
     }
   }
+  &__btn {
+    @extend %default-btn;
+    color: $base-color1;
+    background-color: $thema-color3-light;
+    position: absolute;
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
 
-  &__link {
-    margin-left: auto;
-
-    & a {
-      color: $thema-color3;
-      text-decoration: none;
+    &:hover {
+      background-color: $thema-color3;
     }
   }
 }
@@ -66,14 +121,13 @@
     overflow: auto;
     white-space: nowrap;
   }
-
   &__item {
     color: $thema-color1;
     background-color: $base-color3;
     border: 1px solid $thema-color1;
     border-radius: 0.8rem;
     text-decoration: none;
-    padding: 0.3rem;
+    padding: 0.3rem 0.5rem;
     margin-right: 0.2rem;
     transition: .3s;
 
@@ -81,7 +135,6 @@
       color: $base-color3;
       background-color: $thema-color1-dark;
     }
-
     &--active {
       color: $base-color3;
       background-color: $thema-color1;
@@ -99,8 +152,9 @@
   & a {
     text-decoration: none;
     transition: transform 300ms ease;
-  }
-  & a:hover {
-    transform: scale(0.9, 1.1);
+
+    &:hover {
+      transform: scale(0.9, 1.1);
+    }
   }
 }

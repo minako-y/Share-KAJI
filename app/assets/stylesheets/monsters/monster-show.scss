@@ -1,49 +1,61 @@
 @import 'share/variables';
 
 .show-container {
-  @extend %default-container;
-  background-color: $base-color3;
+  color: $thema-color3;
+  background-color: rgba(0,0,0,0.5);
   font-family: $font-family2;
   padding: 0;
+  width: 800px;
+  height: 500px;
+  position: relative;
+
+  &__image {
+    width: inherit;
+    height: inherit;
+
+    & img {
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
 }
 
 .show-group {
-  display: flex;
+  width: 40%;
+  min-height: 5rem;
+  background-color: rgba(225,225,225,0.7);
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  right: 0;
 
-  &__left {
+  &__link {
+    margin: 1rem;
 
-    &__image {
-      width: 30vw;
-      margin: 0 auto;
-    }
-    &__image img{
-      width: 20rem;
-      object-fit: cover;
-    }
+    & a {
+      color: $thema-color3;
+      border: 1px solid $thema-color3;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 0 1rem;
+      margin-right: 0.5rem;
 
-    &__link {
-
+      &:hover {
+        color: $point-color1;
+        border: 1px solid $point-color1;
+      }
     }
   }
-  &__right {
-    padding: 2rem 2rem 2rem 1rem ;
-
-    &__title {
-      font-size: 30px;
-      margin-bottom: 1rem;
-    }
-
-    &__icon {
-
-    }
-
-    &__label {
-
-    }
-
-    &__text {
-      margin-top: 1rem;
-    }
-
+  &__title {
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+  &__icon {
+  }
+  &__label {
+  }
+  &__text {
+    margin-top: 1rem;
   }
 }

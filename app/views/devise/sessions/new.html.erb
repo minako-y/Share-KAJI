@@ -1,23 +1,23 @@
-<div class="signup-container">
-  <h2 class="signup-container__head">ログイン</h2>
+<div class="devise-container">
+  <h2 class="devise-container__head">ログイン</h2>
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="form-wrapper">
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :email %></div>
-      <div class="form-wrapper__form-group__field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
+  <div class="devise-form-wrapper">
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label"><%= f.label :email %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></div>
     </div>
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :password %></div>
-      <div class="form-wrapper__form-group__field"><%= f.password_field :password, autocomplete: "current-password" %></div>
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label"><%= f.label :password %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.password_field :password, autocomplete: "current-password" %></div>
     </div>
     <% if devise_mapping.rememberable? %>
-      <div class="form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
     <% end %>
-    <div class="form-wrapper__form-group">
-      <%= f.submit "ログイン", class: "form-wrapper__form-group__btn"  %>
+    <div class="devise-form-wrapper__form-group">
+      <%= f.submit "ログイン", class: "devise-form-wrapper__form-group__btn"  %>
     </div>
   <% end %>
   </div>

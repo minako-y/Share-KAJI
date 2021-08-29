@@ -1,5 +1,12 @@
 @import 'share/variables';
 
+%default-category {
+  color: #fff;
+  border: 3px double;
+  border-color: $base-color1;
+  padding: 0.5rem;
+}
+
 .task-section {
   background-color: $base-color3;
   display: flex;
@@ -8,7 +15,6 @@
   &__left {
     width: 500px;
   }
-
   &__right {
     width: 300px;
   }
@@ -18,13 +24,39 @@
 .task-unit {
 
   &__items {
+    margin-bottom: 0.2rem;
     display: flex;
   }
-
   &__item {
-    margin-right: 1rem;
-  }
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
 
+    &--genre {
+      @extend %default-category;
+      background-color: $thema-color2;
+      margin-right: 0.5rem;
+    }
+    &--date {
+      @extend %default-category;
+      background-color: $thema-color3-light;
+      margin-right: 0.5rem;
+    }
+    & img {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    & span {
+      color: #fff;
+      border: 3px double;
+      border-color: $base-color1;
+      background-color: $thema-color1-dark;
+      margin-right: 0.5rem;
+      padding: 0.5rem;
+    }
+  }
   &__btn {
     @extend %default-btn;
     color: $base-color1;
@@ -34,7 +66,6 @@
       background-color: $thema-color3;
     }
   }
-
   &__tags {
     width: 400px;
     height: 3rem;
@@ -48,7 +79,6 @@
       overflow: auto;
       white-space: nowrap;
     }
-
     &__item {
       color: $thema-color1;
       background-color: $base-color3;
@@ -58,9 +88,8 @@
       margin-right: 0.2rem;
     }
   }
-
   &__body {
-    height: 300px;
+    height: 200px;
     width: 400px;
     background-color: $base-color3;
     margin: 0 auto 2rem;
@@ -87,7 +116,6 @@
       object-fit: cover;
     }
   }
-
   &__heading {
     font-size: 2rem;
     font-family: $font-family2;
@@ -98,10 +126,8 @@
       font-weight: bold;
     }
   }
-
   &__text {
   }
-
   &__lead {
     text-align: right;
     position: absolute;
@@ -120,34 +146,34 @@
   height: 150px;
   width: auto;
   text-align: center;
-  padding-top: 0.5rem;
   display: flex;
   justify-content: center;
 
   &--left {
+    flex-grow: 1;
+    height: inherit;
   }
-
   &__complete-btn {
     @extend %default-btn;
+    width : 100%;
+    height: 150px;
     color: $base-color3;
     background-color: $thema-color2;
     line-height: 7rem;
-    width : 100%;
 
     &:hover {
       background-color: $thema-color2-dark;
     }
-
     &--disabled {
       @extend %default-btn;
+      width : 100%;
+      height: 150px;
       color: $base-color3;
       background-color: $base-color2;
       line-height: 7rem;
-      width : 100%;
       pointer-events: none;
     }
   }
-
   &__keep-btn {
     @extend %default-btn;
     color: $base-color3;
@@ -158,12 +184,10 @@
       background-color: $thema-color1-dark;
     }
   }
-
   &--right {
     display: flex;
     flex-direction: column;
   }
-
   &__delete-btn {
     @extend %default-btn;
     color: $base-color1;
@@ -173,12 +197,11 @@
       background-color: $point-color1;
     }
   }
-
   &__back-btn {
     @extend %default-btn;
     color: $base-color1;
     background-color: $thema-color3-light;
-    line-height: 2rem;
+    line-height: 2.5rem;
     flex-grow: 1;
 
     &:hover {

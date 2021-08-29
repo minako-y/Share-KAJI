@@ -1,1 +1,5 @@
-$(".new-task-form").html("<%= j(render 'tasks/task_form', {task: @task}) %>");
+if ("<%= params[:area] %>" === "form" ){
+  $(".new-task-form").html("<%= j(render 'tasks/task_form', {task: @task}) %>");
+}else{
+  $(".slide-inner").html("<%= j(render 'tasks/slide-inner', {tag: @tag, template_tasks: @template_tasks, tag_list: @tag_list}) %>");
+}

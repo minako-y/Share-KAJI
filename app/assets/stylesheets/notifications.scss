@@ -1,3 +1,167 @@
-// Place all the styles related to the Notifications controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'share/variables';
+
+.notifications-container {
+  @extend %default-container;
+  color: $thema-color3;
+
+  &__head {
+    @extend %default-title;
+  }
+  &__sort {
+
+    &__link a{
+      font-size: 20px;
+      text-decoration: none;
+      color: $thema-color2;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $thema-color2-dark;
+      }
+    }
+    &__link--danger a {
+      font-size: 20px;
+      text-decoration: none;
+      color: $base-color2;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $point-color1;
+      }
+    }
+  }
+  &__link {
+    @extend %default-btn;
+    color: $base-color3;
+    background-color:$thema-color3-light ;
+    text-align: center;
+    box-shadow: 0 5px 5px $thema-color3;
+    margin: 2rem;
+    position: fixed;
+    top: 3rem;
+    right: 0;
+    z-index: 2;
+
+    &:hover {
+      color: $base-color3;
+      background-color: $thema-color3;
+    }
+  }
+  &__page {
+    margin: 2rem auto;
+  }
+  &__announce {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2rem;
+  }
+}
+
+.notification-unit {
+  padding: 1rem 1rem 2rem;
+  border-bottom: 1px solid $thema-color3;
+  display: flex;
+  justify-content: start;
+  position: relative;
+
+  &__title {
+    color: $thema-color3;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  &__user-unit {
+    margin-right: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 100px;
+    flex-shrink: 0;
+
+    &__image {
+      width: 4rem;
+      height: 4rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto;
+
+      & img {
+        width: inherit;
+        height: inherit;
+      }
+    }
+    &__name {
+      color: $thema-color1;
+      font-size: 1.2rem;
+    }
+  }
+  &__content-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--left {
+      width: 400px;
+      padding: 1rem;
+    }
+    &__create {
+      color: $thema-color2;
+    }
+    &__finish {
+      color: $thema-color2-dark;
+    }
+    &__progress {
+      color: $thema-color1-dark;
+    }
+    &--right {
+       padding: 1rem;
+    }
+    &__lead {
+      font-size: 0.5rem;
+      font-weight: bold;
+    }
+    &__text {
+      min-width: 20vw;
+      max-width: 40vw;
+      max-height: 100%;
+      color: $thema-color3-light;
+      background-color: $base-color3;
+      padding: 1rem;
+    }
+  }
+  &__end {
+    width: 5rem;
+    text-align: center;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    & a {
+      font-size: 2rem;
+      color: $base-color2;
+      text-decoration: none;
+
+      &:hover {
+        color: $thema-color2-dark;
+      }
+    }
+    & span {
+      color: $base-color2;
+      position: relative;
+      top: -1rem;
+    }
+  }
+  &__time {
+    color: $base-color2;
+    font-size: 0.8rem;
+    text-align: right;
+    margin-left: auto;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0;
+  }
+}

@@ -1,2 +1,12 @@
-<h1>Notifications#index</h1>
-<p>Find me in app/views/notifications/index.html.erb</p>
+<div class="notifications-container">
+  <h2 class="notifications-container__head">通知一覧</h2>
+  <div class="notifications-container__sort">
+    <span class="notifications-container__sort__link"><%= link_to "未読通知", notifications_path %></span>｜
+    <span class="notifications-container__sort__link"><%= link_to "既読通知", notifications_path(sort: "checked") %></span>｜
+    <span class="notifications-container__sort__link--danger"><%= link_to "通知全件削除", destroy_all_notifications_path, method: :delete, data: { confirm: "全ての通知を削除します。" } %></span>
+  </div>
+  <%= link_to "タスク管理へ移動する", tasks_path, class: "notifications-container__link" %>
+  <div class="notifications-container__notifications-wrapper">
+    <%= render 'notifications/notifications', notifications: @notifications %>
+  </div>
+</div>
