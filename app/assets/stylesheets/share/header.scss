@@ -27,12 +27,14 @@
   &__item {
     padding: 0 1.5rem;
 
-  }
-
-  &__item a {
+    & a {
     color: $thema-color3;
     text-decoration: none;
+
+      &:hover {
+        color: $thema-color2-dark;
+        transition: .3s;
+      }
+    }
   }
 }
-
-
