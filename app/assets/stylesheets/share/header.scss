@@ -13,12 +13,9 @@
   z-index: 9;
   display: flex;
 
-  &__logo {
-    color: $thema-color3;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 0 2rem;
+  &__logo img {
+    height: 3rem;
+    margin-left: 5vw;
   }
 }
 
@@ -28,14 +25,23 @@
   display: flex;
 
   &__item {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
 
-  }
-
-  &__item a {
+    & a {
     color: $thema-color3;
     text-decoration: none;
+
+      &:hover {
+        color: $thema-color2-dark;
+        transition: .3s;
+      }
+    }
   }
 }
 
-
+.notifications-icon {
+  color: $thema-color2;
+  position: relative;
+  left: 1.5rem;
+  top: 0.5rem;
+}

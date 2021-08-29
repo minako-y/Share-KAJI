@@ -1,36 +1,36 @@
-<div class="signup-container">
-  <h2 class="signup-container__head">新規登録</h2>
-  <p class="signup-container__lead">Step.1  ユーザー情報を入力してください。</p>
+<div class="devise-container">
+  <h2 class="devise-container__head">新規登録</h2>
+  <p class="devise-container__lead">Step.1  ユーザー情報を入力してください。</p>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="form-wrapper">
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :name, "名前" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
+  <div class="devise-form-wrapper">
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label"><%= f.label :name, "名前" %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.text_field :name, autofocus: true, autocomplete: "name" %></div>
     </div>
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :email, "メールアドレス" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.email_field :email, autocomplete: "email" %></div>
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label"><%= f.label :email, "メールアドレス" %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.email_field :email, autocomplete: "email" %></div>
     </div>
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label">
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label">
         <%= f.label :password, "パスワード" %><br>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
       </div>
-      <div class="form-wrapper__form-group__field"><%= f.password_field :password, autocomplete: "new-password" %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.password_field :password, autocomplete: "new-password" %></div>
     </div>
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :password_confirmation, "パスワード（確認）" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+    <div class="devise-form-wrapper__form-group">
+      <div class="devise-form-wrapper__form-group__label"><%= f.label :password_confirmation, "パスワード（確認）" %></div>
+      <div class="devise-form-wrapper__form-group__field"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
     </div>
-    <p class="form-wrapper__form-group__lead">Step.2  一番苦手な家事を選択してください。<br>（後で変更することもできます。）</p>
+    <p class="devise-form-wrapper__form-group__lead">Step.2  一番苦手な家事を選択してください。<br>（後で変更することもできます。）</p>
     <%= render 'devise/registrations/genre-card', f: f %>
-    <div class="form-wrapper__form-group">
-      <%= f.submit "はじめる", class: "form-wrapper__form-group__btn" %>
+    <div class="devise-form-wrapper__form-group">
+      <%= f.submit "はじめる", class: "devise-form-wrapper__form-group__btn" %>
     </div>
-  <% end %>
   </div>
+  <% end %>
   <%= render "devise/shared/links" %>
 </div>

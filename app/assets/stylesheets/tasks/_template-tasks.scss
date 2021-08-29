@@ -21,16 +21,18 @@
     bottom: 50vh;
     right: -9rem;
   }
-
   &__card-area {
     height: 100vh;
     background: $base-color1;
     padding: 50px 10px 100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     overflow: auto;
   }
+}
+
+.t-task-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .t-task-card {
@@ -45,7 +47,7 @@
   position: relative;
 
   &__link {
-    color:  $thema-color2;
+    color: $thema-color2;
     font-size: 50px;
     text-decoration: none;
     position: absolute;
@@ -53,18 +55,16 @@
     right: 0;
 
     &:hover {
-      color:  $thema-color2-dark;
+      color: $thema-color2-dark;
     }
   }
-
   &__genre {
-    color:  $thema-color1-dark;
+    color: $thema-color1-dark;
     border: 1px solid $thema-color1-dark;
     border-radius: 10%;
     padding: 5px;
     display: inline-block;
   }
-
   &__body {
     margin-top: 2rem;
     height: 5rem;
@@ -72,5 +72,18 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
     overflow: hidden;
+  }
+  &__delete {
+    color: $base-color2;
+    font-size: 20px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5rem;
+
+    &:hover {
+      color: $point-color1;
+    }
   }
 }

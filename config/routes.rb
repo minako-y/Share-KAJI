@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
 
   root 'homes#top'
-  get 'about' => 'homes#about', as: 'about'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
@@ -20,13 +19,15 @@ Rails.application.routes.draw do
     get 'followed' => 'relationships#followed', as: 'followed'
     resources :relationships, only: [:create, :destroy]
   end
-  get 'rooms/search' => 'rooms#search', as: 'room_search'
-  resources :rooms
+  resources :rooms, only: [:new, :create]
   get 'tasks/search_task' => 'tasks#search_task', as: 'tasks_search'
   get 'tasks/search_template_task' => 'tasks#search_template_task', as: 'template_search'
+  patch 'tasks/:id/change_progress' => 'tasks#change_progress', as: 'change_progress'
   resources :tasks do
     resources :messages, only: [:create, :show]
   end
-  resources :notifications, only: [:index]
+  delete 'template_tasks' => 'template_tasks#destroy'
+  delete 'notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_notifications'
+  resources :notifications, only: [:index, :update]
   resources :monsters
 end

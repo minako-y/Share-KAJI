@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     room = Room.find_by(name: params[:session][:name])
     if room && room.authenticate(params[:session][:password])
       log_in room
+      # 最後に入室したルームとしてマイページで確認可能にする
       user = User.find(current_user.id)
       user.current_room_id = session[:room_id]
       user.save

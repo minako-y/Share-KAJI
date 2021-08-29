@@ -1,27 +1,21 @@
 <div class="show-container">
-
+  <div class="show-container__image"><%= attachment_image_tag @monster, :image, fallback: 'noimage-760x460.png'%></div>
   <div class="show-group">
-    <div class="show-group__left">
-      <div class="show-group__left__image"><%= attachment_image_tag @monster, :image, fallback: 'noimage-760x460.png'%></div>
-      <div class="show-group__left__link">
-        <% if @monster.official == false %>
-          <%= link_to "編集", edit_monster_path(@monster) %>
-          <%= link_to "削除", monster_path(@monster), method: :delete %>
-        <% end %>
-      </div>
-    </div>
-    <div class="show-group__right">
-      <h2 class="show-group__right__title"><%= @monster.name %></h2>
-      <span class="show-group__right__icon">
-        <% if @monster.official == true %>
-          公式<i class="fas fa-lock"></i>
-        <% else %>
-          オリジナル
-        <% end %>
-      </span>
-      <span class="show-group__right__label">出現ジャンル：</span>
-      <%= @monster.genre.name %>
-      <div class="show-group__right__text"><%= @monster.memo %></div>
+    <h2 class="show-group__title"><%= @monster.name %></h2>
+    <span class="show-group__icon">
+      <% if @monster.official == true %>
+        公式<i class="fas fa-lock"></i>
+      <% else %>
+        オリジナル
+      <% end %>
+    </span>
+    <span class="show-group__label">出現ジャンル： <%= @monster.genre.name %></span>
+    <div class="show-group__text"><%= @monster.memo %></div>
+    <div class="show-group__link">
+      <% if @monster.official == false %>
+        <%= link_to "編集", edit_monster_path(@monster) %>
+        <%= link_to "削除", monster_path(@monster), method: :delete %>
+      <% end %>
     </div>
   </div>
 </div>

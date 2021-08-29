@@ -4,29 +4,18 @@
   @extend %default-container;
   font-family: $font-family2;
 
-  %__title {
-    margin: 2rem 0;
-    color: $thema-color3;
-    font-family: $font-family1;
-  }
-
   &__title {
-    @extend %__title;
-    font-size: 30px;
+    @extend %default-title;
 
     &--top {
+      @extend %default-title;
       font-size: 3rem;
-      @extend %__title;
-
     }
-
     &--slide {
-      @extend %__title;
-      font-size: 30px;
+      @extend %default-title;;
       cursor: pointer;
     }
   }
-
   &__lead {
     margin-bottom: 3rem;
 
@@ -39,12 +28,65 @@
 #new-monster-form {
   display: none;
 }
-// formはsignup参照
+
+.monster-form-wrapper {
+  width: 80vw;
+  margin: 0 auto;
+
+  &__form-group {
+    @extend %default-form-group;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__label {
+      @extend %default-label;
+      font-size: 1rem;
+    }
+    &__field {
+      @extend %default-field;
+
+      & input, select{
+        @extend %default-input;
+
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+      &--large {
+        @extend %default-field;
+
+        & input {
+          @extend %default-input;
+          height: 7rem;
+
+          &:focus {
+            @extend %default-focus;
+          }
+        }
+      }
+    }
+    &__lead {
+      @extend %default-lead;
+    }
+    &__btn {
+      @extend %default-form-btn;
+
+      &--wide {
+        @extend %default-form-btn;
+        width: auto;
+      }
+      &:hover {
+        @extend %default-form-btn-hover;
+      }
+    }
+  }
+}
 
 .monster-card {
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   & a {
     text-decoration: none;
@@ -62,13 +104,15 @@
     transition: transform 300ms ease;
     position: relative;
 
+    &:hover {
+      transform: scale(1.1, 1.1);
+    }
     &--image {
       width: 250px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
     }
-
     &--image img{
       width: 250px;
       height: 10rem;
@@ -76,7 +120,6 @@
       position: relative;
       top: 2rem;
     }
-
     &__icon {
       font-size: 30px;
       color: $thema-color3;
@@ -85,7 +128,6 @@
       right: 0;
       z-index: 1;
     }
-
     &__top {
       font-size: 18px;
       background-color: $thema-color2;
@@ -93,14 +135,9 @@
       position: relative;
       top: 1rem;
     }
-
     &__name {
       font-size: 20px;
       margin: 3.5rem auto 1rem;
     }
-  }
-
-  &__unit:hover {
-    transform: scale(1.1, 1.1);
   }
 }

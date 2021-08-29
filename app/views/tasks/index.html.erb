@@ -8,8 +8,22 @@
     </div>
     <div class="main-top__link"><%= link_to "新規タスク作成", new_task_path , class: "fas fa-plus-circle" %></div>
     <div class="main-top__room-unit">
-      現在のルーム: <%= current_room.name %>
-      <%= link_to "Logout", logout_path, method: :delete, class: "main-top__room-unit__btn" %>
+      <span class="main-top__room-unit__head">現在のルーム: <%= current_room.name %> <i class="fas fa-arrow-circle-down"></i></span>
+      <div class="room-box">
+        <p class="room-box__lead">Room Member</p>
+        <% current_room.users.includes([:weaknesses_genre]).each do |user| %>
+          <div class="room-box__list">
+            <div class="room-box__list__head">
+              <span class="room-box__list__image"><%= attachment_image_tag user, :profile_image, fallback: 'noimage-760x460.png' %></span>
+              <span class="room-box__list__item--bold"><%= user.name %></span>
+            </div>
+            <span class="room-box__list__item">Lv.<%= user.housework_level %></span>
+            <span class="room-box__list__item"><i class="fas fa-trophy"></i><%= user.complete_task %></span>
+            <span class="room-box__list__item"><i class="far fa-frown"></i><%= user.weaknesses_genre.name %></span>
+          </div>
+        <% end %>
+        <%= link_to "Logout", logout_path, method: :delete, class: "room-box__btn" %>
+      </div>
     </div>
   </div>
   <div class="task-list-container">
@@ -20,4 +34,9 @@
 <div id="mask" class="hidden"></div>
 <div id="modal" class="hidden">
   <p>モーダルウィンドウ<p>
+</div>
+
+<div id="mask-2" class="hidden"></div>
+<div id="modal-2" class="hidden">
+  <p>モーダルウィンドウ2<p>
 </div>

@@ -10,7 +10,7 @@
 %message-frame {
   max-width: 13rem;
   border: solid 1px;
-  border-radius: 20%;
+  border-radius: 20px;
   padding: 0.3rem 0.5rem;
   display: inline-block;
 }
@@ -19,6 +19,7 @@
   width: auto;
   height: 300px;
   overflow: auto;
+  font-family: $font-family3;
   background-color: $thema-color1;
   padding: 1rem 0.5rem;
   position: relative;

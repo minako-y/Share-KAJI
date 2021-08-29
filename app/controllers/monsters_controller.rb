@@ -18,7 +18,7 @@ class MonstersController < ApplicationController
 
   def index
     @monster = Monster.new
-    @monsters = Monster.where(user_id: current_user.id).or(Monster.where(official: true))
+    @monsters = Monster.where(user_id: current_user.id).or(Monster.where(official: true)).order(monster_id: :desc)
   end
 
   def show
@@ -27,9 +27,10 @@ class MonstersController < ApplicationController
   def edit
   end
 
-  def updated
+  def update
     if @monster.update(monster_params)
       flash[:notice] = "情報を更新しました。"
+      redirect_to monsters_path
     else
       flash.now[:alert] = "入力情報に不備があります。"
       render :edit

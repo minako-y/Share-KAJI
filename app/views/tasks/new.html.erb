@@ -3,8 +3,34 @@
     <%= render 'tasks/template-tasks', {template_tasks: @template_tasks, tag_list: @tag_list} %>
   </div>
   <h1 class="task-form-container__title">新規タスク作成</h1>
+  <%= render 'devise/shared/error_messages', resource: @task %>
   <div class="new-task-form">
     <%= render 'tasks/task_form', task: @task %>
   </div>
 </div>
-<div id= "mask" class="hidden"></div>
+<div id= "mask-3" class="hidden"></div>
+
+<script>
+  var mask_3 = document.getElementById('mask-3');
+  var slideL = document.getElementById('slideL');
+  var div = document.querySelector('.template-task-container')
+
+  $('.card_link').on('click', function (){
+    mask_3.classList.add('hidden');
+    slideL.classList.add('off');
+    div.animate({marginLeft: '0rem'}, {duration: 300,fill: 'forwards'}, 300)
+  });
+
+  // クリックで表示
+  slideL.addEventListener('click', function() {
+    if(slideL.classList.contains('off')){
+      document.getElementById('mask-3').classList.remove('hidden');
+      document.getElementById('slideL').classList.remove('off');
+      document.querySelector('.template-task-container').animate({marginLeft: '38rem'}, {duration: 300, fill: 'forwards'}, 300);
+    }else{
+      document.getElementById('mask-3').classList.add('hidden');
+      document.getElementById('slideL').classList.add('off');
+      document.querySelector('.template-task-container').animate({marginLeft: '0rem'}, {duration: 300, fill: 'forwards'}, 300);
+    }
+  }, false);
+</script>

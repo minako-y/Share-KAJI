@@ -34,4 +34,42 @@ class Task < ApplicationRecord
     end
   end
 
+  # タスク通知作成メソッド
+  def create_notification_task!(current_user, action)
+    # 自分以外の同じルームの人に通知を送信する
+    temp_ids = User.joins(:rooms).where(rooms: {id: current_user.current_room_id}).where.not(id: current_user.id).select(:id)
+    temp_ids.each do |temp_id|
+      save_notification_task!(current_user, temp_id['id'], action)
+    end
+  end
+
+  # タスク作成時、完了時の通知登録メソッド
+  def save_notification_task!(current_user, visited_id, action)
+    notification = current_user.active_notifications.new(
+      task_id: id,
+      visited_id: visited_id,
+      action: action
+    )
+    notification.save! if notification.valid?
+  end
+
+  # タスクのメッセージ通知作成メソッド
+  def create_notification_message!(current_user, message_id, task_id)
+    # 自分以外の同じルームの人に通知を送信する
+    temp_ids = User.joins(:rooms).where(rooms: {id: current_user.current_room_id}).where.not(id: current_user.id).select(:id)
+    temp_ids.each do |temp_id|
+      save_notification_message!(current_user, message_id, temp_id['id'], task_id)
+    end
+  end
+
+  # メッセージ送信時の通知登録メソッド
+  def save_notification_message!(current_user, message_id, visited_id, task_id)
+    notification = current_user.active_notifications.new(
+      task_id: task_id,
+      message_id: message_id,
+      visited_id: visited_id,
+      action: 'message'
+    )
+    notification.save! if notification.valid?
+  end
 end

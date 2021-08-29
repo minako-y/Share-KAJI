@@ -1,5 +1,5 @@
 <div class="session-container">
-  <h1 class="session-container__title">Login</h1>
+  <h1 class="session-container__title">Room Login</h1>
   <div class="session-form-wrapper">
     <%= form_for(:session, url: login_path) do |f| %>
     <div class="session-form-wrapper__form-group">
@@ -9,9 +9,9 @@
     <div class="session-form-wrapper__form-group">
       <div class="session-form-wrapper__form-group__label"><%= f.label :password, 'パスワード' %></div>
       <div class="session-form-wrapper__form-group__field"><%= f.password_field :password, placeholder: 'パスワードを入力してください' %></div>
-      <div class="session-form-wrapper__form-group">
-        <%= f.submit 'ログイン', class: "session-form-wrapper__form-group__btn" %>
-      </div>
+    </div>
+    <div class="session-form-wrapper__form-group">
+      <%= f.submit 'ログイン', class: "session-form-wrapper__form-group__btn" %>
     </div>
     <% end %>
   </div>

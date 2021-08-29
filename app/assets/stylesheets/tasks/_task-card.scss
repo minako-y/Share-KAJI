@@ -34,14 +34,12 @@
         background-color: #a99e93;
       }
     }
-
     &__genre {
       @extend %default-sticky;
       border-color: $base-color1;
       background-color: $thema-color2;
       left: 4rem;
     }
-
     &__date {
       @extend %default-sticky;
       border-color: $base-color1;
@@ -62,7 +60,6 @@
       height: 150px;
       object-fit: cover;
     }
-
     &__body {
       width: 18rem;
       height: 100px;

@@ -1,27 +1,27 @@
-<div class="form-wrapper">
+<div class="task-form-wrapper">
   <%= form_with model: task, local: true do |f| %>
-    <p class="form-wrapper__form-group">家事ジャンルを選んでください。</p>
+    <p class="task-form-wrapper__form-group">家事ジャンルを選んでください。</p>
     <%= render 'tasks/genre-card', f: f %>
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :due_date, "予定完了日時" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.datetime_field :due_date %></div>
+    <div class="task-form-wrapper__form-group">
+      <div class="task-form-wrapper__form-group__label"><%= f.label :due_date, "予定完了日時" %></div>
+      <div class="task-form-wrapper__form-group__field"><%= f.datetime_field :due_date %></div>
     </div>
 
-    <div class="form-wrapper__form-group">
-      <div class="form-wrapper__form-group__label"><%= f.label :body, "タスクの内容" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.text_area :body %></div>
+    <div class="task-form-wrapper__form-group">
+      <div class="task-form-wrapper__form-group__label"><%= f.label :body, "タスクの内容" %></div>
+      <div class="task-form-wrapper__form-group__field"><%= f.text_area :body %></div>
     </div>
-    <div class="form-wrapper__form-group">
+    <div class="task-form-wrapper__form-group">
       <p>スペースを入力することで複数のタグを付けることが可能です。（例：毎日　外出）</p>
-      <div class="form-wrapper__form-group__label"><%= f.label :tag_name, "検索タグ" %></div>
-      <div class="form-wrapper__form-group__field"><%= f.text_field :tag_name %></div>
+      <div class="task-form-wrapper__form-group__label"><%= f.label :tag_name, "検索タグ" %></div>
+      <div class="task-form-wrapper__form-group__field"><%= f.text_field :tag_name %></div>
     </div>
-    <div class="form-wrapper__form-group">
+    <div class="task-form-wrapper__form-group">
       <%= f.check_box :template_task, {}, true, false %>
       <%= f.label :template_task, "テンプレートとして保存する" %>
     </div>
-    <div class="form-wrapper__form-group">
-      <%= f.submit button_text, class: "form-wrapper__form-group__btn" %>
+    <div class="task-form-wrapper__form-group">
+      <%= f.submit button_text, class: "task-form-wrapper__form-group__btn" %>
     </div>
   <% end %>
 </div>
