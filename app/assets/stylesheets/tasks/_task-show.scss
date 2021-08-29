@@ -116,6 +116,21 @@
       object-fit: cover;
     }
   }
+  &__mark {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $point-color1;
+    text-align: center;
+    border: 10px solid $point-color1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px $base-color3;
+    padding: 0 1rem;
+    transform: rotate(-20deg);
+    position: absolute;
+    top: 4rem;
+    left: 5rem;
+    z-index: 7;
+  }
   &__heading {
     font-size: 2rem;
     font-family: $font-family2;

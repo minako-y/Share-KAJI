@@ -5,6 +5,7 @@
   color: $thema-color3;
   line-height: 1.3rem;
   margin-bottom: 1rem;
+  display: inline-block;
 }
 
 %message-frame {
@@ -22,6 +23,8 @@
   font-family: $font-family3;
   background-color: $thema-color1;
   padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
   position: relative;
 
   &__body {
@@ -32,7 +35,6 @@
 
     &--right {
       @extend %message-line;
-      text-align: right;
       margin-left: auto;
     }
   }
@@ -44,6 +46,7 @@
 
     &--right {
       @extend %message-frame;
+      margin-left: auto;
       border-color: $base-color2;
       background-color: $base-color1;
     }
