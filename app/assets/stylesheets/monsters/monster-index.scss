@@ -55,9 +55,8 @@
       &--large {
         @extend %default-field;
 
-        & input {
-          @extend %default-input;
-          height: 7rem;
+        & textarea {
+          @extend %default-textarea;
 
           &:focus {
             @extend %default-focus;

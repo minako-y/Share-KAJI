@@ -46,7 +46,7 @@
 - 家事が苦手で少しでもやる気を上げたい時
 
 ## 設計書
-[ER図](https://drive.google.com/file/d/19TFuTfQEsjoNZ3QnmXhhd-DNT_ai4gsx/view?usp=sharing) (Googleドライブへ遷移します)
+[ER図](https://drive.google.com/file/d/1xW7xj4nvAdGZJJg_qXxXbaYnbQHzLV4p/view?usp=sharing) (Googleドライブへ遷移します)
 
 [テーブル定義書](https://docs.google.com/spreadsheets/d/1Tsf3seCXfeGgbLMia5bq7qAarhLrrHYAw_HwPMXFcog/edit?usp=sharing) (Googleドライブへ遷移します)
 

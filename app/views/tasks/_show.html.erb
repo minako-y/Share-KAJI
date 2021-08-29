@@ -30,7 +30,7 @@
             <div class="task-unit__tags">
               <div class="task-unit__tags__tag-area">
                 <% task.tags.each do |tag| %>
-                  <span class="task-unit__tags__item"><%= tag.name%></span>
+                  <span class="task-unit__tags__item"><%= tag.name %></span>
                 <% end %>
               </div>
             </div>
@@ -44,6 +44,9 @@
               <div class="task-monster__visual-area">
                 <%= attachment_image_tag task.monster, :image, fallback: 'noimage-760x460.png', class: "task-monster__visual-area--img" %>
               </div>
+              <% if task.progress == "完了" %>
+                <span class="task-monster__mark">QUEST<br>CLEARED</span>
+              <% end %>
               <div class="task-monster__heading">
                 <span class="task-monster__heading--large"><%= task.monster.name %></span>
                 <span>があらわれた！</span>
