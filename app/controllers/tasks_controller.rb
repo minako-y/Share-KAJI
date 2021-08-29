@@ -28,6 +28,7 @@ class TasksController < ApplicationController
     tag_list = @task.tag_name.split(/[[:space:]]/)
     if @task.save
       @task.save_tags(tag_list)
+      @task.create_notification_task!(current_user, "created_task")
       # テンプレートタスクへの保存
       if @task.template_task == "true"
         template_task = TemplateTask.new(
@@ -86,6 +87,7 @@ class TasksController < ApplicationController
       if @task.progress == "完了"
         @task.update(executor_id: current_user.id, finish_date: Time.now)
         current_user.taskCompleted(current_user, @task)
+        @task.create_notification_task!(current_user, "finished_task")
       end
   end
 

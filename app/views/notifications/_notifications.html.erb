@@ -1,0 +1,9 @@
+<div class="notifications-container__list">
+  <% if notifications.exists? %>
+    <% notifications.includes([{task: [:genre, :room]}, :visitor, :visited, :message]).each do |notification| %>
+      <%= render 'notifications/notification', notification: notification %>
+    <% end %>
+  <% else %>
+    <p class="notifications-container__announce">通知はありません。</p>
+  <% end %>
+</div>

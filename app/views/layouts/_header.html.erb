@@ -6,6 +6,9 @@
     <% if user_signed_in? %>
       <li class="nav__item"><%= link_to 'マイページ', user_path(current_user) %></li>
       <li class="nav__item"><%= link_to 'タスク管理', tasks_path %></li>
+      <% if unchecked_notifications.any? %>
+        <i class="fas fa-bell notifications-icon"></i>
+      <% end %>
       <li class="nav__item"><%= link_to '通知一覧', notifications_path %></li>
       <li class="nav__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
     <% else %>

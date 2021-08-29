@@ -1,0 +1,76 @@
+<div class="notification-box">
+
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<% case notification.action %>
+<% when 'created_task' then %>
+  <div class="notification-unit__title">Created Task</div>
+  <div class="notification-unit">
+    <div class="notification-unit__user-unit">
+      <%= attachment_image_tag visitor, :profile_image, fallback: 'noimage-760x460.png', class: "notification-unit__user-unit__image" %>
+      <span class="notification-unit__user-unit__name"><%= visitor.name %></span>
+    </div>
+    <div class="notification-unit__content-area">
+      <div class="notification-unit__content-area--left">
+        <p>新しい<span class="notification-unit__content-area__create"><%= notification.task.genre.name %>タスク</span>を作成しました。</p>
+      </div>
+      <div class="notification-unit__content-area--right">
+        <span class="notification-unit__content-area__lead">Task Detail <i class="fas fa-angle-down"></i></span>
+        <p class="notification-unit__content-area__text"><%= notification.task.body %></p>
+      </div>
+    </div>
+
+<% when 'finished_task' then %>
+  <div class="notification-unit__title">Finished Task</div>
+  <div class="notification-unit">
+    <div class="notification-unit__user-unit">
+      <%= attachment_image_tag visitor, :profile_image, fallback: 'noimage-760x460.png', class: "notification-unit__user-unit__image" %>
+      <span class="notification-unit__user-unit__name"><%= visitor.name %></span>
+    </div>
+    <div class="notification-unit__content-area">
+      <div class="notification-unit__content-area--left">
+        <div>
+          <p><span class="notification-unit__content-area__finish"><%= notification.task.genre.name %>タスク</span>を完了してもらいました！</p>
+          <p>メッセージ、または口頭で感謝の気持ちを伝えましょう！</p>
+        </div>
+      </div>
+      <div class="notification-unit__content-area--right">
+        <span class="notification-unit__content-area__lead">Task Detail <i class="fas fa-angle-down"></i></span>
+        <p class="notification-unit__content-area__text"><%= notification.task.body %></p>
+      </div>
+    </div>
+
+<% when 'message' then %>
+  <div class="notification-unit__title">Message</div>
+  <div class="notification-unit">
+    <div class="notification-unit__user-unit">
+      <%= attachment_image_tag visitor, :profile_image, fallback: 'noimage-760x460.png', class: "notification-unit__user-unit__image" %>
+      <span class="notification-unit__user-unit__name"><%= visitor.name %></span>
+    </div>
+    <div class="notification-unit__content-area">
+      <div class="notification-unit__content-area--left">
+        <p><span class="notification-unit__content-area__progress"><%= notification.task.progress %>タスク</span>にメッセージを送信しました。</p>
+        <span class="notification-unit__content-area__lead">Task Detail <i class="fas fa-angle-down"></i></span>
+        <p class="notification-unit__content-area__text"><%= notification.task.body %></p>
+      </div>
+      <div class="notification-unit__content-area--right">
+        <% unless notification.message.nil? %>
+          <span class="notification-unit__content-area__lead">Message Detail <i class="fas fa-angle-down"></i></span>
+          <p class="notification-unit__content-area__text"><%= notification.message.body %></p>
+        <% end %>
+      </div>
+    </div>
+
+<% end %>
+    <% if notification.checked == false %>
+    <div class="notification-unit__end">
+      <%= link_to "", notification_path(notification.id), method: :patch, remote: true, class: "fas fa-check-square" %>
+      <span>checked</span>
+    </div>
+    <% end %>
+  <p class="notification-unit__time">ROOM: <%= notification.task.room.name %>　<%= time_ago_in_words(notification.created_at).upcase %></p>
+  </div>
+</div>
+
+
