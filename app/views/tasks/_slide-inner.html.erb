@@ -8,7 +8,7 @@
 <div class="t-task-card-wrapper">
   <% template_tasks.includes([:genre]).each do |t_task| %>
   <div class="t-task-card">
-    <%= link_to "", new_task_path(template: t_task.id, area: "form"), remote: true, class: "fas fa-plus-circle t-task-card__link" %>
+    <%= link_to "", new_task_path(template: t_task.id, area: "form"), remote: true, class: "fas fa-plus-circle t-task-card__link card_link" %>
     <div class="t-task-card__genre"><%= t_task.genre.name %></div>
     <div class="t-task-card__body"><%= t_task.body %></div>
     <%= link_to "", template_tasks_path(id: t_task.id), method: :delete, remote: true, class: "fas fa-trash-alt t-task-card__delete" %>
@@ -19,3 +19,12 @@
 <div>
   <%= paginate template_tasks, remote: true %>
 </div>
+
+<script>
+// コンテンツ内のテンプレ引用リンククリックでコンテンツを自動で閉じる
+ $('.card_link').on('click', function (){
+    mask_3.classList.add('hidden');
+    slideL.classList.add('off');
+    div.animate({marginLeft: '0rem'}, {duration: 300,fill: 'forwards'}, 300)
+  });
+</script>
