@@ -3,8 +3,10 @@ $(".task-<%= @task.id %>").html("<%= j(render 'tasks/task-card', task: @task ) %
 $("#modal").html("<%= j(render 'tasks/show', { task: @task, message: @message } ) %>");
 $('#tab-contents .tab[id != "tab1"]').hide();
 
-if ("<%= @task.progress %>" === "完了") {
-  $("#modal-2").removeClass('hidden');
+
+var task_progress = "<%= @task.progress %>";
+if (task_progress == "完了") {
+   $("#modal-2").removeClass('hidden');
   $("#mask-2").removeClass('hidden');
   $("#modal-2").html("<%= j(render 'tasks/result', task: @task) %>");
   setTimeout('$(".result-monster__mark").removeClass("mark-hidden")', 1000)

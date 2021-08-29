@@ -80,9 +80,16 @@
       </div>
       <div class="action-area--right">
         <% unless task.progress == "完了" %>
-          <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
-            <%= f.hidden_field :progress, value: "保留" %>
-            <%= f.submit "保留", class: "action-area__keep-btn" %>
+          <% if task.progress == "未実施" %>
+            <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
+              <%= f.hidden_field :progress, value: "保留" %>
+              <%= f.submit "保留", class: "action-area__keep-btn" %>
+            <% end %>
+          <% else %>
+            <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
+              <%= f.hidden_field :progress, value: "未実施" %>
+              <%= f.submit "未実施へ戻す", class: "action-area__keep-btn" %>
+            <% end %>
           <% end %>
         <% end %>
         <%= link_to "削除", task_path(task), method: :delete, class: "action-area__delete-btn" %>
