@@ -69,8 +69,7 @@
       <span>checked</span>
     </div>
     <% end %>
-  <p class="notification-unit__time">ROOM: <%= notification.task.room.name %>　<%= time_ago_in_words(notification.created_at).upcase %></p>
+  <p class="notification-unit__time">ROOM: <%= notification.task.room.name %>　<%= time_ago_in_words(notification.created_at, include_seconds: true)%></p>
   </div>
 </div>
-
 
