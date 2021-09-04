@@ -2,19 +2,22 @@
   <%= link_to root_path, class: "header__logo" do %>
     <%= image_tag 'logo.png' %>
   <% end %>
-  <ul class="nav">
-    <% if user_signed_in? %>
-      <li class="nav__item"><%= link_to 'マイページ', user_path(current_user) %></li>
-      <li class="nav__item"><%= link_to 'タスク管理', tasks_path %></li>
-      <% if unchecked_notifications.any? %>
-        <i class="fas fa-bell notifications-icon"></i>
-      <% end %>
-      <li class="nav__item"><%= link_to '通知一覧', notifications_path %></li>
-      <li class="nav__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-    <% else %>
+  <div class="humverger-icon"><a href="#" class="fas fa-bars"></a></div>
+  <nav id="nav">
+    <ul class="nav-block">
+      <% if user_signed_in? %>
+        <li class="nav-block__item"><%= link_to 'マイページ', user_path(current_user) %></li>
+        <li class="nav-block__item"><%= link_to 'タスク管理', tasks_path %></li>
+        <% if unchecked_notifications.any? %>
+          <i class="fas fa-bell notifications-icon"></i>
+        <% end %>
+        <li class="nav-block__item"><%= link_to '通知一覧', notifications_path %></li>
+        <li class="nav-block__item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
 
-      <li class="nav__item"><%= link_to '新規登録', new_user_registration_path %></li>
-      <li class="nav__item"><%= link_to 'ログイン', new_user_session_path %></li>
-    <% end %>
-  </ul>
+        <li class="nav-block__item"><%= link_to '新規登録', new_user_registration_path %></li>
+        <li class="nav-block__item"><%= link_to 'ログイン', new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
 </header>
