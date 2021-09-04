@@ -19,6 +19,16 @@
   }
 }
 
+.humverger-icon {
+  font-size: 2.5rem;
+  display: none;
+
+  a {
+    color: $thema-color3-light;
+    text-decoration: none;
+  }
+}
+
 nav {
   margin: 0 1rem 0 auto;
 }
@@ -53,8 +63,20 @@ nav {
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
+  .humverger-icon {
+    display: block;
+    margin: 0 2rem 0 auto;
+
+    & a {
+      &:hover, + nav {
+        color: red;
+      }
+    }
+  }
+
   nav {
     background-color: $base-color3;
+    box-shadow: 0 0 2px $base-color2;
     padding: 1rem;
     position: absolute;
     top: 3.5rem;
