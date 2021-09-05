@@ -19,7 +19,7 @@
   }
 }
 
-.humverger-icon {
+#hamburger-icon {
   font-size: 2.5rem;
   display: none;
 
@@ -63,24 +63,32 @@ nav {
 /*レスポンシブ */
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
-  .humverger-icon {
+  #hamburger-icon {
     display: block;
     margin: 0 2rem 0 auto;
+    cursor: pointer;
 
-    & a {
-      &:hover, + nav {
-        color: red;
+    & i {
+      &:hover {
+        color: $thema-color2;
       }
     }
   }
 
-  nav {
+  #nav {
+    width: 200px;
     background-color: $base-color3;
     box-shadow: 0 0 2px $base-color2;
     padding: 1rem;
     position: absolute;
     top: 3.5rem;
-    right: 0;
+    right: -250px;
+    transition: .5s;
+  }
+
+  .nav-in {
+    transition: .5s;
+    transform: translateX(-250px);
   }
 
   .nav-block {
@@ -93,7 +101,7 @@ nav {
   }
 
   .notifications-icon {
-    left: 0.5rem;
+    left: 2rem;
     top: 1.5rem;
   }
 }

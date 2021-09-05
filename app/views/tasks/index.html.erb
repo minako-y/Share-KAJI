@@ -6,7 +6,11 @@
       <span class="main-top__sort__link"><%= link_to "完了済み", tasks_path(sort: 1) %></span>｜
       <span class="main-top__sort__link"><%= link_to "保留", tasks_path(sort: 2) %></span>
     </div>
-    <div class="main-top__link"><%= link_to "新規タスク作成", new_task_path , class: "fas fa-plus-circle" %></div>
+    <div class="main-top__link">
+      <%= link_to new_task_path , class: "fas fa-plus-circle" do %>
+        <span>新規タスク作成</span>
+      <% end %>
+    </div>
     <div class="main-top__room-unit">
       <span class="main-top__room-unit__head">現在のルーム: <%= current_room.name %> <i class="fas fa-arrow-circle-down"></i></span>
       <div class="room-box">

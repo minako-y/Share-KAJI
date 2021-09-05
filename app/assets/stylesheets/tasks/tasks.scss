@@ -158,3 +158,22 @@
     }
   }
 }
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .main-top__link {
+
+    & a {
+      font-size: 3rem;
+    }
+
+    & span {
+      display: none;
+    }
+  }
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+
+}
