@@ -5,47 +5,17 @@
 
 .main-container {
   @extend %default-container;
-}
 
-.main-top {
-  display: flex;
-  align-items: center;
-
-  &__title {
-    @extend %default-title;
-  }
-  &__sort {
-    padding: 2rem;
-
-    &__link a{
-      color: $thema-color2;
-      text-decoration: none;
-      font-size: 20px;
-      transition-duration: 0.5s;
-
-      &:hover {
-        color: $point-color1;
-      }
-    }
-  }
-  &__link a{
-    font-size: 20px;
-    margin-left: auto;
-    color: $thema-color3;
-    text-decoration: none;
-    transition-duration: 0.5s;
-
-    &:hover {
-      color: $thema-color2-dark;
-    }
-  }
   &__room-unit{
-    margin-left: auto;
+    text-align: right;
 
     &__head {
       margin: 0 2rem;
       position: relative;
       cursor: pointer;
+
+      &--icon {
+      }
     }
   }
 }
@@ -58,7 +28,7 @@
   box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
   position: absolute;
   right: 2rem;
-  top: 9rem;
+  top: 7rem;
   z-index: 2;
   display: none;
 
@@ -109,6 +79,45 @@
   }
 }
 
+.main-top {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  &__title {
+    @extend %default-title;
+    margin-right: 1rem;
+  }
+  &__link a{
+    font-size: 20px;
+    margin-left: auto;
+    color: $thema-color3;
+    text-decoration: none;
+    transition-duration: 0.5s;
+
+    &:hover {
+      color: $thema-color2-dark;
+    }
+  }
+  &__sort {
+    padding-bottom: 2rem;
+    text-align: center;
+
+    &__link a{
+      color: $thema-color2;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition-duration: 0.5s;
+
+      &:hover {
+        color: $point-color1;
+      }
+    }
+  }
+}
+
+
+
 .tag-wrapper {
   height: 3rem;
   overflow: hidden;
@@ -155,6 +164,20 @@
 
     &:hover {
       transform: scale(0.9, 1.1);
+    }
+  }
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .main-top {
+    &__link {
+      margin-left: 1rem;
     }
   }
 }

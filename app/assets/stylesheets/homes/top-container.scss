@@ -7,19 +7,16 @@
   padding: 120px 2rem 0;
   position: relative;
 }
-
 %about-block__heading {
   width: 60vw;
   font-size: 30px;
 }
-
 %about-block__text {
   width: 60vw;
   font-size: 20px;
   line-height: 1.5rem;
   padding: 1rem 0;
 }
-
 %about-after-line {
   content: '';
   border: solid;
@@ -50,37 +47,38 @@
     bottom: 0;
     border-color: transparent $base-color1 $base-color1 transparent;
   }
-
   &__subtitle {
     font-size: 30px;
     padding-bottom: 20px;
   }
-
   &__title {
     font-size: 40px;
     padding-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
   }
-
   &__bottom {
     font-size: 30px;
     line-height: 2rem;
     text-align: center;
   }
-
   &__btn-area {
     line-height: 2rem;
-    margin-top: 2rem;
+    text-align: center;
+    margin: 4rem auto;
   }
-
   &__btn {
     @extend %default-btn;
+    font-size: 1.5rem;
     color: $base-color3;
-    padding: 10px 10%;
+    background-color: $thema-color2;
+    border-width: 2px;
+    padding: 10px 100px;
     position: relative;
     z-index: 2;
 
     &:hover {
-      color: $thema-color1;
+      color: $thema-color2;
       background-color: $base-color3;
     }
   }
@@ -104,18 +102,15 @@
       @extend %about-block__heading;
       margin-left: auto;
     }
-
     &__text {
       @extend %about-block__text;
       margin-left: auto;
     }
-
     &::after {
       @extend %about-after-line;
       border-color: $base-color1 $base-color1 transparent transparent;
     }
   }
-
   &__middle {
     @extend %about-block;
     color: $base-color3;
@@ -125,18 +120,15 @@
       @extend %about-block__heading;
       margin-right: auto;
     }
-
     &__text {
       @extend %about-block__text;
       margin-right: auto;
     }
-
     &::after {
       @extend %about-after-line;
       border-color: $thema-color2 transparent transparent $thema-color2;
     }
   }
-
   &__bottom {
     @extend %about-block;
     color: $thema-color3;
@@ -146,15 +138,37 @@
       @extend %about-block__heading;
       margin-left: auto;
     }
-
     &__text {
       @extend %about-block__text;
       margin-left: auto;
     }
-
     &::after {
       @extend %about-after-line;
       border-color: $base-color1 $base-color1 transparent transparent;
+    }
+  }
+}
+
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .visual-wrapper__title span:last-child {
+    margin-left: auto;
+  }
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .visual-wrapper {
+
+    &__subtitle {
+      font-size: 25px;
+    }
+    &__title {
+      font-size: 30px;
+    }
+    &__bottom {
+      font-size: 20px;
     }
   }
 }

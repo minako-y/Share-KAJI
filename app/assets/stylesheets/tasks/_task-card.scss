@@ -47,7 +47,6 @@
       right: 0;
     }
   }
-
   &__inner {
     width: 30rem;
     height: 130px;
@@ -71,6 +70,45 @@
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 5;
       overflow: hidden;
+    }
+  }
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .task-card {
+    width: 25rem;
+
+    &__inner {
+      width: 25rem;
+
+      &__body {
+        width: 15rem;
+      }
+    }
+  }
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .task-card {
+    width: 20rem;
+    height: 100px;
+
+    &__inner {
+      width: 20rem;
+      height: 80px;
+
+      &__image {
+        width: 7rem;
+        height: 100px;
+        object-fit: cover;
+      }
+      &__body {
+        width: 13rem;
+        height: 60px;
+        font-size: 15px;
+      }
     }
   }
 }

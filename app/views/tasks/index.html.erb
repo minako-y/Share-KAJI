@@ -1,30 +1,34 @@
 <div class="main-container">
+  <div class="main-container__room-unit">
+    <div class="main-container__room-unit__head"><i class="fas fa-house-user main-container__room-unit__head--icon"></i><span>現在のルーム: <%= current_room.name %> <i class="fas fa-arrow-circle-down"></i></span></div>
+    <div class="room-box">
+      <p class="room-box__lead">Room Member</p>
+      <% current_room.users.includes([:weaknesses_genre]).each do |user| %>
+        <div class="room-box__list">
+          <div class="room-box__list__head">
+            <span class="room-box__list__image"><%= attachment_image_tag user, :profile_image, fallback: 'noimage-760x460.png' %></span>
+            <span class="room-box__list__item--bold"><%= user.name %></span>
+          </div>
+          <span class="room-box__list__item">Lv.<%= user.housework_level %></span>
+          <span class="room-box__list__item"><i class="fas fa-trophy"></i><%= user.complete_task %></span>
+          <span class="room-box__list__item"><i class="far fa-frown"></i><%= user.weaknesses_genre.name %></span>
+        </div>
+      <% end %>
+      <%= link_to "Logout", logout_path, method: :delete, class: "room-box__btn" %>
+    </div>
+    </div>
   <div class="main-top">
     <h1 class="main-top__title">タスク一覧</h1>
-    <div class="main-top__sort">
-      <span class="main-top__sort__link"><%= link_to "未実施", tasks_path %></span>｜
-      <span class="main-top__sort__link"><%= link_to "完了済み", tasks_path(sort: 1) %></span>｜
-      <span class="main-top__sort__link"><%= link_to "保留", tasks_path(sort: 2) %></span>
+    <div class="main-top__link">
+      <%= link_to new_task_path , class: "fas fa-plus-circle" do %>
+        <span>新規タスク作成</span>
+      <% end %>
     </div>
-    <div class="main-top__link"><%= link_to "新規タスク作成", new_task_path , class: "fas fa-plus-circle" %></div>
-    <div class="main-top__room-unit">
-      <span class="main-top__room-unit__head">現在のルーム: <%= current_room.name %> <i class="fas fa-arrow-circle-down"></i></span>
-      <div class="room-box">
-        <p class="room-box__lead">Room Member</p>
-        <% current_room.users.includes([:weaknesses_genre]).each do |user| %>
-          <div class="room-box__list">
-            <div class="room-box__list__head">
-              <span class="room-box__list__image"><%= attachment_image_tag user, :profile_image, fallback: 'noimage-760x460.png' %></span>
-              <span class="room-box__list__item--bold"><%= user.name %></span>
-            </div>
-            <span class="room-box__list__item">Lv.<%= user.housework_level %></span>
-            <span class="room-box__list__item"><i class="fas fa-trophy"></i><%= user.complete_task %></span>
-            <span class="room-box__list__item"><i class="far fa-frown"></i><%= user.weaknesses_genre.name %></span>
-          </div>
-        <% end %>
-        <%= link_to "Logout", logout_path, method: :delete, class: "room-box__btn" %>
-      </div>
-    </div>
+  </div>
+  <div class="main-top__sort">
+    <span class="main-top__sort__link"><%= link_to "未実施", tasks_path %></span>｜
+    <span class="main-top__sort__link"><%= link_to "完了済み", tasks_path(sort: 1) %></span>｜
+    <span class="main-top__sort__link"><%= link_to "保留", tasks_path(sort: 2) %></span>
   </div>
   <div class="task-list-container">
     <%= render 'tasks/task-list', {tag_list: @tag_list, tasks: @tasks} %>
