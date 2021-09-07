@@ -93,11 +93,21 @@
 @media screen and (max-width:425px) {
   .task-card {
     width: 20rem;
+    height: 100px;
 
     &__inner {
+      width: 20rem;
+      height: 80px;
 
+      &__image {
+        width: 7rem;
+        height: 100px;
+        object-fit: cover;
+      }
       &__body {
-        width: 18rem;
+        width: 13rem;
+        height: 60px;
+        font-size: 15px;
       }
     }
   }
