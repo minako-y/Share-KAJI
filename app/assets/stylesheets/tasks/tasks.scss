@@ -86,7 +86,8 @@
 
   &__title {
     @extend %default-title;
-    margin-right: 1rem;
+
+    margin: 1rem 1rem 1rem 0;
   }
   &__link a{
     font-size: 20px;
@@ -178,6 +179,10 @@
   .main-top {
     &__link {
       margin-left: 1rem;
+
+      & span {
+        display: none;
+      }
     }
   }
 }
