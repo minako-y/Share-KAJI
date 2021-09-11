@@ -161,5 +161,11 @@
   #modal {
     width: 500px;
   }
+}
 
+/* 600px以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  #modal {
+    width: 400px;
+  }
 }
