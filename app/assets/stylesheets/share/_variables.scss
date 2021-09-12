@@ -164,8 +164,8 @@
 }
 
 /* 600px以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  #modal {
+@media screen and (max-width:600px) {
+  #modal, #modal-2  {
     width: 400px;
   }
 }
