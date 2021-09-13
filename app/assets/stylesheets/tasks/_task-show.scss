@@ -324,7 +324,7 @@
 }
 
 /* 600px以下の際に適用される設定 */
-@media screen and (mafx-width:600px) {
+@media screen and (max-width:600px) {
   .task-section__left {
     width: 400px;
     margin: 0 auto;
@@ -332,5 +332,40 @@
 
   .task-unit__body {
     width: 350px;
+  }
+  .action-area {
+    &__complete-btn {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .task-section__left {
+    width: 350px;
+  }
+
+  .task-unit__body {
+    width: 300px;
+  }
+
+  #tab-menu li {
+    font-size: 0.8rem;
+  }
+}
+
+/* 350px以下の際に適用される設定 */
+@media screen and (max-width:350px) {
+  .task-section__left {
+    width: 280px;
+  }
+
+  .task-unit__body {
+    width: 250px;
+  }
+
+  #tab-menu li {
+    font-size: 0.7rem;
   }
 }

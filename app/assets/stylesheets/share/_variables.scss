@@ -161,11 +161,28 @@
   #modal {
     width: 500px;
   }
+  #modal-2 {
+    width: 90vw;
+  }
 }
 
 /* 600px以下の際に適用される設定 */
 @media screen and (max-width:600px) {
-  #modal, #modal-2  {
+  #modal {
     width: 400px;
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  #modal {
+    width: 350px;
+  }
+}
+
+/* 350px以下の際に適用される設定 */
+@media screen and (max-width:350px) {
+  #modal {
+    width: 280px;
   }
 }

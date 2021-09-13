@@ -105,22 +105,8 @@
 }
 
 /* 600px以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  .template-task-container {
-    width: 30rem;
-    left: -28rem;
+@media screen and (max-width:600px) {
 
-    &__card-area {
-      padding: 50px 10px 100px;
-    }
-  }
-  .t-task-card {
-    width: 90%;
-  }
-}
-
-/* 425px以下の際に適用される設定 */
-@media screen and (max-width:425px) {
   .template-task-container {
     width: 20rem;
     left: -18rem;
