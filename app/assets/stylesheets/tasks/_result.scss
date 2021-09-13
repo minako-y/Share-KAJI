@@ -13,6 +13,9 @@
     background:linear-gradient(transparent 50%, $thema-color2-dark 0%);
     text-align: center;
     margin: 3rem 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   &__lead {
     @extend %default-title;
@@ -20,13 +23,13 @@
     text-align: center;
     margin: 1rem 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
     & span {
       background:linear-gradient(transparent 70%, $thema-color2-dark 0%);
     }
-
     &__image {
       width: 3rem;
       height: 3rem;
@@ -41,12 +44,11 @@
     }
   }
 }
-
 .result-wrapper {
   display: flex;
   justify-content: center;
+  margin: 0.5rem;
 }
-
 .result-monster {
   position: relative;
   margin-right: 1rem;
@@ -79,15 +81,12 @@
     z-index: 7;
   }
 }
-
 .mark-hidden {
   opacity: 0;
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);
 }
-
 .result-unit {
-
   &__top {
     width: 100%;
     height: 5rem;
@@ -116,6 +115,125 @@
 
     & span {
       font-size: 2rem;
+    }
+  }
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .result-section {
+    width: 90vw;
+
+    &__lead {
+      font-size: 2rem;
+
+      &__image {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+  .result-monster {
+    &__image {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+  .result-unit {
+    &__item {
+      margin: 0.5rem 0.5rem;
+
+      & span {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+/* 630px以下の際に適用される設定 */
+@media screen and (max-width:630px) {
+  .result-section {
+    &__head {
+      font-size: 2.5rem;
+    }
+    &__lead {
+      font-size: 2rem;
+    }
+  }
+  .result-monster {
+    &__image {
+      width: 8rem;
+      height: 8rem;
+    }
+    &__mark {
+      font-size: 1.8rem;
+      top: 2.5rem;
+    }
+  }
+  .result-unit {
+    &__item {
+      font-size: 0.8rem;
+      & span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* 500px以下の際に適用される設定 */
+@media screen and (max-width:500px) {
+  .result-unit {
+    &__list {
+      flex-wrap: wrap;
+    }
+    &__top {
+      height: auto;
+      line-height: 2rem;
+      padding: 0.5rem;
+
+      & span {
+        font-size: 1.5rem;
+      }
+    }
+    &__item {
+      padding: 0.2rem;
+      margin: 0.2rem;
+
+      & span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .result-section {
+    &__head {
+      font-size: 2rem;
+      margin: 3rem 0 1rem;
+    }
+  }
+  .result-monster {
+    &__image {
+      width: 5rem;
+      height: 5rem;
+    }
+    &__mark {
+      font-size: 0.8rem;
+      padding: 0 0.8rem;
+      top: 2rem;
+    }
+  }
+  .result-unit {
+    &__top {
+      height: 2rem;
+      line-height: 1rem;
+      padding: 0.5rem;
+
+      & span {
+        font-size: 1.2rem;
+      }
     }
   }
 }
