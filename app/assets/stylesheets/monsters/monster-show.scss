@@ -5,6 +5,7 @@
   background-color: rgba(0,0,0,0.5);
   font-family: $font-family2;
   padding: 0;
+  margin: 0 auto;
   width: 800px;
   height: 500px;
   position: relative;
@@ -22,7 +23,7 @@
 }
 
 .show-group {
-  width: 40%;
+  width: 300px;
   min-height: 5rem;
   background-color: rgba(225,225,225,0.7);
   padding: 1rem;
@@ -57,5 +58,33 @@
   }
   &__text {
     margin-top: 1rem;
+  }
+}
+
+
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .show-container {
+    width: 500px;
+  }
+}
+
+/* 600px以下の際に適用される設定 */
+@media screen and (max-width:600px) {
+  .show-container {
+    width: 400px;
+  }
+  .show-group {
+    top: auto;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .show-container {
+    width: 300px;
   }
 }

@@ -18,6 +18,9 @@
   &__right {
     width: 300px;
   }
+  &__bottom {
+    display: none;
+  }
 }
 
 // task tab
@@ -102,7 +105,7 @@
 // monster tab
 .task-monster {
   width: inherit;
-  height: inherit;
+  height: 384px;
   position: relative;
 
   &__visual-area {
@@ -135,6 +138,12 @@
     font-size: 2rem;
     font-family: $font-family2;
     margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+
+    & :last-child {
+      margin-left: auto;
+    }
 
     &--large {
       font-size: 2rem;
@@ -267,4 +276,96 @@
 
 #tab-contents p {
   color: $thema-color3;
+}
+
+#tab3, #tab3-hide {
+  display: none;
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+
+  .task-section {
+
+    &__right {
+      display: none;
+      position: relative;
+    }
+  }
+
+  .task-unit__body {
+    margin: 0 auto 1rem;
+  }
+
+  #tab3 {
+    display: block;
+  }
+
+  .task-section__bottom {
+    display: flex;
+
+    &__btn {
+      font-size: 3rem;
+      color: $thema-color3;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  #tab3-hide {
+    display: inline;
+  }
+
+  #tab-contents .tab {
+    height: 444px;
+    overflow: auto;
+    padding: 15px;
+  }
+}
+
+/* 600px以下の際に適用される設定 */
+@media screen and (max-width:600px) {
+  .task-section__left {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .task-unit__body {
+    width: 350px;
+  }
+  .action-area {
+    &__complete-btn {
+      font-size: 1rem;
+    }
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .task-section__left {
+    width: 350px;
+  }
+
+  .task-unit__body {
+    width: 300px;
+  }
+
+  #tab-menu li {
+    font-size: 0.8rem;
+  }
+}
+
+/* 350px以下の際に適用される設定 */
+@media screen and (max-width:350px) {
+  .task-section__left {
+    width: 280px;
+  }
+
+  .task-unit__body {
+    width: 250px;
+  }
+
+  #tab-menu li {
+    font-size: 0.7rem;
+  }
 }

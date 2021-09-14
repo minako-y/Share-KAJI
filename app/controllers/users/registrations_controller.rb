@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :ensure_normal_user, only: [:update, :destroy]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -38,6 +39,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  # ゲストユーザー・サンプルユーザーの更新・削除を防止する
+  def ensure_normal_user
+    sample_email = ['test1@test','test2@test','test3@test','test4@test','guest@example.com']
+    if sample_email.include?(current_user.email)
+      redirect_to root_path, alert: 'ゲストユーザー・サンプルユーザーの更新・削除はできません。'
+    end
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -59,4 +68,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
 end

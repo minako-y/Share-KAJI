@@ -14,6 +14,7 @@
   var mask_3 = document.getElementById('mask-3');
   var slideL = document.getElementById('slideL');
   var div = document.querySelector('.template-task-container')
+  var slideL_width = document.getElementById('slideL_width').clientWidth;
 
   $('.card_link').on('click', function (){
     mask_3.classList.add('hidden');
@@ -26,7 +27,7 @@
     if(slideL.classList.contains('off')){
       document.getElementById('mask-3').classList.remove('hidden');
       document.getElementById('slideL').classList.remove('off');
-      document.querySelector('.template-task-container').animate({marginLeft: '38rem'}, {duration: 300, fill: 'forwards'}, 300);
+      document.querySelector('.template-task-container').animate({marginLeft: slideL_width + 'px'}, {duration: 300, fill: 'forwards'}, 300);
     }else{
       document.getElementById('mask-3').classList.add('hidden');
       document.getElementById('slideL').classList.add('off');

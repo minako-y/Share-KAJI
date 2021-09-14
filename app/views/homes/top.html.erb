@@ -6,7 +6,11 @@
     <p class="visual-wrapper__title"><span>「苦手な家事も</span><span>これなら頑張れそう」</span></p>
     <p class="visual-wrapper__bottom">を叶えるタスク管理サイト</p>
 
-    <p class="visual-wrapper__btn-area"><%= link_to 'ログイン', new_user_session_path, class: "visual-wrapper__btn" %></p>
+    <p class="visual-wrapper__btn-area">
+      <%= link_to 'ログイン', new_user_session_path, class: "visual-wrapper__btn" %><br>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "visual-wrapper__guest" %>
+    </p>
+
   </div>
   <div class="about-container">
     <div class="about-block__top">

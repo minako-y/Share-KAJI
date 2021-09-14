@@ -82,6 +82,18 @@
       background-color: $base-color3;
     }
   }
+  &__guest {
+    color: $thema-color1-dark;
+    text-decoration: none;
+    transition: .3s;
+    position: relative;
+    top: 2rem;
+    z-index: 2;
+
+    &:hover {
+      color: $base-color3;
+    }
+  }
 }
 
 .about-container {

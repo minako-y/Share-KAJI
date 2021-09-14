@@ -152,9 +152,37 @@
   visibility: hidden;
   transform: translate(0, 0) scale(0.8);   // 大きさ0.8倍から等倍にモーダルが拡大される
 }
+
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
   %default-input, %default-textarea {
     width: 100%;
+  }
+  #modal {
+    width: 500px;
+  }
+  #modal-2 {
+    width: 90vw;
+  }
+}
+
+/* 600px以下の際に適用される設定 */
+@media screen and (max-width:600px) {
+  #modal {
+    width: 400px;
+  }
+}
+
+/* 425px以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  #modal {
+    width: 350px;
+  }
+}
+
+/* 350px以下の際に適用される設定 */
+@media screen and (max-width:350px) {
+  #modal {
+    width: 280px;
   }
 }

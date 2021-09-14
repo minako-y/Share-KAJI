@@ -38,7 +38,6 @@
       margin-left: auto;
     }
   }
-
   &__frame {
     @extend %message-frame;
     border-color: #f3a68c;
@@ -51,7 +50,6 @@
       background-color: $base-color1;
     }
   }
-
   &__image {
     width: 1.5rem;
     height: 1.5rem;
@@ -73,7 +71,6 @@
   &__field-line {
     text-align: center;
   }
-
   &__field {
     height: 1.5rem;
     width: 13rem;

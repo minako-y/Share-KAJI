@@ -7,11 +7,11 @@
   padding: 0 2rem 0 0; // 画面に出ている部分
   position: fixed;
   top: 2rem;
-  left: -40rem; // 初期位置-2remから38rem左へ
+  left: -38rem; // paddingを除いた幅の分左へ配置
   z-index: 5;
   cursor: pointer;
 
-  &__icon {
+  &__sticky {
     color: $base-color1;
     border: 1px solid $thema-color2-dark;
     border-left: none;
@@ -20,6 +20,10 @@
     position: absolute;
     bottom: 50vh;
     right: -9rem;
+
+    &--icon {
+      display: none;
+    }
   }
   &__card-area {
     height: 100vh;
@@ -84,6 +88,57 @@
 
     &:hover {
       color: $point-color1;
+    }
+  }
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .template-task-container {
+    width: 30rem;
+    left: -28rem; // 初期位置-2remから38rem左へ
+
+    &__card-area {
+      padding: 50px 10px 100px;
+    }
+  }
+}
+
+/* 600px以下の際に適用される設定 */
+@media screen and (max-width:600px) {
+
+  .template-task-container {
+    width: 20rem;
+    left: -18rem;
+
+    &__sticky {
+      padding: 1rem;
+      bottom: 50vh;
+      right: -3.3rem;
+
+      &--icon {
+        font-size: 1.5rem;
+        display: inline;
+      }
+      &--word {
+        display: none;
+      }
+    }
+    &__card-area {
+      padding: 50px 10px 100px;
+    }
+  }
+  .t-task-card {
+    width: 90%;
+    height: 8rem;
+
+    &__body {
+      margin-top: 1rem;
+      height: 4rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
     }
   }
 }

@@ -5,6 +5,7 @@
       <ul id="tab-menu">
         <li><a href="#tab1" class="active">タスク内容</a></li>
         <li><a href="#tab2" class="">モンスター</a></li>
+        <li id="tab3-hide"><a href="#tab3" class="">メッセージ</a></li>
       </ul>
 
       <div id="tab-contents">
@@ -36,6 +37,9 @@
             </div>
             <div class="task-unit__body"><%= task.body %></div>
           </div>
+          <div class="task-section__bottom">
+            <%= render 'tasks/task-show_action-area', task: task %>
+          </div>
         </div>
 
         <div id="tab2" class="tab">
@@ -62,6 +66,12 @@
             <% end %>
           </div>
         </div>
+
+        <div id="tab3" class="tab">
+          <div class="chat-area">
+            <%= render 'messages/show', {task: task, message: message} %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -71,33 +81,7 @@
       <%= render 'messages/show', {task: task, message: message} %>
     </div>
     <div class="action-area">
-      <div class="action-area--left">
-        <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
-        <%= f.hidden_field :progress, value: "完了" %>
-          <% if task.progress == "完了" %>
-            <%= f.submit "実施済み", class: "action-area__complete-btn--disabled" %>
-          <% else %>
-            <%= f.submit "タスクを完了する", class: "action-area__complete-btn" %>
-          <% end %>
-      <% end %>
-      </div>
-      <div class="action-area--right">
-        <% unless task.progress == "完了" %>
-          <% if task.progress == "未実施" %>
-            <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
-              <%= f.hidden_field :progress, value: "保留" %>
-              <%= f.submit "保留", class: "action-area__keep-btn" %>
-            <% end %>
-          <% else %>
-            <%= form_with model: task, url: change_progress_path, remote: true do |f| %>
-              <%= f.hidden_field :progress, value: "未実施" %>
-              <%= f.submit "未実施へ戻す", class: "action-area__keep-btn" %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <%= link_to "削除", task_path(task), method: :delete, class: "action-area__delete-btn" %>
-        <%= link_to "一覧に戻る", tasks_path, class: "action-area__back-btn" %>
-      </div>
+      <%= render 'tasks/task-show_action-area', task: task %>
     </div>
   </div>
 </div>

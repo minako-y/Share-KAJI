@@ -1,9 +1,9 @@
 <% if @task.progress == "完了" %>
 <div class="result-section">
-  <h1 class="result-section__head">タスクを達成しました！！</h1>
+  <h1 class="result-section__head"><span>タスクを</span><span>達成しました！！</span></h1>
   <div class="result-section__lead">
     <span class="result-section__lead__image"><%= attachment_image_tag @task.executor, :profile_image, fallback: 'noimage-760x460.png' %></span>
-    <span><%= @task.executor.name %>さん、おつかれさまでした！</span>
+    <span><%= @task.executor.name %>さん、</span><span>おつかれさまでした！</span>
   </div>
   <div class="result-wrapper">
     <div class="result-monster">
@@ -13,7 +13,7 @@
       <span class="result-monster__mark mark-hidden">QUEST<br>CLEARED</span>
     </div>
     <div class="result-unit">
-      <p class="result-unit__top">今回の経験値 <span><%= @task.genre_id == @task.executor.weaknesses_genre_id ? 20 : 10 %> exp</span></p>
+      <p class="result-unit__top">今回の経験値 <span><%= @task.genre_id == @task.executor.weaknesses_genre_id ? 20 : 10 %> </span>exp</p>
       <div class="result-unit__list">
         <p class="result-unit__item">家事レベル <span><%= @task.executor.housework_level %></span> </p>
         <p class="result-unit__item">NEXT <span><%= to_next_level(@task.executor) %></span> exp</p>
