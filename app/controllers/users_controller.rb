@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_current_user
+  before_action :ensure_normal_user, only: [:withdraw]
 
   def show
   end
@@ -23,6 +24,14 @@ class UsersController < ApplicationController
     @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
+  end
+
+ # ゲストユーザー・サンプルユーザーの退会を防止する
+  def ensure_normal_user
+    sample_email = ['test1@test','test2@test','test3@test','test4@test','guest@example.com']
+    if sample_email.include?(current_user.email)
+      redirect_to user_path(current_user), alert: 'ゲストユーザー・サンプルユーザーは退会できません。'
+    end
   end
 
 
