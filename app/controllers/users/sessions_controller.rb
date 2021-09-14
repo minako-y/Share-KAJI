@@ -26,7 +26,7 @@ class Users::SessionsController < Devise::SessionsController
     log_in room
     user.current_room_id = room.id
     user.save
-    redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。「タスク管理」よりルームへ入室できます。'
   end
 
   protected
