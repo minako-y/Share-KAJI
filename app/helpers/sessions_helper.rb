@@ -9,7 +9,7 @@ module SessionsHelper
     @current_room = nil
   end
 
-  # ログインしているユーザーがいたら、ユーザーを代入する
+  # ログインしているユーザーのルームを表示
   def current_room
     if session[:room_id]
       @current_room ||= Room.find_by(id: session[:room_id])

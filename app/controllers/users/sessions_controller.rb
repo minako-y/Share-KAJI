@@ -22,6 +22,10 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
+    room = Room.find_by(name: '1LDK')
+    log_in room
+    user.current_room_id = room.id
+    user.save
     redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。'
   end
 
