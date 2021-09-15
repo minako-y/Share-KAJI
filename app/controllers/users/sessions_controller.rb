@@ -26,6 +26,12 @@ class Users::SessionsController < Devise::SessionsController
     log_in room
     user.current_room_id = room.id
     user.save
+    # 中間テーブルに登録済みかを確認し、データがない場合登録する
+    user_room = UserRoom.where(user_id: user.id, room_id: room.id)
+    if user_room.empty?
+      user_room = UserRoom.new(user_id: user.id, room_id: room.id)
+      user_room.save
+    end
     redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。「タスク管理」よりルームへ入室できます。'
   end
 
