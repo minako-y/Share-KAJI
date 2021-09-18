@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_current_user
-  before_action :ensure_normal_user, only: [:withdraw]
+  before_action :ensure_normal_user, only: [:withdraw, :update]
 
   def show
   end
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       flash[:notice] = "アカウント情報が更新されました。"
       redirect_to user_path(@user)
     else
+      flash.now[:alert] = "入力情報に不備があります。再度入力してください。"
       render "edit"
     end
   end
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
   def ensure_normal_user
     sample_email = ['test1@test','test2@test','test3@test','test4@test','guest@example.com']
     if sample_email.include?(current_user.email)
-      redirect_to user_path(current_user), alert: 'ゲストユーザー・サンプルユーザーは退会できません。'
+      redirect_to user_path(current_user), alert: 'ゲストユーザー・サンプルユーザーは退会・編集できません。'
     end
   end
 
