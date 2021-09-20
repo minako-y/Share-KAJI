@@ -32,7 +32,7 @@ class Users::SessionsController < Devise::SessionsController
       user_room = UserRoom.new(user_id: user.id, room_id: room.id)
       user_room.save
     end
-    redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました。「タスク管理」よりルームへ入室できます。'
+    redirect_to mypage_path, notice: 'ゲストユーザーとしてログインしました。「タスク管理」よりルームへ入室できます。'
   end
 
   protected
@@ -43,7 +43,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    user_path(resource)
+    mypage_path
   end
 
   def after_sign_out_path_for(resource)
