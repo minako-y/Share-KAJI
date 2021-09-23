@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_050849) do
+ActiveRecord::Schema.define(version: 2021_09_21_125438) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
@@ -51,14 +51,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_050849) do
     t.integer "message_id"
     t.string "action", null: false
     t.boolean "checked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id", null: false
-    t.integer "followed_id", null: false
-    t.integer "thanks_point", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
