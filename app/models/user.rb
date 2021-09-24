@@ -17,22 +17,22 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {maximum: 20}
 
   # タスク完了数増加〜経験値獲得〜レベルアップまでの処理
-  def taskCompleted(user, task)
+  def task_completed(user, task)
    ## タスク完了数＋１
     user.complete_task += 1
 
    ## 経験値獲得
-    totalExp = user.exp
+    total_exp = user.exp
     # ユーザーの苦手な家事と一致すれば多めに加算される
-    task.genre_id == user.weaknesses_genre_id ? totalExp += 20 : totalExp += 10
-    user.exp = totalExp
-    user.update(exp: totalExp)
+    task.genre_id == user.weaknesses_genre_id ? total_exp += 20 : total_exp += 10
+    user.exp = total_exp
+    user.update(exp: total_exp)
 
    ## レベルアップの処理
     # 現在レベル+1のレベル設定レコードを取得
-    levelSetting = LevelSetting.find_by(level: user.housework_level + 1)
+    level_setting = LevelSetting.find_by(level: user.housework_level + 1)
     # 閾値と比較して、総経験値が上回ったら1レベル上げて更新
-    if levelSetting.thresold <= user.exp
+    if level_setting.thresold <= user.exp
       user.housework_level = user.housework_level + 1
       user.update(housework_level: user.housework_level)
     end
