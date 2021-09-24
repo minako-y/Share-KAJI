@@ -6,7 +6,7 @@
   <nav id="nav">
     <ul class="nav-block">
       <% if user_signed_in? %>
-        <li class="nav-block__item"><%= link_to 'マイページ', user_path(current_user) %></li>
+        <li class="nav-block__item"><%= link_to 'マイページ', mypage_path %></li>
         <li class="nav-block__item"><%= link_to 'タスク管理', tasks_path %></li>
         <% if unchecked_notifications.any? %>
           <i class="fas fa-bell notifications-icon"></i>

@@ -1,6 +1,6 @@
 <div class="user-edit-container">
   <h1 class="user-edit-container__head">マイページ編集</h1>
-  <%= form_with model: @user, local:true do |f| %>
+  <%= form_with model: @user, url: mypage_path, local:true do |f| %>
   <div class="user-edit-form-wrapper">
     <div class="user-edit-form-wrapper__form-group">
       <div class="user-edit-form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
