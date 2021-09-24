@@ -86,7 +86,7 @@ class TasksController < ApplicationController
     @task.update(task_params)
       if @task.progress == "完了"
         @task.update(executor_id: current_user.id, finish_date: Time.now)
-        current_user.taskCompleted(current_user, @task)
+        current_user.task_completed(current_user, @task)
         @task.create_notification_task!(current_user, "finished_task")
       end
   end
