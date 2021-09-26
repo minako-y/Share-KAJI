@@ -1,5 +1,29 @@
 @import 'share/variables';
 
-.inquiry_container {
+.inquiry-container {
   @extend %default-container;
+  text-align: center;
+
+  &__title {
+    @extend %default-title;
+  }
+}
+
+.inquiry-form {
+  margin: 0 auto;
+  text-align: left;
+
+  & th {
+    vertical-align: middle;
+  }
+
+  &__form {
+    width: 10rem;
+    margin-bottom: 0.5rem;
+
+    &--large {
+      width: 20rem;
+      height: 10rem;
+    }
+  }
 }
