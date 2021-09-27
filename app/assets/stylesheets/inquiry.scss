@@ -2,28 +2,48 @@
 
 .inquiry-container {
   @extend %default-container;
-  text-align: center;
+    text-align: center;
 
   &__title {
     @extend %default-title;
   }
+  &__lead {
+    @extend %default-lead;
+  }
 }
 
-.inquiry-form {
-  margin: 0 auto;
-  text-align: left;
+.inquiry-form-wrapper {
 
-  & th {
-    vertical-align: middle;
-  }
+  &__form-group {
+    @extend %default-form-group;
+    display: flex;
+    flex-wrap: wrap;
 
-  &__form {
-    width: 10rem;
-    margin-bottom: 0.5rem;
+    &__label {
+      @extend %default-label;
+    }
+    &__field {
+      @extend %default-field;
+      text-align: left;
+      & input {
+        @extend %default-input;
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+      & textarea {
+        @extend %default-textarea;
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+    }
+    &__btn {
+      @extend %default-form-btn;
 
-    &--large {
-      width: 20rem;
-      height: 10rem;
+      &:hover {
+        @extend %default-form-btn-hover;
+      }
     }
   }
 }

@@ -1,30 +1,32 @@
 <div class="inquiry-container">
-  <h1>お問い合わせ</h1>
-
+  <h1 class="inquiry-container__title">お問い合わせ</h1>
+  <p class="inquiry-container__lead">メールアドレス、お問い合わせ内容が正しく入力されているか、再度確認してください。</p>
   <%= form_for @inquiry, :url => inquiry_path do |f| %>
-    <table>
-      <tr>
-        <th>名前</th>
-        <td>
-          <%= f.hidden_field :name %>
-          <%= @inquiry.name %>
-        </td>
-      </tr>
-      <tr>
-        <th>メールアドレス</th>
-        <td>
-          <%= f.hidden_field :email %>
-          <%= @inquiry.email %>
-        </td>
-      </tr>
-      <tr>
-        <th>お問い合わせ内容</th>
-        <td>
-          <%= f.hidden_field :message %>
-          <%= simple_format(@inquiry.message) %>
-        </td>
-      </tr>
-    </table>
-    <%= f.submit '送信' %>
+  <div class="inquiry-form-wrapper">
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
+      <div class="inquiry-form-wrapper__form-group__field">
+        <%= f.hidden_field :name %>
+        <%= @inquiry.name %>
+      </div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :email, 'メールアドレス' %></div>
+      <div class="inquiry-form-wrapper__form-group__field">
+        <%= f.hidden_field :email %>
+        <%= @inquiry.email %>
+      </div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :message, 'お問い合わせ内容' %></div>
+      <div class="inquiry-form-wrapper__form-group__field">
+        <%= f.hidden_field :message %>
+        <%= simple_format(@inquiry.message) %>
+      </div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <%= f.submit "送信", class: "inquiry-form-wrapper__form-group__btn" %>
+    </div>
+  </div>
   <% end %>
 </div>
