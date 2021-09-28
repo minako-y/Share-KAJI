@@ -32,4 +32,9 @@ Rails.application.routes.draw do
   delete 'notifications/destroy_all' => 'notifications#destroy_all', as: 'destroy_all_notifications'
   resources :notifications, only: [:index, :update]
   resources :monsters
+  get 'inquiry' => 'inquiry#form_top', as: 'inquiry'
+  post 'inquiry/confirm' => 'inquiry#confirm'
+  get 'inquiry/confirm' => 'inquiry#confirm'
+  post 'inquiry' => 'inquiry#create'
+  get 'inquiry/thanks' => 'inquiry#thanks'
 end

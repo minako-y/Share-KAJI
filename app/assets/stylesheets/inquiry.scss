@@ -1,0 +1,49 @@
+@import 'share/variables';
+
+.inquiry-container {
+  @extend %default-container;
+    text-align: center;
+
+  &__title {
+    @extend %default-title;
+  }
+  &__lead {
+    @extend %default-lead;
+  }
+}
+
+.inquiry-form-wrapper {
+
+  &__form-group {
+    @extend %default-form-group;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__label {
+      @extend %default-label;
+    }
+    &__field {
+      @extend %default-field;
+      text-align: left;
+      & input {
+        @extend %default-input;
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+      & textarea {
+        @extend %default-textarea;
+        &:focus {
+          @extend %default-focus;
+        }
+      }
+    }
+    &__btn {
+      @extend %default-form-btn;
+
+      &:hover {
+        @extend %default-form-btn-hover;
+      }
+    }
+  }
+}

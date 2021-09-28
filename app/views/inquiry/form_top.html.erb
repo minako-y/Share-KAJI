@@ -1,0 +1,27 @@
+<div class="inquiry-container">
+  <h1 class="inquiry-container__title">お問い合わせ</h1>
+  <p class="inquiry-container__lead">
+    ご質問、不具合のご報告等ございましたら、以下のフォームからご連絡ください。<br>
+    お返事が必要なものに関しましては、確認次第順次返信いたします。
+  </p>
+  <%= render 'devise/shared/error_messages', resource: @inquiry  %>
+  <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+  <div class="inquiry-form-wrapper">
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :name, '名前' %></div>
+      <div class="inquiry-form-wrapper__form-group__field"><%= f.text_field :name %></div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :email, 'メールアドレス' %></div>
+      <div class="inquiry-form-wrapper__form-group__field"><%= f.text_field :email %></div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <div class="inquiry-form-wrapper__form-group__label"><%= f.label :message, 'お問い合わせ内容' %></div>
+      <div class="inquiry-form-wrapper__form-group__field"><%= f.text_area :message %></div>
+    </div>
+    <div class="inquiry-form-wrapper__form-group">
+      <%= f.submit "確認", class: "inquiry-form-wrapper__form-group__btn" %>
+    </div>
+  </div>
+  <% end %>
+</div>
