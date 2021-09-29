@@ -2,11 +2,11 @@ class InquiryController < ApplicationController
   before_action :request_valid, only: [:confirm]
 
   def form_top
-    if current_user.nil?
-      @inquiry = Inquiry.new
-    else
-      @inquiry = Inquiry.new(name: current_user.name, email: current_user.email)
-    end
+    @inquiry = if current_user.nil?
+                 Inquiry.new
+               else
+                 Inquiry.new(name: current_user.name, email: current_user.email)
+               end
   end
 
   def confirm
@@ -28,6 +28,7 @@ class InquiryController < ApplicationController
   end
 
   private
+
   def inquiry_params
     params.require(:inquiry).permit(:name, :email, :message)
   end

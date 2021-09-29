@@ -10,7 +10,7 @@ class MonstersController < ApplicationController
       flash[:notice] = "新しいモンスターが誕生しました！"
       redirect_to monsters_path
     else
-      @monsters =  Monster.where(user_id: current_user.id).or(Monster.where(official: true))
+      @monsters = Monster.where(user_id: current_user.id).or(Monster.where(official: true))
       flash.now[:alert] = "入力情報に不備があります。"
       render :index
     end

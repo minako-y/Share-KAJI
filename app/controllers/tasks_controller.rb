@@ -13,9 +13,11 @@ class TasksController < ApplicationController
     end
     # 他人の個人テンプレタスクが表示されないようにする
     @template_tasks = TemplateTask.where(room_id: session[:room_id]).where.not(genre_id: 7).or(TemplateTask.where(user_id: current_user.id, genre_id: 7)).page(params[:page]).per(10)
-    @tag_list = Tag.joins(:template_tasks).distinct.where(template_tasks: {room_id: session[:room_id]})
-                                          .where.not(template_tasks: {genre_id: 7})
-                                          .or(Tag.joins(:template_tasks).distinct.where(template_tasks: {user_id: current_user.id, genre_id: 7}))
+    @tag_list = Tag.joins(:template_tasks).distinct
+                   .where(template_tasks: { room_id: session[:room_id] })
+                   .where.not(template_tasks: { genre_id: 7 })
+                   .or(Tag.joins(:template_tasks).distinct
+                          .where(template_tasks: { user_id: current_user.id, genre_id: 7 }))
   end
 
   def create
@@ -36,7 +38,7 @@ class TasksController < ApplicationController
           room_id: @task.room_id,
           body: @task.body,
           genre_id: @task.genre_id
-          )
+        )
         template_task.save
         template_task.save_tags(tag_list)
         flash[:notice] = 'テンプレートタスクへ保存しました。'
@@ -45,9 +47,11 @@ class TasksController < ApplicationController
       redirect_to tasks_path
     else
       @template_tasks = TemplateTask.where(room_id: session[:room_id]).where.not(genre_id: 7).or(TemplateTask.where(user_id: current_user.id, genre_id: 7)).page(params[:page]).per(10)
-      @tag_list = Tag.joins(:template_tasks).distinct.where(template_tasks: {room_id: session[:room_id]})
-                                          .where.not(template_tasks: {genre_id: 7})
-                                          .or(Tag.joins(:template_tasks).distinct.where(template_tasks: {user_id: current_user.id, genre_id: 7}))
+      @tag_list = Tag.joins(:template_tasks).distinct
+                     .where(template_tasks: { room_id: session[:room_id] })
+                     .where.not(template_tasks: { genre_id: 7 })
+                     .or(Tag.joins(:template_tasks).distinct
+                     .where(template_tasks: { user_id: current_user.id, genre_id: 7 }))
       flash.now[:alert] = '入力項目を見直してください。'
       render :new
     end
@@ -55,12 +59,13 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.where(room_id: session[:room_id], progress: (params[:sort] || 0)).order(updated_at: :desc).page(params[:page]).per(10)
-    @tag_list = Tag.joins(:tasks).distinct.where(tasks: {room_id: session[:room_id], progress: (params[:sort] || 0)})
+    @tag_list = Tag.joins(:tasks).distinct
+                   .where(tasks: { room_id: session[:room_id], progress: (params[:sort] || 0) })
   end
 
   def show
     respond_to do |format|
-      format.html {redirect_to tasks_path}
+      format.html { redirect_to tasks_path }
       # link_toメソッドをremote: trueに設定したのでリクエストはjs形式で行われる
       format.js
     end
@@ -84,11 +89,11 @@ class TasksController < ApplicationController
 
   def change_progress
     @task.update(task_params)
-      if @task.progress == "完了"
-        @task.update(executor_id: current_user.id, finish_date: Time.now)
-        current_user.task_completed(current_user, @task)
-        @task.create_notification_task!(current_user, "finished_task")
-      end
+    if @task.progress == "完了"
+      @task.update(executor_id: current_user.id, finish_date: Time.now)
+      current_user.task_completed(current_user, @task)
+      @task.create_notification_task!(current_user, "finished_task")
+    end
   end
 
   def destroy
@@ -100,22 +105,24 @@ class TasksController < ApplicationController
   def search_task
     @tag = Tag.find(params[:tag_id])
     @tasks = @tag.tasks.where(room_id: session[:room_id], progress: (params[:sort] || 0)).page(params[:page]).per(10)
-    @tag_list = Tag.joins(:tasks).distinct.where(tasks: {room_id: session[:room_id], progress: (params[:sort] || 0)})
+    @tag_list = Tag.joins(:tasks).distinct
+                   .where(tasks: { room_id: session[:room_id], progress: (params[:sort] || 0) })
   end
 
   def search_template_task
     if params[:tag_id].nil?
       @tag = Tag.new(id: 0)
-      @template_tasks = TemplateTask.where(room_id: session[:room_id]).where.not(genre_id: 7).or(TemplateTask.where(user_id: current_user.id, genre_id: 7)).page(params[:page]).per(10)
+      @template_tasks = TemplateTask.where(room_id: session[:room_id]).where.not(genre_id: 7)
+                                    .or(TemplateTask.where(user_id: current_user.id, genre_id: 7)).page(params[:page]).per(10)
     else
       @tag = Tag.find(params[:tag_id])
       @template_tasks = @tag.template_tasks.where(room_id: session[:room_id]).where.not(genre_id: 7).or(@tag.template_tasks.where(user_id: current_user.id, genre_id: 7)).page(params[:page]).per(10)
     end
-    @tag_list = Tag.joins(:template_tasks).distinct.where(template_tasks: {room_id: session[:room_id]})
-                                          .where.not(template_tasks: {genre_id: 7})
-                                          .or(Tag.joins(:template_tasks).distinct.where(template_tasks: {user_id: current_user.id, genre_id: 7}))
+    @tag_list = Tag.joins(:template_tasks).distinct
+                   .where(template_tasks: { room_id: session[:room_id] })
+                   .where.not(template_tasks: { genre_id: 7 }).or(Tag.joins(:template_tasks).distinct
+                   .where(template_tasks: { user_id: current_user.id, genre_id: 7 }))
   end
-
 
   private
 

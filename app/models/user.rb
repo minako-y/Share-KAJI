@@ -14,21 +14,21 @@ class User < ApplicationRecord
   belongs_to :current_room, class_name: 'Room', foreign_key: :current_room_id, optional: true
   attachment :profile_image
 
-  validates :name, presence: true, length: {maximum: 20}
+  validates :name, presence: true, length: { maximum: 20 }
 
   # タスク完了数増加〜経験値獲得〜レベルアップまでの処理
   def task_completed(user, task)
-   ## タスク完了数＋１
+    # タスク完了数＋１
     user.complete_task += 1
 
-   ## 経験値獲得
+    # 経験値獲得
     total_exp = user.exp
     # ユーザーの苦手な家事と一致すれば多めに加算される
     task.genre_id == user.weaknesses_genre_id ? total_exp += 20 : total_exp += 10
     user.exp = total_exp
     user.update(exp: total_exp)
 
-   ## レベルアップの処理
+    # レベルアップの処理
     # 現在レベル+1のレベル設定レコードを取得
     level_setting = LevelSetting.find_by(level: user.housework_level + 1)
     # 閾値と比較して、総経験値が上回ったら1レベル上げて更新

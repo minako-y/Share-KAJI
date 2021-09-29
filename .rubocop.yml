@@ -10,7 +10,7 @@ AllCops:
    - "bin/*"
    - "node_modules/**/*"
    - "Gemfile"
-
+   - "test/**/*"
 
 # 1行あたりの文字数をチェックする
 Layout/LineLength:
@@ -26,6 +26,10 @@ Layout/LineLength:
 Metrics/BlockLength:
  Exclude:
    - "spec/**/*"
+# RSpecの=beginを許可
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
 
 # Assignment: 変数への代入
 # Branch: メソッド呼び出し
@@ -81,3 +85,7 @@ Style/FrozenStringLiteralComment:
 # メソッドパラメータ名の最小文字数を設定
 Naming/MethodParameterName:
  MinNameLength: 1
+
+# 後置きifのチェック(無効)
+Style/IfUnlessModifier:
+ Enabled: false
