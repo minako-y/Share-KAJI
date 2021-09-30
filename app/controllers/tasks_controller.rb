@@ -89,11 +89,11 @@ class TasksController < ApplicationController
 
   def change_progress
     @task.update(task_params)
-    if @task.progress == "完了"
-      @task.update(executor_id: current_user.id, finish_date: Time.now)
-      current_user.task_completed(current_user, @task)
-      @task.create_notification_task!(current_user, "finished_task")
-    end
+    return unless @task.progress == "完了"
+
+    @task.update(executor_id: current_user.id, finish_date: Time.now)
+    current_user.task_completed(current_user, @task)
+    @task.create_notification_task!(current_user, "finished_task")
   end
 
   def destroy

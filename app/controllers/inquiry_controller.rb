@@ -11,10 +11,10 @@ class InquiryController < ApplicationController
 
   def confirm
     @inquiry = Inquiry.new(inquiry_params)
-    if @inquiry.invalid?
-      flash.now[:alert] = "入力に不備があります。再度ご確認ください。"
-      render :form_top
-    end
+    return if @inquiry.valid?
+
+    flash.now[:alert] = "入力に不備があります。再度ご確認ください。"
+    render :form_top
   end
 
   def create
