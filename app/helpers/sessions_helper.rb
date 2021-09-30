@@ -1,5 +1,5 @@
 module SessionsHelper
-  #ブラウザ内の一時cookiesに暗号化済みのroomIDを格納
+  # ブラウザ内の一時cookiesに暗号化済みのroomIDを格納
   def log_in(room)
     session[:room_id] = room.id
   end

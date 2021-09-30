@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
-  attr_accessor :template_task # attr_reader attr_writer
-  attr_accessor :tag_name
+  attr_accessor :template_task, # attr_reader attr_writer
+                :tag_name
 
   has_many :notifications, dependent: :destroy
   has_many :messages, dependent: :destroy
@@ -17,7 +17,6 @@ class Task < ApplicationRecord
   validates :body, presence: true
   validates :genre_id, presence: true
   validates :due_date, presence: true
-
 
   def save_tags(savetask_tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
@@ -37,7 +36,7 @@ class Task < ApplicationRecord
   # タスク通知作成メソッド
   def create_notification_task!(current_user, action)
     # 自分以外の同じルームの人に通知を送信する
-    temp_ids = User.joins(:rooms).where(rooms: {id: current_user.current_room_id}).where.not(id: current_user.id).select(:id)
+    temp_ids = User.joins(:rooms).where(rooms: { id: current_user.current_room_id }).where.not(id: current_user.id).select(:id)
     temp_ids.each do |temp_id|
       save_notification_task!(current_user, temp_id['id'], action)
     end
@@ -56,7 +55,7 @@ class Task < ApplicationRecord
   # タスクのメッセージ通知作成メソッド
   def create_notification_message!(current_user, message_id, task_id)
     # 自分以外の同じルームの人に通知を送信する
-    temp_ids = User.joins(:rooms).where(rooms: {id: current_user.current_room_id}).where.not(id: current_user.id).select(:id)
+    temp_ids = User.joins(:rooms).where(rooms: { id: current_user.current_room_id }).where.not(id: current_user.id).select(:id)
     temp_ids.each do |temp_id|
       save_notification_message!(current_user, message_id, temp_id['id'], task_id)
     end

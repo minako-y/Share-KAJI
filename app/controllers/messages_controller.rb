@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def create
     @task = Task.find(params[:task_id])
@@ -14,11 +14,9 @@ before_action :authenticate_user!
     end
   end
 
-
   private
 
   def message_params
     params.require(:message).permit(:body)
   end
-
 end
