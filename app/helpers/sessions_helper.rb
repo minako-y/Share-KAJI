@@ -11,9 +11,9 @@ module SessionsHelper
 
   # ログインしているユーザーのルームを表示
   def current_room
-    if session[:room_id]
-      @current_room ||= Room.find_by(id: session[:room_id])
-    end
+    return unless session[:room_id]
+
+    @current_room ||= Room.find_by(id: session[:room_id])
   end
 
   # ログインしているかどうか判断する

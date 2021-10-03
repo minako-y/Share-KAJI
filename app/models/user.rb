@@ -32,10 +32,10 @@ class User < ApplicationRecord
     # 現在レベル+1のレベル設定レコードを取得
     level_setting = LevelSetting.find_by(level: user.housework_level + 1)
     # 閾値と比較して、総経験値が上回ったら1レベル上げて更新
-    if level_setting.thresold <= user.exp
-      user.housework_level = user.housework_level + 1
-      user.update(housework_level: user.housework_level)
-    end
+    return unless level_setting.thresold <= user.exp
+
+    user.housework_level = user.housework_level + 1
+    user.update(housework_level: user.housework_level)
   end
 
   # ゲストログイン

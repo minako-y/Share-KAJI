@@ -127,10 +127,10 @@ class TasksController < ApplicationController
   private
 
   def logged_in_room
-    unless logged_in?
-      flash[:alert] = "ログインが必要です。"
-      redirect_to login_path
-    end
+    return if logged_in?
+
+    flash[:alert] = "ログインが必要です。"
+    redirect_to login_path
   end
 
   def task_params

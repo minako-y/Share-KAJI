@@ -2,6 +2,7 @@ class MonstersController < ApplicationController
   before_action :authenticate_user!
   before_action :monster_set, only: [:show, :edit, :update, :destroy]
   before_action :edit_authority, only: [:edit, :update, :destroy]
+
   def create
     @monster = Monster.new(monster_params)
     @monster.user_id = current_user.id
@@ -54,9 +55,9 @@ class MonstersController < ApplicationController
   end
 
   def edit_authority
-    unless @monster.user_id == current_user.id
-      flash[:alert] = "該当モンスターの編集権限がありません。"
-      redirect_to monsters_path
-    end
+    return if @monster.user_id == current_user.id
+
+    flash[:alert] = "該当モンスターの編集権限がありません。"
+    redirect_to monsters_path
   end
 end

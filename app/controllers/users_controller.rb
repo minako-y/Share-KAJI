@@ -30,9 +30,9 @@ class UsersController < ApplicationController
   # ゲストユーザー・サンプルユーザーの退会を防止する
   def ensure_normal_user
     sample_email = ['test1@test', 'test2@test', 'test3@test', 'test4@test', 'guest@example.com']
-    if sample_email.include?(current_user.email)
-      redirect_to mypage_path, alert: 'ゲストユーザー・サンプルユーザーは退会・編集できません。'
-    end
+    return unless sample_email.include?(current_user.email)
+
+    redirect_to mypage_path, alert: 'ゲストユーザー・サンプルユーザーは退会・編集できません。'
   end
 
   private
