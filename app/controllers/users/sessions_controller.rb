@@ -54,9 +54,9 @@ class Users::SessionsController < Devise::SessionsController
     @user = User.find_by(email: params[:user][:email])
     return unless @user
 
-    if @user.valid_password?(params[:user][:password]) && @user.is_deleted
-      flash[:alert] = '退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
-      redirect_to new_user_session_path
-    end
+    return unless @user.valid_password?(params[:user][:password]) && @user.is_deleted
+
+    flash[:alert] = '退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
+    redirect_to new_user_session_path
   end
 end

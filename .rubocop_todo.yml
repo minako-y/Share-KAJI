@@ -6,29 +6,6 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
-# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
-Style/HashSyntax:
-  Exclude:
-    - 'app/mailers/inquiry_mailer.rb'
-    - 'app/models/inquiry.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/IfUnlessModifier:
-  Exclude:
-    - 'app/controllers/users/registrations_controller.rb'
-    - 'app/controllers/users_controller.rb'
-    - 'app/helpers/sessions_helper.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/RedundantInterpolation:
-  Exclude:
-    - 'app/helpers/users_helper.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Style/RedundantParentheses:
