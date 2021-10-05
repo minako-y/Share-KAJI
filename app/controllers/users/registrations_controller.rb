@@ -42,9 +42,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ゲストユーザー・サンプルユーザーの更新・削除を防止する
   def ensure_normal_user
     sample_email = ['test1@test', 'test2@test', 'test3@test', 'test4@test', 'guest@example.com']
-    if sample_email.include?(current_user.email)
-      redirect_to root_path, alert: 'ゲストユーザー・サンプルユーザーの更新・削除はできません。'
-    end
+    return unless sample_email.include?(current_user.email)
+
+    redirect_to root_path, alert: 'ゲストユーザー・サンプルユーザーの更新・削除はできません。'
   end
 
   protected

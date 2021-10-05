@@ -13,7 +13,7 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new(inquiry_params)
     return if @inquiry.valid?
 
-    flash.now[:alert] = "入力に不備があります。再度ご確認ください。"
+    flash.now[:alert] = '入力に不備があります。再度ご確認ください。'
     render :form_top
   end
 
@@ -35,10 +35,10 @@ class InquiryController < ApplicationController
 
   # postメソッドページでのリロード対策
   def request_valid
-    if request.method == "GET"
-      flash.now[:alert] = "不正な動作がありました。再度入力してください。"
-      @inquiry = Inquiry.new
-      render :form_top
-    end
+    return unless request.method == 'GET'
+
+    flash.now[:alert] = '不正な動作がありました。再度入力してください。'
+    @inquiry = Inquiry.new
+    render :form_top
   end
 end

@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = if params[:sort] == "checked"
+    @notifications = if params[:sort] == 'checked'
                        current_user.passive_notifications.where(checked: true)
                      else
                        current_user.passive_notifications.where(checked: false)

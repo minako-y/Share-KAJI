@@ -4,6 +4,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
-    weaknesses_genre_id { (FactoryBot.create(:genre, :a)).id }
+    weaknesses_genre_id { FactoryBot.create(:genre, :a).id }
   end
 end

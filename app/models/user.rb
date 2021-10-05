@@ -24,7 +24,7 @@ class User < ApplicationRecord
     # 経験値獲得
     total_exp = user.exp
     # ユーザーの苦手な家事と一致すれば多めに加算される
-    task.genre_id == user.weaknesses_genre_id ? total_exp += 20 : total_exp += 10
+    total_exp += task.genre_id == user.weaknesses_genre_id ? 20 : 10
     user.exp = total_exp
     user.update(exp: total_exp)
 
@@ -32,10 +32,10 @@ class User < ApplicationRecord
     # 現在レベル+1のレベル設定レコードを取得
     level_setting = LevelSetting.find_by(level: user.housework_level + 1)
     # 閾値と比較して、総経験値が上回ったら1レベル上げて更新
-    if level_setting.thresold <= user.exp
-      user.housework_level = user.housework_level + 1
-      user.update(housework_level: user.housework_level)
-    end
+    return unless level_setting.thresold <= user.exp
+
+    user.housework_level = user.housework_level + 1
+    user.update(housework_level: user.housework_level)
   end
 
   # ゲストログイン

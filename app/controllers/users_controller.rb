@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "アカウント情報が更新されました。"
+      flash[:notice] = 'アカウント情報が更新されました。'
       redirect_to mypage_path
     else
-      flash.now[:alert] = "入力情報に不備があります。再度入力してください。"
-      render "edit"
+      flash.now[:alert] = '入力情報に不備があります。再度入力してください。'
+      render 'edit'
     end
   end
 
@@ -30,9 +30,9 @@ class UsersController < ApplicationController
   # ゲストユーザー・サンプルユーザーの退会を防止する
   def ensure_normal_user
     sample_email = ['test1@test', 'test2@test', 'test3@test', 'test4@test', 'guest@example.com']
-    if sample_email.include?(current_user.email)
-      redirect_to mypage_path, alert: 'ゲストユーザー・サンプルユーザーは退会・編集できません。'
-    end
+    return unless sample_email.include?(current_user.email)
+
+    redirect_to mypage_path, alert: 'ゲストユーザー・サンプルユーザーは退会・編集できません。'
   end
 
   private
