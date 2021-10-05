@@ -21,14 +21,13 @@ class RoomsController < ApplicationController
       user.current_room_id = session[:room_id]
       user.save
       # 作成したルームへ遷移
-      flash[:notice] = "新しいルームが作成されました。"
+      flash[:notice] = '新しいルームが作成されました。'
       redirect_to tasks_path
     else
-      flash.now[:alert] = "ルーム名・パスワードを正しく設定してください。"
+      flash.now[:alert] = 'ルーム名・パスワードを正しく設定してください。'
       render :new
     end
   end
-
 
   private
 

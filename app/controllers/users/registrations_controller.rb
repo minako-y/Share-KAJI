@@ -41,10 +41,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # ゲストユーザー・サンプルユーザーの更新・削除を防止する
   def ensure_normal_user
-    sample_email = ['test1@test','test2@test','test3@test','test4@test','guest@example.com']
-    if sample_email.include?(current_user.email)
-      redirect_to root_path, alert: 'ゲストユーザー・サンプルユーザーの更新・削除はできません。'
-    end
+    sample_email = ['test1@test', 'test2@test', 'test3@test', 'test4@test', 'guest@example.com']
+    return unless sample_email.include?(current_user.email)
+
+    redirect_to root_path, alert: 'ゲストユーザー・サンプルユーザーの更新・削除はできません。'
   end
 
   protected
@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for
     mypage_path
   end
 
@@ -68,5 +68,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
 end

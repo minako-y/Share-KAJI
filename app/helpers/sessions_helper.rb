@@ -1,5 +1,5 @@
 module SessionsHelper
-  #ブラウザ内の一時cookiesに暗号化済みのroomIDを格納
+  # ブラウザ内の一時cookiesに暗号化済みのroomIDを格納
   def log_in(room)
     session[:room_id] = room.id
   end
@@ -11,9 +11,9 @@ module SessionsHelper
 
   # ログインしているユーザーのルームを表示
   def current_room
-    if session[:room_id]
-      @current_room ||= Room.find_by(id: session[:room_id])
-    end
+    return unless session[:room_id]
+
+    @current_room ||= Room.find_by(id: session[:room_id])
   end
 
   # ログインしているかどうか判断する
