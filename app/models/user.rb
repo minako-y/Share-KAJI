@@ -24,7 +24,7 @@ class User < ApplicationRecord
     # 経験値獲得
     total_exp = user.exp
     # ユーザーの苦手な家事と一致すれば多めに加算される
-    task.genre_id == user.weaknesses_genre_id ? total_exp += 20 : total_exp += 10
+    total_exp += task.genre_id == user.weaknesses_genre_id ? 20 : 10
     user.exp = total_exp
     user.update(exp: total_exp)
 
