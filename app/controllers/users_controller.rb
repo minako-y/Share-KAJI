@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "アカウント情報が更新されました。"
+      flash[:notice] = 'アカウント情報が更新されました。'
       redirect_to mypage_path
     else
-      flash.now[:alert] = "入力情報に不備があります。再度入力してください。"
-      render "edit"
+      flash.now[:alert] = '入力情報に不備があります。再度入力してください。'
+      render 'edit'
     end
   end
 
