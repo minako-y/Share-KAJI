@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+require 'rails_helper'
+
 RSpec.describe 'Roomモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
     subject { room.valid? }
